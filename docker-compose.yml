@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+    web:
+        image: node:9-alpine
+        volumes:
+          - .:/code/
+        working_dir: /code/
+        command: bin/serve.sh
+        ports:
+          - 1234:1234
+        #command: tail -f /dev/null
