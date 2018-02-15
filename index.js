@@ -4,6 +4,7 @@ var fs = require('fs');
 var crypto = require('crypto');
 const mkdirp = require('mkdirp');
 const path = require('path');
+var slug = require('slug');
 
 const upload = (req, res) => {
     var hash = crypto.randomBytes(2).toString('hex') + '/' + crypto.randomBytes(34).toString('hex');
@@ -15,7 +16,7 @@ const upload = (req, res) => {
             var content, contentType;
             var newfile = newpath + '/' + files.filetoupload.name;
             if (fields.ajax) {
-                content = '{"success": true, "saved_to": ' + newfile + '}';
+                content = '{"success": true, "saved_to": "' + newfile + '"}';
                 contentType = 'application/json';
             } else {
                 content = "saved to " + newfile;
