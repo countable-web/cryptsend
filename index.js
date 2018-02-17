@@ -14,6 +14,16 @@ const base64urltok = (l) => {
         .replace(/=/g, '');
 }
 
+const HEADER = `
+<html>
+<body>
+<p>This is a secret folder. I'll say it again, don't lose this link!</p>
+`;
+
+const FOOTER = `
+</body>
+</html>`;
+
 const upload = (req, res) => {
     var hash =
         base64urltok(2) +
@@ -83,8 +93,15 @@ http.createServer(function(req, res) {
     }
 
     var extname = path.extname(file_path);
-    var contentType = 'text/html';
+    var contentType = 'application/octet-stream';
     switch (extname) {
+        case '.txt':
+            contentType = 'text/plain';
+            break;
+        case '.htm':
+        case '.html':
+            contentType = 'text/html';
+            break;
         case '.js':
             contentType = 'text/javascript';
             break;
@@ -100,13 +117,26 @@ http.createServer(function(req, res) {
     }
 
     var toks = file_path.split('/')
+
+    // directoryindex.
     if (toks[2] === 'data' &&
-        toks.length === 5) {
-        return fs.readdir(file_path, (err, files) => {
-            var content = '';
+        toks.length === 5 &&
+        toks[4].length > 0) {
+        return fs.readdir(file_path, (error, files) => {
+            if (error) {
+
+                if (error.code === 'ENOENT') {
+                    res.writeHead(404);
+                    res.end("404");
+                }
+                res.writeHead(500);
+                return res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
+            }
+            var content = HEADER + '<ul>';
             files.forEach(file => {
-                content += '<a href="' + req.url + '/' + file + '">' + file + '</a><br>';
+                content += '<li><a href="' + req.url + '/' + file + '">' + file + '</a></li>';
             });
+            content += '</ul>' + FOOTER;
             res.writeHead(200, {
                 'Content-Type': 'text/html'
             });
@@ -117,17 +147,12 @@ http.createServer(function(req, res) {
     fs.readFile(file_path, function(error, content) {
         if (error) {
             console.log(error);
-            if (error.code == 'ENOENT') {
-                fs.readFile('./404.html', function(error, content) {
-                    res.writeHead(200, {
-                        'Content-Type': contentType
-                    });
-                    res.end(content, 'utf-8');
-                });
+            if (error.code === 'ENOENT') {
+                res.writeHead(404);
+                res.end("404");
             } else {
                 res.writeHead(500);
                 res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-                res.end();
             }
         } else {
             res.writeHead(200, {
