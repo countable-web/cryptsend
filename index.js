@@ -4,7 +4,7 @@ const fs = require('fs');
 const crypto = require('crypto');
 const mkdirp = require('mkdirp');
 const path = require('path');
-var slug = require('slug');
+const slug = require('slug');
 
 const server = process.env.SERVER || 'http://localhost:1234';
 
@@ -14,85 +14,98 @@ const base64urltok = (l) => {
         .replace(/=/g, '');
 }
 
-const HEADER = `
-<html>
-<body>
-<p>This is a secret folder. I'll say it again, don't lose this link!</p>
-`;
-
-const FOOTER = `
-</body>
-</html>`;
-
-const upload = (req, res) => {
+const mkdir = (req, res) => {
     var hash =
         base64urltok(2) +
         '/' +
         base64urltok(22);
-    var target = './public/data/' + hash;
+    var target = 'data/' + hash;
 
-    mkdirp(target, err => {
-        const form = new formidable.IncomingForm();
-        var paths = [],
-            ajax = false;
-        form.uploadDir = target;
-
-        form.on('fileBegin', function(name, file) {
-            //rename the incoming file to the file's name
-            file.path = form.uploadDir + "/" + encodeURIComponent(file.name);
-            paths.push(file.path);
+    mkdirp('./' + target, err => {
+        res.writeHead(302, {
+            'Location': '/dir/' + target
+            //add other headers here...
         });
-
-        form.on('field', function(name, value) {
-            if (name === 'ajax') {
-                ajax = true;
-            }
-        });
-
-        form.on('end', function() {
-            var content, contentType, success = true;
-            if (paths.length) {
-                var newfiles = paths.map(function(f) {
-                    return server + f.replace(/^.\/public/g, '');
-                });
-                message = "saved to " + newfiles.join(',');
-            } else {
-                message = "no file uploaded";
-                success = false;
-            }
-            if (ajax) {
-                content = JSON.stringify({
-                    success: success,
-                    message: message,
-                    dir: form.uploadDir.replace(/^.\/public/g, '')
-                });
-                contentType = 'application/json';
-            } else {
-                content = message;
-                contentType = 'text/plain';
-            }
-            res.writeHead(success ? 200 : 400, {
-                'Content-Type': contentType
-            });
-            res.write(content)
-            res.end();
-        })
-        form.parse(req);
+        res.end();
     });
 }
 
-http.createServer(function(req, res) {
+const upload = (req, res) => {
+    const form = new formidable.IncomingForm();
+    var paths = [],
+        ajax = false;
 
-    if (req.method == 'POST') {
-        return upload(req, res)
-    }
+    form.uploadDir = req.file_path;
 
-    var file_path = './public' + req.url;
-    if (file_path === './public/') {
-        file_path = './public/index.html';
-    }
+    form.on('fileBegin', function(name, file) {
+        //rename the incoming file to the file's name
+        file.path = form.uploadDir + "/" + encodeURIComponent(file.name);
+        paths.push(file.path);
+    });
 
-    var extname = path.extname(file_path);
+    form.on('field', function(name, value) {
+        if (name === 'ajax') {
+            ajax = true;
+        }
+    });
+
+    form.on('end', function() {
+        var content, contentType, success = true;
+        if (paths.length) {
+            var newfiles = paths.map(function(f) {
+                return server + f.replace(/^.\/public/g, '');
+            });
+            message = "saved to " + newfiles.join(',');
+        } else {
+            message = "no file uploaded";
+            success = false;
+        }
+        if (ajax) {
+            content = JSON.stringify({
+                success: success,
+                message: message,
+                dir: form.uploadDir.replace(/^.\/public/g, '')
+            });
+            contentType = 'application/json';
+        } else {
+            content = message;
+            contentType = 'text/plain';
+        }
+        res.writeHead(success ? 200 : 400, {
+            'Content-Type': contentType
+        });
+        res.write(content)
+        res.end();
+    })
+    form.parse(req);
+
+}
+
+const ls = (req, res) => {
+    // directoryindex.
+
+    fs.readdir(req.file_path, (error, files) => {
+        if (error) {
+
+            if (error.code === 'ENOENT') {
+                res.writeHead(404);
+                res.end("404");
+            }
+            res.writeHead(500);
+            return res.end('error: ' + error.code + ' ..\n');
+        }
+
+        res.writeHead(200, {
+            'Content-Type': 'application/json'
+        });
+        return res.end(JSON.stringify(files), 'utf-8');
+    })
+
+}
+
+
+const cat = (req, res) => {
+    var extname = path.extname(req.file_path);
     var contentType = 'application/octet-stream';
     switch (extname) {
         case '.txt':
@@ -116,43 +129,14 @@ http.createServer(function(req, res) {
             break;
     }
 
-    var toks = file_path.split('/')
-
-    // directoryindex.
-    if (toks[2] === 'data' &&
-        toks.length === 5 &&
-        toks[4].length > 0) {
-        return fs.readdir(file_path, (error, files) => {
-            if (error) {
-
-                if (error.code === 'ENOENT') {
-                    res.writeHead(404);
-                    res.end("404");
-                }
-                res.writeHead(500);
-                return res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
-            }
-            var content = HEADER + '<ul>';
-            files.forEach(file => {
-                content += '<li><a href="' + req.url + '/' + file + '">' + file + '</a></li>';
-            });
-            content += '</ul>' + FOOTER;
-            res.writeHead(200, {
-                'Content-Type': 'text/html'
-            });
-            return res.end(content, 'utf-8');
-        })
-    }
-
-    fs.readFile(file_path, function(error, content) {
+    fs.readFile(req.file_path, function(error, content) {
         if (error) {
-            console.log(error);
+            console.error(error);
             if (error.code === 'ENOENT') {
-                res.writeHead(404);
-                res.end("404");
+                return http404(res);
             } else {
                 res.writeHead(500);
-                res.end('Sorry, check with the site admin for error: ' + error.code + ' ..\n');
+                res.end('error: ' + error.code + ' ..\n');
             }
         } else {
             res.writeHead(200, {
@@ -161,5 +145,50 @@ http.createServer(function(req, res) {
             res.end(content, 'utf-8');
         }
     });
+
+}
+
+const http404 = (res) => {
+    res.writeHead(404);
+    res.end("no such file.");
+}
+
+http.createServer((req, res) => {
+
+    var _tmp = req.url.split("?");
+    const query = _tmp[1];
+    var toks = _tmp[0].split("/");
+
+    req.file_path = toks.slice(2).join('/');
+    var command = toks[1];
+
+    if (req.method == 'POST') {
+        return upload(req, res);
+    }
+
+    if (command === '') {
+        command = 'public';
+        req.file_path = './public/index.html';
+    }
+
+    if (command === 'ls') {
+
+        if (toks[2] === 'data' &&
+            toks.length === 5 &&
+            toks[4].length > 0) {
+            return ls(req, res);
+        }
+    } else if (command === 'dir') {
+        req.file_path = './public/dir.html'
+        return cat(req, res);
+    } else if (command === 'cat') {
+        if (toks[2] === 'data' || toks[2] === 'public') {
+            return cat(req, res);
+        }
+    } else if (command === 'mkdir') {
+        return mkdir(req, res);
+    } else {
+        return http404(res);
+    }
 
 }).listen(1234);
