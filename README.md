@@ -1,4 +1,15 @@
 # sendcrypt (new name pending)
+
+## run
+
+```
+docker-compose up
+```
+
+visit localhost:1234
+
+## concept
+
 Send files anywhere->anywhere securely
 
 The concept is that it's 2018 and there's no really good general purpose file sharing tool that lets you.

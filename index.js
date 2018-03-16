@@ -52,6 +52,7 @@ const upload = (req, res) => {
     form.on('end', function() {
         var content, contentType, success = true;
         if (paths.length) {
+            console.log('paths', paths)
             var newfiles = paths.map(function(f) {
                 return server + f.replace(/^.\/public/g, '');
             });
@@ -167,8 +168,8 @@ http.createServer((req, res) => {
     }
 
     if (command === '') {
-        command = 'public';
-        req.file_path = './public/index.html';
+        command = 'cat';
+        req.file_path = 'public/index.html';
     }
 
     if (command === 'ls') {
@@ -179,16 +180,18 @@ http.createServer((req, res) => {
             return ls(req, res);
         }
     } else if (command === 'dir') {
-        req.file_path = './public/dir.html'
+        req.file_path = 'public/dir.html'
         return cat(req, res);
     } else if (command === 'cat') {
-        if (toks[2] === 'data' || toks[2] === 'public') {
+        let root = req.file_path.split("/")[0];
+        console.log('root', root)
+        if (root === 'data' || root === 'public') {
             return cat(req, res);
         }
     } else if (command === 'mkdir') {
         return mkdir(req, res);
-    } else {
-        return http404(res);
     }
+    return http404(res);
+
 
 }).listen(1234);
