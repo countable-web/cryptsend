@@ -19,7 +19,7 @@ The concept is that it's 2018 and there's no really good general purpose file sh
 | open source | no | yes | some | yes |
 | trustless client encryption | no | no | no | yes |
 | self host | no | some | some | yes |
-| web interface | no | no | no | yes |
+| web interface | yes | some | some | yes |
 | secure link / no auth | no | no | no | yes |
 | works with big files | some | yes | no | yes |
 
