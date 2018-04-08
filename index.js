@@ -66,7 +66,7 @@ const upload = (req, res) => {
             var newfiles = paths.map(function(f) {
                 return server + f.replace(/^.\/public/g, '');
             });
-            // TODO: Whas this variable initialized somewhere? Am I missing something?
+            // TODO: Whas this variable (message) initialized somewhere? Am I missing something?
             message = "saved to " + newfiles.join(',');
         } else {
             message = "no file uploaded";
@@ -113,7 +113,6 @@ const ls = (req, res) => {
 }
 
 const cat = (req, res) => {
-  //TODO: From the documentation: "To achieve consistent results when working with POSIX file paths on any operating system, use path.posix" (source: https://nodejs.org/api/path.html).
     var extname = path.extname(req.file_path);
     var contentType = 'application/octet-stream';
     switch (extname) {
@@ -137,8 +136,6 @@ const cat = (req, res) => {
             contentType = 'image/jpg';
             break;
     }
-    //TODO: Solve the error I'm getting on Firefox (for some reason, not on Chrome). I belive this is what is (at least partially) causing it (I remember seeing the EISDIR error message, as described on the documentation). From the documentation: "When the path is a directory, the behavior of fs.readFile() and fs.readFileSync() is platform-specific. On macOS, Linux, and Windows, an error will be returned." (source: https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback).
-    // console.log('file_path on cat:', req.file_path);
     fs.readFile(req.file_path, function(error, content) {
         if (error) {
             console.error(error);
