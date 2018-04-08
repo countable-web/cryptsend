@@ -280,8 +280,16 @@
 				},
 				triggerFormSubmit = function()
 				{
-					var event = document.createEvent( 'HTMLEvents' );
-					event.initEvent( 'submit', true, false );
+					//Gian: Since Event.initEvent() is deprecated (see below), we should initialize the Event instace using either the Event() or CustomEvent() constructors. I'll use CustomEvent() since it is supported in IE (source: https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events).
+					// var event = document.createEvent( 'HTMLEvents' );
+					//Gian: Because on the original Event.initEvet() the 'bubbles' and 'cancelable' arguments where true and false, respectively, I'll explicitly declare those on the CustomEventInit dictionary to avoid any compatibility issues within this current version of the app.
+					//Gian: I've also changed the event name to '_submit' to explicitly show it is a custom event (and not the standard 'submit' event).
+					let event = new CustomEvent('_submit', {
+						"bubbles": true,
+						"cancelable": false
+					});
+					//Gian: Event.initEvent() is deprecated, check https://developer.mozilla.org/en-US/docs/Web/API/Event/initEvent.
+					// event.initEvent( 'submit', true, false );
 					form.dispatchEvent( event );
 				};
 
@@ -337,7 +345,7 @@
 
 
 			// if the form was submitted
-			form.addEventListener( 'submit', function( e )
+			form.addEventListener( '_submit', function( e )
 			{
 				// preventing the duplicate submissions if the current one is in progress
 				if( form.classList.contains( 'is-uploading' ) ) return false;
@@ -353,6 +361,8 @@
 					var ajaxData = new FormData( form );
 					if( droppedFiles )
 					{
+						//Gian: Because ajaxData is based on a form with an existing 'f' field (the file input field), the first value associated with the 'f' key on the ajaxData FormData is the empty string (''). Appending new values to the key (ajaxData.append) doesn't overwrite the original empty string from the list. And because we were sending an empty string value as a file, the upload function on index.js was trying to get a name property from that empty string (file.name). When that didn't return a valid name, file.path would reference the parent directory (uploadDir) instead of the target file, and that caused the EISDIR on the server. Removing the original empty string from the list of values associated with the 'f' key before appending the dropped files solved the problem.
+						ajaxData.delete(input.getAttribute( 'name' ));
 						Array.prototype.forEach.call( droppedFiles, function( file )
 						{
 							ajaxData.append( input.getAttribute( 'name' ), file );
@@ -365,6 +375,7 @@
 
 					ajax.onload = function()
 					{
+						console.log('onload');
 						form.classList.remove( 'is-uploading' );
 						if( ajax.status >= 200 && ajax.status < 400 )
 						{
