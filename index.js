@@ -36,6 +36,8 @@ const upload = (req, res) => {
     var paths = [],
         ajax = false;
 
+    console.log('File path on Upload:', req.file_path);
+
     form.uploadDir = req.file_path;
 
     form.on('fileBegin', function(name, file) {
@@ -43,11 +45,11 @@ const upload = (req, res) => {
         //TODO: Possible problem when using POSIX file paths on Windows.
         //DONE: Using path.sep instead of "/" (which is not Windows compliant).
         // file.path = form.uploadDir + "/" + encodeURIComponent(file.name);
-        // console.log('Upload Directory:', form.uploadDir);
-        // console.log('File Name:', file.name);
-        // console.log('Encoded File Name:', encodeURIComponent(file.name));
+        console.log('Upload Directory:', form.uploadDir);
+        console.log('File Name:', file.name);
+        console.log('Encoded File Name:', encodeURIComponent(file.name));
         file.path = form.uploadDir + path.sep + encodeURIComponent(file.name);
-        // console.log('File Path:', file.path);
+        console.log('File Path:', file.path);
         paths.push(file.path);
     });
 
@@ -173,6 +175,7 @@ http.createServer((req, res) => {
 
     console.log(req.method);
     if (req.method == 'POST') {
+      // console.log('POST');
         return upload(req, res);
     }
 
@@ -191,7 +194,11 @@ http.createServer((req, res) => {
         }
     } else if (command === 'dir') {
         // req.file_path = 'public/dir.html'
-        req.file_path = `public${path.sep}dir.html`;
+        if (path.extname(req.file_path) === ".js") {
+          req.file_path = `public${path.sep}${toks[4]}`;
+        } else {
+          req.file_path = `public${path.sep}dir.html`;
+        }
         return cat(req, res);
     } else if (command === 'cat') {
         // let root = req.file_path.split("/")[0];

@@ -1,262 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<title>SendCrypt</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<link rel="stylesheet" href="/cat/public/assets/fonts.css">
-	<link rel="apple-touch-icon" sizes="180x180" href="/cat/public/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/cat/public/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/cat/public/favicon-16x16.png">
-	<meta name="msapplication-TileColor" content="#da532c">
-	<style>
-
-		html
-		{
-		}
-			body
-			{
-				font-family: Roboto, sans-serif;
-				color: #0f3c4b;
-				background-color: #fff;
-				padding: 5rem 1.25rem; /* 80 20 */
-			}
-
-			.container
-			{
-				width: 100%;
-				max-width: 680px; /* 800 */
-				text-align: center;
-				margin: 0 auto;
-			}
-
-				.container h1
-				{
-					font-size: 42px;
-					font-weight: 300;
-					color: #0f3c4b;
-					margin-bottom: 40px;
-				}
-				.container h1 a:hover,
-				.container h1 a:focus
-				{
-					color: #39bfd3;
-				}
-
-				.container nav
-				{
-					margin-bottom: 40px;
-				}
-					.container nav a
-					{
-						border-bottom: 2px solid #c8dadf;
-						display: inline-block;
-						padding: 4px 8px;
-						margin: 0 5px;
-					}
-					.container nav a.is-selected
-					{
-						font-weight: 700;
-						color: #39bfd3;
-						border-bottom-color: currentColor;
-					}
-					.container nav a:not( .is-selected ):hover,
-					.container nav a:not( .is-selected ):focus
-					{
-						border-bottom-color: #0f3c4b;
-					}
-
-				.box
-				{
-					font-size: 1.25rem; /* 20 */
-					background-color: #f8f8f8f;
-					position: relative;
-					padding: 100px 20px;
-				}
-				.box.has-advanced-upload
-				{
-					outline: 2px dashed #ddd;
-					outline-offset: -10px;
-
-					-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-					transition: outline-offset .15s ease-in-out, background-color .15s linear;
-				}
-				.box.is-dragover
-				{
-					outline-offset: -20px;
-					outline-color: #c8dadf;
-					background-color: #fff;
-				}
-					.box__dragndrop,
-					.box__icon
-					{
-						display: none;
-					}
-					.box.has-advanced-upload .box__dragndrop
-					{
-						display: inline;
-					}
-					.box.has-advanced-upload .box__icon
-					{
-						width: 100%;
-						height: 80px;
-						fill: #92b0b3;
-						display: block;
-						margin-bottom: 40px;
-					}
-
-					.box.is-uploading .box__input,
-					.box.is-success .box__input,
-					.box.is-error .box__input
-					{
-						visibility: hidden;
-					}
-
-					.box__uploading,
-					.box__success,
-					.box__error
-					{
-						display: none;
-					}
-					.box.is-uploading .box__uploading,
-					.box.is-success .box__success,
-					.box.is-error .box__error
-					{
-						display: block;
-						position: absolute;
-						top: 50%;
-						right: 0;
-						left: 0;
-
-						-webkit-transform: translateY( -50% );
-						transform: translateY( -50% );
-					}
-					.box__uploading
-					{
-						font-style: italic;
-					}
-					.box__success
-					{
-						-webkit-animation: appear-from-inside .25s ease-in-out;
-						animation: appear-from-inside .25s ease-in-out;
-					}
-						@-webkit-keyframes appear-from-inside
-						{
-							from	{ -webkit-transform: translateY( -50% ) scale( 0 ); }
-							75%		{ -webkit-transform: translateY( -50% ) scale( 1.1 ); }
-							to		{ -webkit-transform: translateY( -50% ) scale( 1 ); }
-						}
-						@keyframes appear-from-inside
-						{
-							from	{ transform: translateY( -50% ) scale( 0 ); }
-							75%		{ transform: translateY( -50% ) scale( 1.1 ); }
-							to		{ transform: translateY( -50% ) scale( 1 ); }
-						}
-
-					.box__restart
-					{
-						font-weight: 700;
-					}
-					.box__restart:focus,
-					.box__restart:hover
-					{
-						color: #39bfd3;
-					}
-
-					.js .box__file
-					{
-						width: 0.1px;
-						height: 0.1px;
-						opacity: 0;
-						overflow: hidden;
-						position: absolute;
-						z-index: -1;
-					}
-					.js .box__file + label
-					{
-						max-width: 80%;
-						text-overflow: ellipsis;
-						white-space: nowrap;
-						cursor: pointer;
-						display: inline-block;
-						overflow: hidden;
-					}
-					.js .box__file + label:hover strong,
-					.box__file:focus + label strong,
-					.box__file.has-focus + label strong
-					{
-						color: #39bfd3;
-					}
-					.js .box__file:focus + label,
-					.js .box__file.has-focus + label
-					{
-						outline: 1px dotted #000;
-						outline: -webkit-focus-ring-color auto 5px;
-					}
-						.js .box__file + label *
-						{
-							/* pointer-events: none; */ /* in case of FastClick lib use */
-						}
-
-					.no-js .box__file + label
-					{
-						display: none;
-					}
-
-					.no-js .box__button
-					{
-						display: block;
-					}
-					.box__button
-					{
-						font-weight: 700;
-						color: #e5edf1;
-						background-color: #39bfd3;
-						display: none;
-						padding: 8px 16px;
-						margin: 40px auto 0;
-					}
-						.box__button:hover,
-						.box__button:focus
-						{
-							background-color: #0f3c4b;
-						}
-
-	</style>
-
-	<!-- remove this if you use Modernizr -->
-	<script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
-
-</head>
-
-<body>
-
-<div class="container" role="main">
-	<p>This is a file server you can upload to. You'll be given a unique and secure link. Do not lose that!</p>
-	<form method="post" action="" enctype="multipart/form-data" novalidate="" class="box has-advanced-upload">
-
-		<div class="box__input">
-			<svg class="box__icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43"><path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path></svg>
-			<input type="file" name="f" data-multiple-caption="{count} files selected" multiple id="file" class="box__file">
-			<label for="file"><strong>Choose files</strong><span class="box__dragndrop"> or drag them here</span>.</label>
-			<button type="submit" class="box__button">Upload</button>
-		</div>
-
-		<div class="box__uploading">Uploading…</div>
-		<div class="box__success">Done! <a href="/" class="box__restart" role="button">Upload more?</a></div>
-		<div class="box__message"></div>
-		<div class="box__error">Error! <span></span>. <a href="/" class="box__restart" role="button">Try again!</a></div>
-	<input type="hidden" name="ajax" value="1"></form>
-	<div id='ls'>
-
-	</div>
-</div>
-<script type="text/javascript" src="./cipher.js" defer></script>
-<script type="text/javascript" src="./dir.js" defer></script>
-<!-- <script>
-	// import * as cipher from './cipher.js';
-
-	'use strict';
-	console.log(foo);
+  'use strict';
 
 	;( function ( document, window, index )
 	{
@@ -384,7 +126,13 @@
 						{
 							var data = JSON.parse( ajax.responseText );
 							form.classList.add( data.success == true ? 'is-success' : 'is-error' );
-							document.querySelector('.box__message').innerHTML = "Uploaded to <a href='/dir/" + data.dir + "'>" + data.dir + "</a>. Do not lose this link, or the uploaded files will never be found again!";
+							// document.querySelector('.box__message').innerHTML = "Uploaded to <a href='/dir/" + data.dir + "'>" + data.dir + "</a>. Do not lose this link, or the uploaded files will never be found again!";
+              // const sep = data.dir.includes('/') ? '/' : '\\';
+              console.log(data.dir);
+              data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
+              console.log(data.dir);
+              // document.querySelector('.box__message').innerHTML = "Uploaded to <a href='" + sep + 'dir' + sep + data.dir + sep + '#' + hash + "'>" + data.dir + sep + '#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
+							document.querySelector('.box__message').innerHTML = "Uploaded to <a href='/dir" + data.dir + '/#' + hash + "'>" + data.dir + '/#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
 							if( !data.success ) errorMsg.textContent = data.error;
 						}
 						else alert( 'Error. Please, contact the webmaster!' );
@@ -396,7 +144,29 @@
 						alert( 'Error. Please, try again!' );
 					};
 
-					ajax.send( ajaxData );
+          // console.log(ajaxData.getAll(input.getAttribute( 'name' )));
+          //
+          // console.log('\nBefore Encrypt:');
+          // for (const [key, value] of ajaxData.entries()) {
+          //   console.log(key, value);
+          // }
+
+          let hash = '';
+          encryptFiles(ajaxData.getAll(input.getAttribute('name'))).then(([encryptedFiles, keyCipher]) => {
+            hash = keyCipher;
+            console.log(encryptedFiles);
+            ajaxData.delete(input.getAttribute( 'name' ));
+            for (const [name, value] of Object.entries(encryptedFiles)) {
+              ajaxData.append( input.getAttribute( 'name' ), value, name );
+            }
+
+            // console.log('\nAfter Encrypt:');
+            // for (const [key, value] of ajaxData.entries()) {
+            //   console.log(key, value);
+            // }
+
+            ajax.send( ajaxData );
+          });
 				}
 				else // fallback Ajax solution upload for older browsers
 				{
@@ -455,8 +225,3 @@
     			document.getElementById('ls').innerHTML = '<ul>' + content + '</ul>';
     		})
     }
-</script> -->
-
-
-
-</body></html>
