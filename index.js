@@ -35,27 +35,39 @@ const upload = (req, res) => {
     var paths = [],
         ajax = false;
 
+    console.log('File path on Upload:', req.file_path);
+
     form.uploadDir = req.file_path;
 
     form.on('fileBegin', function(name, file) {
         //rename the incoming file to the file's name
-        file.path = form.uploadDir + "/" + encodeURIComponent(file.name);
+        //TODO: Possible problem when using POSIX file paths on Windows.
+        //DONE: Using path.sep instead of "/" (which is not Windows compliant).
+        // file.path = form.uploadDir + "/" + encodeURIComponent(file.name);
+        console.log('Upload Directory:', form.uploadDir);
+        console.log('File Name:', file.name);
+        console.log('Encoded File Name:', encodeURIComponent(file.name));
+        file.path = form.uploadDir + path.sep + encodeURIComponent(file.name);
+        console.log('File Path:', file.path);
         paths.push(file.path);
     });
 
     form.on('field', function(name, value) {
-        if (name === 'ajax') {
-            ajax = true;
-        }
+      //TODO: There is a hidden input named ajax with a value set to 1 on the dir.html file. Why do we have to check for the field here if we know it is hardcoded (and under normal circumstances, unchangeable) in the form?
+      if (name === 'ajax') {
+          ajax = true;
+      }
     });
 
     form.on('end', function() {
         var content, contentType, success = true;
         if (paths.length) {
-            console.log('paths', paths)
+            console.log('paths', paths);
+            // New paths:
             var newfiles = paths.map(function(f) {
                 return server + f.replace(/^.\/public/g, '');
             });
+            // TODO: Whas this variable (message) initialized somewhere? Am I missing something?
             message = "saved to " + newfiles.join(',');
         } else {
             message = "no file uploaded";
@@ -77,17 +89,14 @@ const upload = (req, res) => {
         });
         res.write(content)
         res.end();
-    })
+    });
     form.parse(req);
-
 }
 
 const ls = (req, res) => {
     // directoryindex.
-
     fs.readdir(req.file_path, (error, files) => {
         if (error) {
-
             if (error.code === 'ENOENT') {
                 res.writeHead(404);
                 res.end("404");
@@ -103,7 +112,6 @@ const ls = (req, res) => {
     })
 
 }
-
 
 const cat = (req, res) => {
     var extname = path.extname(req.file_path);
@@ -129,7 +137,6 @@ const cat = (req, res) => {
             contentType = 'image/jpg';
             break;
     }
-
     fs.readFile(req.file_path, function(error, content) {
         if (error) {
             console.error(error);
@@ -159,17 +166,25 @@ http.createServer((req, res) => {
     var _tmp = req.url.split("?");
     const query = _tmp[1];
     var toks = _tmp[0].split("/");
+    console.log("toks", toks);
 
-    req.file_path = toks.slice(2).join('/');
+    req.file_path = toks.slice(2).join(path.sep);
     var command = toks[1];
 
+    console.log(req.method);
     if (req.method == 'POST') {
         return upload(req, res);
     }
 
+    //Gian: making sure requests for js files from /dir are handled correctly.
+    if (path.extname(req.file_path) === ".js") {
+      req.file_path = `public${path.sep}${toks[toks.length - 1]}`;
+      return cat(req, res);
+    }
+
     if (command === '') {
         command = 'cat';
-        req.file_path = 'public/index.html';
+        req.file_path = `public${path.sep}index.html`;
     }
 
     if (command === 'ls') {
@@ -180,11 +195,11 @@ http.createServer((req, res) => {
             return ls(req, res);
         }
     } else if (command === 'dir') {
-        req.file_path = 'public/dir.html'
+        // req.file_path = 'public/dir.html'
+        req.file_path = `public${path.sep}dir.html`;
         return cat(req, res);
     } else if (command === 'cat') {
-        let root = req.file_path.split("/")[0];
-        console.log('root', root)
+        let root = req.file_path.split(path.sep)[0];
         if (root === 'data' || root === 'public') {
             return cat(req, res);
         }
