@@ -131,8 +131,14 @@
               console.log(data.dir);
               data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
               console.log(data.dir);
-              // document.querySelector('.box__message').innerHTML = "Uploaded to <a href='" + sep + 'dir' + sep + data.dir + sep + '#' + hash + "'>" + data.dir + sep + '#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
-							document.querySelector('.box__message').innerHTML = "Uploaded to <a href='/dir" + data.dir + '/#' + hash + "'>" + data.dir + '/#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
+              // document.querySelector('.box__message').innerHTML = "Uploaded to <a href='" + sep + 'dir' + sep + data.dir + '#' + hash + "'>" + data.dir + '#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
+							document.querySelector('.box__message').innerHTML = "Uploaded to <a href='/dir/" + data.dir + '#' + hash + "'>" + data.dir + '#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
+              //Gian: forcing a page refresh (which will not happen after the insertion of the hash).
+              document.querySelector('.box__message > a').addEventListener('click', (e) => {
+                // console.log(window.location.href);
+                window.location.href += '#' + hash;
+                window.location.reload();
+              });
 							if( !data.success ) errorMsg.textContent = data.error;
 						}
 						else alert( 'Error. Please, contact the webmaster!' );
@@ -144,27 +150,13 @@
 						alert( 'Error. Please, try again!' );
 					};
 
-          // console.log(ajaxData.getAll(input.getAttribute( 'name' )));
-          //
-          // console.log('\nBefore Encrypt:');
-          // for (const [key, value] of ajaxData.entries()) {
-          //   console.log(key, value);
-          // }
-
           let hash = '';
           encryptFiles(ajaxData.getAll(input.getAttribute('name'))).then(([encryptedFiles, keyCipher]) => {
             hash = keyCipher;
-            console.log(encryptedFiles);
             ajaxData.delete(input.getAttribute( 'name' ));
             for (const [name, value] of Object.entries(encryptedFiles)) {
               ajaxData.append( input.getAttribute( 'name' ), value, name );
             }
-
-            // console.log('\nAfter Encrypt:');
-            // for (const [key, value] of ajaxData.entries()) {
-            //   console.log(key, value);
-            // }
-
             ajax.send( ajaxData );
           });
 				}
@@ -213,15 +205,45 @@
 	}( document, window, 0 ));
 
     if (window.location.pathname !== '/dir') {
-
     	fetch((window.location+ '').replace("dir","ls"))
     		.then(response => response.json())
     		.catch(error => console.error('Error:', error))
     		.then(files => {
     			var content = '';
     			files.forEach(file => {
-    				content += '<li><a href="'+(window.location+'').replace('/dir', '/cat') + '/' + file+'">'+file+'</a></li>'
-    			})
+    				content += '<li><a href="">'+file+'</a></li>';
+    			});
     			document.getElementById('ls').innerHTML = '<ul>' + content + '</ul>';
-    		})
+          if (content) {
+            //Gian: Doing this to prevent user from breaking the app. Right now we cannot handle new files being uploaded under the same key.
+            document.getElementsByClassName('box__input')[0].innerHTML = '';            
+          }
+          addFilesDecrypt();
+    		});
+
+        const handleFileDownload = (e) => {
+          e.preventDefault;
+          let currentLink = e.currentTarget;
+          if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
+            currentLink.setAttribute('download', currentLink.innerText);
+            const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
+            fetch(filePath)
+            .then(res => res.blob())
+            .then(blob => decryptFile(blob))
+            .then(downloadLink => {
+              currentLink.setAttribute('href', downloadLink);
+              currentLink.click();
+            });
+          }
+        };
+
+        const addFilesDecrypt = () => {
+          const fileItems = document.getElementById('ls').firstElementChild.children;
+          for (let file of fileItems) {
+            file.firstElementChild.setAttribute('href', window.location.hash);
+            file.firstElementChild.setAttribute('download', file.firstElementChild.innerText);
+            //Gian: I'm only decrypting files that are explicitly selected:
+            file.firstElementChild.addEventListener('click', handleFileDownload);
+          }
+        }
     }

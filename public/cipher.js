@@ -39,58 +39,55 @@ const encryptFiles = async (files) => {
 
 // =============================================================================
 
-const decryptFile = (e) => {
-  if (window.location.hash) {
-    // console.log(e.target.files[0]);
+const decryptFile = async (file) => {
+  const key = await window.crypto.subtle.importKey(
+    "jwk",
+    {
+      kty: "oct",
+      k: window.location.hash.slice(1),
+      alg: "A256GCM",
+      ext: true,
+    },
+    {
+      name: "AES-GCM",
+    },
+    false,
+    ["encrypt", "decrypt"]
+  );
+
+  return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = (e) => {
-      // console.log(e.target.result);
-      // console.log(e.target.result.slice(0,12));
-      // console.log(e.target.result.slice(12));
+    reader.onload = async (e) => {
       const iv = e.target.result.slice(0,12);
       const data = e.target.result.slice(12);
-      key.then((key) => {
-        window.crypto.subtle.decrypt(
-          {
-            name: "AES-GCM",
-            iv: iv
-          },
-          key,
-          data
-        )
-        .then(function(decrypted){
-          console.log('success');
-          //TODO: Change this.
-          const linkDecryptedFile = (data) => {
-            const file = new Blob([data], {type: 'image/jpeg'});
-            return window.URL.createObjectURL(file);
-          };
-          document.getElementById('download-link').href = linkDecryptedFile(decrypted);
-          document.getElementById('download-link').parentElement.style.display = 'block';
-        })
-        .catch(function(err){
-          console.error(err);
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      // key.then((key) => {
+      const decryptedFileRaw = await window.crypto.subtle.decrypt(
+        {
+          name: "AES-GCM",
+          iv: iv
+        },
+        key,
+        data
+      );
+      // const decryptedFile = new Blob([decryptedFileRaw]);
+      resolve(window.URL.createObjectURL(new Blob([decryptedFileRaw])));
+      // resolve(window.webkitURL.createObjectURL(decryptedFile));
+      // .then(function(decrypted){
+      // const linkDecryptedFile = (data) => {
+      //   const file = new Blob([data], {type: 'image/jpeg'});
+      //   return window.URL.createObjectURL(file);
+      // };
+      // document.getElementById('download-link').href = linkDecryptedFile(decrypted);
+      // document.getElementById('download-link').parentElement.style.display = 'block';
+      // })
+      // .catch(function(err){
+      //   console.error(err);
+      // });
+      // })
+      // .catch((err) => {
+      //   console.error(err);
+      // });
     }
-    reader.readAsArrayBuffer(e.target.files[0]);
-    console.log(`Secret key: ${window.location.hash.slice(1)}`);
-    const key = window.crypto.subtle.importKey(
-      "jwk",
-      {
-        kty: "oct",
-        k: window.location.hash.slice(1),
-        alg: "A256GCM",
-        ext: true,
-      },
-      {
-        name: "AES-GCM",
-      },
-      false,
-      ["encrypt", "decrypt"]
-    );
-  }
+    reader.readAsArrayBuffer(file);
+  });
 };

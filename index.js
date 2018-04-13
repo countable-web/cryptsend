@@ -15,11 +15,10 @@ const base64urltok = (l) => {
 }
 
 const mkdir = (req, res) => {
-    // TODO: Should we keep this structure and just append the hash, or is the second urltok (the big one) supposed to represent the hash itself (and it's being used as a placeholder here)?
     var hash =
         base64urltok(2) +
         '/' +
-        base64urltok(22); //TODO: Key on hash here.
+        base64urltok(22);
     var target = 'data/' + hash;
 
     mkdirp('./' + target, err => {
@@ -169,19 +168,22 @@ http.createServer((req, res) => {
     var toks = _tmp[0].split("/");
     console.log("toks", toks);
 
-    // req.file_path = toks.slice(2).join('/');
     req.file_path = toks.slice(2).join(path.sep);
     var command = toks[1];
 
     console.log(req.method);
     if (req.method == 'POST') {
-      // console.log('POST');
         return upload(req, res);
+    }
+
+    //Gian: making sure requests for js files from /dir are handled correctly.
+    if (path.extname(req.file_path) === ".js") {
+      req.file_path = `public${path.sep}${toks[toks.length - 1]}`;
+      return cat(req, res);
     }
 
     if (command === '') {
         command = 'cat';
-        // req.file_path = 'public/index.html';
         req.file_path = `public${path.sep}index.html`;
     }
 
@@ -194,16 +196,10 @@ http.createServer((req, res) => {
         }
     } else if (command === 'dir') {
         // req.file_path = 'public/dir.html'
-        if (path.extname(req.file_path) === ".js") {
-          req.file_path = `public${path.sep}${toks[4]}`;
-        } else {
-          req.file_path = `public${path.sep}dir.html`;
-        }
+        req.file_path = `public${path.sep}dir.html`;
         return cat(req, res);
     } else if (command === 'cat') {
-        // let root = req.file_path.split("/")[0];
         let root = req.file_path.split(path.sep)[0];
-        // console.log('root', root);
         if (root === 'data' || root === 'public') {
             return cat(req, res);
         }
