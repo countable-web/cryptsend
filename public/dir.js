@@ -176,19 +176,18 @@
 							var data = JSON.parse( ajax.responseText );
 							form.classList.add( data.success == true ? 'is-success' : 'is-error' );
               data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
-              if (!content) {
+
                 // document.getElementsByClassName('box__input')[0].innerHTML = '';
                 document.querySelector('.box__message').innerHTML = "Uploaded to <a href='/dir/" + data.dir + '#' + hash + "'>" + data.dir + '#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
                 //Gian: forcing a page refresh (which will not happen after the insertion of the hash).
                 document.querySelector('.box__message > a').addEventListener('click', (e) => {
-                  if (!window.location.hash) {
-                    window.location.href += '#' + hash;
-                  }
                   window.location.reload();
                 });
-              } else {
+                if (!window.location.hash) {
+                  window.location.href += '#' + hash;
+                }
                 listingFiles();
-              }
+
 							if( !data.success ) errorMsg.textContent = data.error;
 						}
 						else alert( 'Error. Please, contact the webmaster!' );
