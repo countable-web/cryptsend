@@ -30,6 +30,17 @@
     }
   }
 
+  const createShareLink = () => {
+    let shareLink = document.createElement('a');
+    const bodyMessage = encodeURI("This is your new SendCrypt secure link, be careful and don't share it with anyone you don't really, REALLY, trust:") + '%0D%0A' + '%0D%0A' + window.location.href.split('#')[0] + '%23' + window.location.hash.slice(1);
+    shareLink.setAttribute('href', `mailto:?body=${bodyMessage}`);
+    shareLink.innerText = 'E-mail your secure link!';
+    let shareLinkWrapper = document.createElement('div');
+    shareLinkWrapper.id = 'share-link-wrapper';
+    shareLinkWrapper.appendChild(shareLink);
+    document.getElementById('ls').appendChild(shareLinkWrapper);
+  };
+
   //Listing uploaded files:
   const listingFiles = () => {
     content = '';
@@ -41,10 +52,10 @@
           content += '<li><a href="">'+file+'</a></li>';
         });
         document.getElementById('ls').innerHTML = '<ul>' + content + '</ul>';
-        // if (content) {
-        //   //Gian: Doing this to prevent user from breaking the app. Right now we cannot handle new files being uploaded under the same key.
-        //   document.getElementsByClassName('box__input')[0].innerHTML = '';
-        // }
+        if (content) {
+          // console.log(encodeURI(`This is your new ShareLink secure link, be careful and don't share it with anyone you don't really, REALLY, trust: ${window.location.href}`));
+          createShareLink();
+        }
         addFilesDecrypt();
       });
   }
