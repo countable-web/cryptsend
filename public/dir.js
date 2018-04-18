@@ -41,6 +41,10 @@
     document.getElementById('ls').appendChild(shareLinkWrapper);
   };
 
+  const removeListItem = (item) => () => {
+    item.parentElement.remove();
+  };
+
   //Listing uploaded files:
   const listingFiles = () => {
     content = '';
@@ -49,12 +53,22 @@
       .catch(error => console.error('Error:', error))
       .then(files => {
         files.forEach(file => {
-          content += '<li><a href="">'+file+'</a></li>';
+          content += '<li><a href="">' + file + '</a><button class="delete-button">Delete</button></li>';
         });
         document.getElementById('ls').innerHTML = '<ul>' + content + '</ul>';
         if (content) {
-          // console.log(encodeURI(`This is your new ShareLink secure link, be careful and don't share it with anyone you don't really, REALLY, trust: ${window.location.href}`));
           createShareLink();
+        }
+        // Setting up delete buttons:
+        const buttons = document.getElementsByClassName('delete-button');
+        for (let button of buttons) {
+          button.addEventListener('click', (e) => {
+            console.log(`${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`);
+            let deleteRequest = new XMLHttpRequest();
+            deleteRequest.onload = removeListItem(e.currentTarget);
+            deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
+            deleteRequest.send();
+          });
         }
         addFilesDecrypt();
       });

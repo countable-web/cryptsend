@@ -161,6 +161,15 @@ const http404 = (res) => {
     res.end("no such file.");
 }
 
+const del = (req, res) => {
+  // console.log('Path on delete', req.file_path);
+  fs.unlink(req.file_path, (err) => {
+    if (err) throw err;
+    console.log(req.file_path + ' was deleted');
+  });
+  res.end();
+}
+
 http.createServer((req, res) => {
 
     var _tmp = req.url.split("?");
@@ -172,6 +181,9 @@ http.createServer((req, res) => {
     var command = toks[1];
 
     console.log(req.method);
+    if (req.method == 'DELETE') {
+      return del(req, res);
+    }
     if (req.method == 'POST') {
         return upload(req, res);
     }
