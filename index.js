@@ -188,11 +188,15 @@ http.createServer((req, res) => {
         return upload(req, res);
     }
 
-    //Gian: making sure requests for js files from /dir are handled correctly.
-    if (path.extname(req.file_path) === ".js") {
-      req.file_path = `public${path.sep}${toks[toks.length - 1]}`;
-      return cat(req, res);
-    }
+    // Gian: making sure requests for js files from /dir are handled correctly.
+    // if (path.extname(req.file_path) === ".js" || path.extname(req.file_path) === ".css") {
+    //   if (path.extname(req.file_path) === ".css") {
+    //     req.file_path = `public${path.sep}assets${path.sep}${toks[toks.length - 1]}`;
+    //   } else {
+    //     req.file_path = `public${path.sep}${toks[toks.length - 1]}`;
+    //   }
+    //   return cat(req, res);
+    // }
 
     if (command === '') {
         command = 'cat';
