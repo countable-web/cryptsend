@@ -1,4 +1,5 @@
 data/*
+docker-compose.override.yml
 
 # Logs
 logs

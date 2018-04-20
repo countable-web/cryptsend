@@ -1,0 +1,38 @@
+{
+  "name": "izimodal",
+  "description": "Elegant, responsive, flexible and lightweight modal plugin with jQuery.",
+  "main": [
+    "js/iziModal.js",
+    "css/iziModal.css"
+  ],
+  "authors": [
+    {
+      "name": "Marcelo Dolce",
+      "email": "dolcemarcelo@gmail.com",
+      "homepage": "http://marcelodolce.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "izimodal",
+    "jQuery",
+    "modal",
+    "lightbox",
+    "iframe",
+    "alert",
+    "box",
+    "javascript",
+    "js"
+  ],
+  "homepage": "http://izimodal.marcelodolce.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2"
+  }
+}

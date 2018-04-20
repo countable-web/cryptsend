@@ -8,13 +8,14 @@
     e.preventDefault;
     let currentLink = e.currentTarget;
     if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
-      currentLink.setAttribute('download', currentLink.innerText);
+      // currentLink.setAttribute('download', currentLink.innerText);
       const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
       fetch(filePath)
       .then(res => res.blob())
       .then(blob => decryptFile(blob))
       .then(downloadLink => {
         currentLink.setAttribute('href', downloadLink);
+        currentLink.setAttribute('download', currentLink.innerText);
         currentLink.click();
       });
     }
@@ -24,7 +25,7 @@
     const fileItems = document.getElementById('ls').firstElementChild.children;
     for (let file of fileItems) {
       file.firstElementChild.setAttribute('href', window.location.hash);
-      file.firstElementChild.setAttribute('download', file.firstElementChild.innerText);
+      // file.firstElementChild.setAttribute('download', file.firstElementChild.innerText);
       //Gian: I'm only decrypting files that are explicitly selected:
       file.firstElementChild.addEventListener('click', handleFileDownload);
     }
@@ -69,7 +70,6 @@
         const buttons = document.getElementsByClassName('delete-button');
         for (let button of buttons) {
           button.addEventListener('click', (e) => {
-            console.log(`${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`);
             let deleteRequest = new XMLHttpRequest();
             deleteRequest.onload = removeListItem(e.currentTarget);
             deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
@@ -224,7 +224,7 @@
 					};
 
           let hash = window.location.hash ? window.location.hash.slice(1) : '';
-          console.log(hash);
+          // console.log(hash);
           encryptFiles([
             ajaxData.getAll(input.getAttribute('name')),
             hash

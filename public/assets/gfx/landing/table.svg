@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 569.17 259.08">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-9 {
+        opacity: 0.2;
+      }
+
+      .cls-12, .cls-15, .cls-16, .cls-2, .cls-7 {
+        fill: #3a3a3a;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        opacity: 0.24;
+      }
+
+      .cls-12, .cls-13, .cls-15, .cls-2 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-12, .cls-13, .cls-2 {
+        stroke-width: 0.25px;
+      }
+
+      .cls-3, .cls-6 {
+        font-size: 15px;
+        font-family: HelveticaNeue-Bold, Helvetica Neue;
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-13, .cls-6 {
+        fill: #355ff2;
+      }
+
+      .cls-7 {
+        font-size: 13.28px;
+      }
+
+      .cls-16, .cls-7 {
+        font-family: HelveticaNeue, Helvetica Neue;
+      }
+
+      .cls-8 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-9 {
+        fill: #e0e0e0;
+      }
+
+      .cls-10 {
+        letter-spacing: -0.09em;
+      }
+
+      .cls-11 {
+        letter-spacing: -0.06em;
+      }
+
+      .cls-12, .cls-13, .cls-15 {
+        stroke: #3a3a3a;
+      }
+
+      .cls-14 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-15 {
+        stroke-width: 0.5px;
+      }
+
+      .cls-16 {
+        font-size: 10.62px;
+      }
+    </style>
+  </defs>
+  <title>table</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="section">
+      <g id="table">
+        <rect class="cls-1" x="1.57" y="45.32" width="567.59" height="34.42"/>
+        <rect class="cls-1" y="113.08" width="567.59" height="34.42"/>
+        <g>
+          <line class="cls-2" x1="0.38" y1="0.13" x2="565.28" y2="0.13"/>
+          <line class="cls-2" x1="0.38" y1="39.97" x2="565.28" y2="39.97"/>
+        </g>
+        <text class="cls-3" transform="translate(59.13 24.85) scale(0.93 1)">Featu<tspan class="cls-4" x="40.29" y="0">r</tspan><tspan class="cls-5" x="45.85" y="0">e</tspan></text>
+        <text class="cls-3" transform="translate(318.34 24.85) scale(0.93 1)">FTP</text>
+        <text class="cls-3" transform="translate(378.49 24.84) scale(0.93 1)">Email</text>
+        <text class="cls-6" transform="translate(457 24.84) scale(0.93 1)">SendCrypt</text>
+        <text class="cls-7" transform="translate(12.37 66.23) scale(0.87 1)">Open Sou<tspan class="cls-8" x="59.79" y="0">r</tspan><tspan x="63.97" y="0">ce</tspan></text>
+        <rect class="cls-9" y="78.66" width="567.59" height="34.42"/>
+        <text class="cls-7" transform="translate(12.01 100.76) scale(0.87 1)"><tspan class="cls-10">T</tspan><tspan x="6.4" y="0">rustless client encryption</tspan></text>
+        <text class="cls-7" transform="translate(12.37 135.06) scale(0.87 1)">Self Host</text>
+        <rect class="cls-9" y="147.49" width="567.59" height="34.42"/>
+        <text class="cls-7" transform="translate(12.01 169.59) scale(0.87 1)"><tspan class="cls-11">W</tspan><tspan x="11.54" y="0">eb Interface</tspan></text>
+        <rect class="cls-1" y="181.91" width="567.59" height="34.42"/>
+        <text class="cls-7" transform="translate(12.37 203.9) scale(0.87 1)">Secu<tspan class="cls-8" x="30.25" y="0">r</tspan><tspan x="34.44" y="0">e Link &amp; No auth</tspan></text>
+        <rect class="cls-9" y="216.33" width="567.59" height="34.42"/>
+        <text class="cls-7" transform="translate(12.01 238.43) scale(0.87 1)"><tspan class="cls-11">W</tspan><tspan x="11.54" y="0">orks with big files</tspan></text>
+        <line class="cls-2" x1="0.38" y1="0.13" x2="0.38" y2="39.97"/>
+        <line class="cls-2" x1="565.28" y1="0.13" x2="565.28" y2="39.97"/>
+        <path class="cls-12" d="M338.46,54.27a.6.6,0,0,0-.94,0l-7.95,9.13-3.05-3.51a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0l8.42-9.67A.84.84,0,0,0,338.46,54.27Z"/>
+        <g>
+          <path class="cls-13" d="M501,54.27a.6.6,0,0,0-.94,0l-7.95,9.13L489,59.89a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0L501,55.35A.84.84,0,0,0,501,54.27Z"/>
+          <path class="cls-13" d="M501,91a.6.6,0,0,0-.94,0l-7.95,9.13L489,96.65a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0L501,92.11A.84.84,0,0,0,501,91Z"/>
+          <path class="cls-13" d="M501,124.91a.6.6,0,0,0-.94,0L492.08,134,489,130.53a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0L501,126A.84.84,0,0,0,501,124.91Z"/>
+          <path class="cls-13" d="M501,159a.6.6,0,0,0-.94,0l-7.95,9.13L489,164.61a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0l8.42-9.67A.84.84,0,0,0,501,159Z"/>
+          <path class="cls-13" d="M501,193.75a.6.6,0,0,0-.94,0l-7.95,9.13L489,199.37a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0l8.42-9.67A.84.84,0,0,0,501,193.75Z"/>
+          <path class="cls-13" d="M501,228.17a.6.6,0,0,0-.94,0l-7.95,9.13L489,233.79a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0l8.42-9.67A.84.84,0,0,0,501,228.17Z"/>
+        </g>
+        <path class="cls-12" d="M338.46,228.17a.6.6,0,0,0-.94,0l-7.95,9.13-3.05-3.51a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0l8.42-9.67A.84.84,0,0,0,338.46,228.17Z"/>
+        <text class="cls-3" transform="translate(164.57 24.85) scale(0.93 1)">Similar P<tspan class="cls-14" x="63.55" y="0">r</tspan><tspan x="69.12" y="0">oducts</tspan></text>
+        <g>
+          <path class="cls-15" d="M229.17,89.93a.42.42,0,0,0-.65,0L218,102a.59.59,0,0,0,0,.75.42.42,0,0,0,.65,0l10.48-12A.59.59,0,0,0,229.17,89.93Z"/>
+          <path class="cls-15" d="M229.17,102l-10.48-12a.42.42,0,0,0-.65,0,.59.59,0,0,0,0,.75l10.48,12a.42.42,0,0,0,.65,0A.59.59,0,0,0,229.17,102Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M229.51,53.25a.42.42,0,0,0-.65,0l-10.48,12a.59.59,0,0,0,0,.75.42.42,0,0,0,.65,0l10.48-12A.59.59,0,0,0,229.51,53.25Z"/>
+          <path class="cls-15" d="M229.51,65.29,219,53.25a.42.42,0,0,0-.65,0,.59.59,0,0,0,0,.75l10.48,12a.42.42,0,0,0,.65,0A.59.59,0,0,0,229.51,65.29Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M337.59,87.34a.42.42,0,0,0-.65,0l-10.48,12a.59.59,0,0,0,0,.75.42.42,0,0,0,.65,0l10.48-12A.59.59,0,0,0,337.59,87.34Z"/>
+          <path class="cls-15" d="M337.59,99.38l-10.48-12a.42.42,0,0,0-.65,0,.59.59,0,0,0,0,.75l10.48,12a.42.42,0,0,0,.65,0A.59.59,0,0,0,337.59,99.38Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M404,89.47a.42.42,0,0,0-.65,0l-10.48,12a.59.59,0,0,0,0,.75.42.42,0,0,0,.65,0l10.48-12A.59.59,0,0,0,404,89.47Z"/>
+          <path class="cls-15" d="M404,101.51l-10.48-12a.42.42,0,0,0-.65,0,.59.59,0,0,0,0,.75l10.48,12a.42.42,0,0,0,.65,0A.59.59,0,0,0,404,101.51Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M337.59,192.73a.42.42,0,0,0-.65,0l-10.48,12a.59.59,0,0,0,0,.75.42.42,0,0,0,.65,0l10.48-12A.59.59,0,0,0,337.59,192.73Z"/>
+          <path class="cls-15" d="M337.59,204.77l-10.48-12a.42.42,0,0,0-.65,0,.59.59,0,0,0,0,.75l10.48,12a.42.42,0,0,0,.65,0A.59.59,0,0,0,337.59,204.77Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M403.87,192.73a.42.42,0,0,0-.65,0l-10.48,12a.59.59,0,0,0,0,.75.42.42,0,0,0,.65,0l10.48-12A.59.59,0,0,0,403.87,192.73Z"/>
+          <path class="cls-15" d="M403.87,204.77l-10.48-12a.42.42,0,0,0-.65,0,.59.59,0,0,0,0,.75l10.48,12a.42.42,0,0,0,.65,0A.59.59,0,0,0,403.87,204.77Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M403.75,228.44a.42.42,0,0,0-.65,0l-10.48,12a.59.59,0,0,0,0,.75.42.42,0,0,0,.65,0l10.48-12A.59.59,0,0,0,403.75,228.44Z"/>
+          <path class="cls-15" d="M403.75,240.48l-10.48-12a.42.42,0,0,0-.65,0,.59.59,0,0,0,0,.75l10.48,12a.42.42,0,0,0,.65,0A.59.59,0,0,0,403.75,240.48Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M228.88,123.51a.45.45,0,0,0-.7,0L217,136.38a.63.63,0,0,0,0,.8.45.45,0,0,0,.7,0l11.2-12.87A.63.63,0,0,0,228.88,123.51Z"/>
+          <path class="cls-15" d="M228.88,136.38l-11.2-12.87a.45.45,0,0,0-.7,0,.63.63,0,0,0,0,.8l11.2,12.87a.45.45,0,0,0,.7,0A.63.63,0,0,0,228.88,136.38Z"/>
+        </g>
+        <g>
+          <path class="cls-15" d="M228.93,192.29a.45.45,0,0,0-.7,0L217,205.16a.63.63,0,0,0,0,.8.45.45,0,0,0,.7,0l11.2-12.87A.63.63,0,0,0,228.93,192.29Z"/>
+          <path class="cls-15" d="M229.51,205.16l-11.2-12.87a.45.45,0,0,0-.7,0,.63.63,0,0,0,0,.8L228.81,206a.45.45,0,0,0,.7,0A.63.63,0,0,0,229.51,205.16Z"/>
+        </g>
+        <path class="cls-12" d="M229,159a.6.6,0,0,0-.94,0l-7.95,9.13-3.05-3.51a.6.6,0,0,0-.94,0,.84.84,0,0,0,0,1.08l3.52,4a.6.6,0,0,0,.94,0l8.42-9.67A.84.84,0,0,0,229,159Z"/>
+        <text class="cls-16" transform="translate(212.2 237.02) scale(0.87 1)">Some</text>
+        <text class="cls-16" transform="translate(319.95 133.66) scale(0.87 1)">Some</text>
+        <text class="cls-16" transform="translate(386 133.66) scale(0.87 1)">Some</text>
+        <text class="cls-16" transform="translate(385.88 62.52) scale(0.87 1)">Some</text>
+        <text class="cls-16" transform="translate(319.95 167.36) scale(0.87 1)">Some</text>
+        <text class="cls-16" transform="translate(386.47 167.36) scale(0.87 1)">Some</text>
+      </g>
+    </g>
+  </g>
+</svg>
