@@ -8,13 +8,14 @@
     e.preventDefault;
     let currentLink = e.currentTarget;
     if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
-      currentLink.setAttribute('download', currentLink.innerText);
+      // currentLink.setAttribute('download', currentLink.innerText);
       const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
       fetch(filePath)
       .then(res => res.blob())
       .then(blob => decryptFile(blob))
       .then(downloadLink => {
         currentLink.setAttribute('href', downloadLink);
+        currentLink.setAttribute('download', currentLink.innerText);
         currentLink.click();
       });
     }
@@ -24,11 +25,29 @@
     const fileItems = document.getElementById('ls').firstElementChild.children;
     for (let file of fileItems) {
       file.firstElementChild.setAttribute('href', window.location.hash);
-      file.firstElementChild.setAttribute('download', file.firstElementChild.innerText);
+      // file.firstElementChild.setAttribute('download', file.firstElementChild.innerText);
       //Gian: I'm only decrypting files that are explicitly selected:
       file.firstElementChild.addEventListener('click', handleFileDownload);
     }
   }
+
+  const createShareLink = () => {
+    let shareLink = document.createElement('a');
+    const bodyMessage = encodeURI("This is your new SendCrypt secure link, be careful and don't share it with anyone you don't really, REALLY, trust:") + '%0D%0A' + '%0D%0A' + window.location.href.split('#')[0] + '%23' + window.location.hash.slice(1);
+    shareLink.setAttribute('href', `mailto:?body=${bodyMessage}`);
+    shareLink.innerText = 'e-mail your secure link!';
+    let shareLinkWrapper = document.createElement('div');
+    shareLinkWrapper.id = 'share-link-wrapper';
+    shareLinkWrapper.appendChild(shareLink);
+    document.getElementsByClassName('dir-upload-wrapper')[0].appendChild(shareLinkWrapper);
+  };
+
+  const removeListItem = (item) => () => {
+    item.parentElement.remove();
+    if (document.getElementsByClassName('files-list')[0].children.length === 0) {
+      document.getElementsByClassName('dir-files-wrapper')[0].classList.add('hidden');
+    }
+  };
 
   //Listing uploaded files:
   const listingFiles = () => {
@@ -38,13 +57,25 @@
       .catch(error => console.error('Error:', error))
       .then(files => {
         files.forEach(file => {
-          content += '<li><a href="">'+file+'</a></li>';
+          content += '<li class="cf"><a href="">' + file + '</a><div class="delete-button">delete</div></li>';
         });
-        document.getElementById('ls').innerHTML = '<ul>' + content + '</ul>';
-        // if (content) {
-        //   //Gian: Doing this to prevent user from breaking the app. Right now we cannot handle new files being uploaded under the same key.
-        //   document.getElementsByClassName('box__input')[0].innerHTML = '';
-        // }
+        document.getElementById('ls').innerHTML = '<ul class="files-list">' + content + '</ul>';
+        if (content) {
+          document.getElementsByClassName('dir-files-wrapper')[0].classList.remove('hidden');
+          if (!(document.getElementById('share-link-wrapper'))) {
+            createShareLink();
+          }
+        }
+        // Setting up delete buttons:
+        const buttons = document.getElementsByClassName('delete-button');
+        for (let button of buttons) {
+          button.addEventListener('click', (e) => {
+            let deleteRequest = new XMLHttpRequest();
+            deleteRequest.onload = removeListItem(e.currentTarget);
+            deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
+            deleteRequest.send();
+          });
+        }
         addFilesDecrypt();
       });
   }
@@ -74,16 +105,10 @@
 				},
 				triggerFormSubmit = function()
 				{
-					//Gian: Since Event.initEvent() is deprecated (see below), we should initialize the Event instace using either the Event() or CustomEvent() constructors. I'll use CustomEvent() since it is supported in IE (source: https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events).
-					// var event = document.createEvent( 'HTMLEvents' );
-					//Gian: Because on the original Event.initEvet() the 'bubbles' and 'cancelable' arguments where true and false, respectively, I'll explicitly declare those on the CustomEventInit dictionary to avoid any compatibility issues within this current version of the app.
-					//Gian: I've also changed the event name to '_submit' to explicitly show it is a custom event (and not the standard 'submit' event).
 					let event = new CustomEvent('_submit', {
 						"bubbles": true,
 						"cancelable": false
 					});
-					//Gian: Event.initEvent() is deprecated, check https://developer.mozilla.org/en-US/docs/Web/API/Event/initEvent.
-					// event.initEvent( 'submit', true, false );
 					form.dispatchEvent( event );
 				};
 
@@ -155,7 +180,6 @@
 					var ajaxData = new FormData( form );
 					if( droppedFiles )
 					{
-						//Gian: Because ajaxData is based on a form with an existing 'f' field (the file input field), the first value associated with the 'f' key on the ajaxData FormData is the empty string (''). Appending new values to the key (ajaxData.append) doesn't overwrite the original empty string from the list. And because we were sending an empty string value as a file, the upload function on index.js was trying to get a name property from that empty string (file.name). When that didn't return a valid name, file.path would reference the parent directory (uploadDir) instead of the target file, and that caused the EISDIR on the server. Removing the original empty string from the list of values associated with the 'f' key before appending the dropped files solved the problem.
 						ajaxData.delete(input.getAttribute( 'name' ));
 						Array.prototype.forEach.call( droppedFiles, function( file )
 						{
@@ -178,7 +202,7 @@
               data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
 
                 // document.getElementsByClassName('box__input')[0].innerHTML = '';
-                document.querySelector('.box__message').innerHTML = "Uploaded to <a href='/dir/" + data.dir + '#' + hash + "'>" + data.dir + '#' + hash + "</a>. Do not lose this link, or the uploaded files will never be found again!";
+                document.querySelector('.box__message').innerHTML = "Uploaded to your <a href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p>Do not lose this link, or the uploaded files will never be found again!</p>";
                 //Gian: forcing a page refresh (which will not happen after the insertion of the hash).
                 document.querySelector('.box__message > a').addEventListener('click', (e) => {
                   window.location.reload();
@@ -200,7 +224,7 @@
 					};
 
           let hash = window.location.hash ? window.location.hash.slice(1) : '';
-          console.log(hash);
+          // console.log(hash);
           encryptFiles([
             ajaxData.getAll(input.getAttribute('name')),
             hash

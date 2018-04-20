@@ -1,0 +1,76 @@
+.btn {
+    font-size: 1rem;
+    font-family: 'Helvetica Neue', serif;
+    font-weight: normal;
+    text-align: center;
+    padding: 0.7rem 0.5rem;
+    color: white;
+    display: inline-block;
+
+}
+
+.btn a {
+    text-decoration: none;
+    color: inherit;
+    text-underline: none;
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.btn-center {
+    margin: 0 auto;
+}
+
+.btn-primary {
+    background-color: #355FF2;
+    padding-left:3rem;
+    padding-right:3rem;
+}
+
+
+
+.btn-cta {
+    background-color: #F13E41;
+    padding-left:3rem;
+    padding-right:3rem;
+}
+.btn-cta:hover {
+    background-color: #B52F31;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.btn-shadow:hover {
+
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.1), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.btn-small {
+}
+
+
+
+
+/* ------------------------------------------------------------|
+| CUSTOM BUTTON CODE
+*-------------------------------------------------------------*/
+
+/*DESKTOP ONLY CODE*/
+
+@media screen and (min-width: 1080px) {
+
+    #btn-get-started {
+        display: inline-block;
+        float:right;
+    }
+}
+
+
+#btn-cta-landing {
+    margin-top:2rem;
+}
+

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.86 15.29">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #edeada;
+      }
+
+      .cls-2 {
+        fill: #cec9ae;
+      }
+    </style>
+  </defs>
+  <title>Asset 3</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="content">
+      <g>
+        <polygon class="cls-1" points="11.86 3.69 8.17 0 0 0 0 15.29 11.86 15.29 11.86 3.69"/>
+        <g>
+          <path class="cls-2" d="M2.64,6.06H9.23a.26.26,0,0,0,0-.53H2.64a.26.26,0,0,0,0,.53Z"/>
+          <path class="cls-2" d="M2.64,4H5.27a.26.26,0,0,0,0-.53H2.64a.26.26,0,0,0,0,.53Z"/>
+          <path class="cls-2" d="M9.23,7.65H2.64a.26.26,0,0,0,0,.53H9.23a.26.26,0,1,0,0-.53Z"/>
+          <path class="cls-2" d="M9.23,9.75H2.64a.26.26,0,1,0,0,.53H9.23a.26.26,0,1,0,0-.53Z"/>
+          <path class="cls-2" d="M9.23,11.86H2.64a.26.26,0,1,0,0,.53H9.23a.26.26,0,1,0,0-.53Z"/>
+        </g>
+        <polygon class="cls-2" points="8.17 0 8.17 3.69 11.86 3.69 8.17 0"/>
+      </g>
+    </g>
+  </g>
+</svg>

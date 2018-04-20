@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 155.23 130.45">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.5;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #4c4c4c;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-linecap: round;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #7fabda;
+      }
+
+      .cls-4 {
+        fill: #f13e41;
+        stroke: #355ff2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <title>cloud</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="content">
+      <g id="cloud" class="cls-1">
+        <g>
+          <path class="cls-2" d="M130.46,42.94C130.16,20.14,111.46,1,88.41,1A44.26,44.26,0,0,0,52.31,20.23,21.16,21.16,0,0,0,19.49,37.7c0,.4,0,.79.06,1.19s-.06,1-.06,1.43C9,45.33,1,57.25,1,69.56a31.26,31.26,0,0,0,31.29,31H97c.36,0,.72,0,1.08-.06s.72.06,1.08.06h25.9A29.11,29.11,0,0,0,154.23,71.7,29.46,29.46,0,0,0,130.46,42.94Z"/>
+          <path class="cls-3" d="M130.46,42.94a51.37,51.37,0,0,0-13.22,0"/>
+          <path class="cls-2" d="M19.49,37.7a21.14,21.14,0,0,1,42.27,0"/>
+        </g>
+        <g>
+          <line class="cls-4" x1="80.33" y1="129.45" x2="80.33" y2="69.15"/>
+          <line class="cls-4" x1="80.33" y1="69.15" x2="101.47" y2="90.13"/>
+          <line class="cls-4" x1="59.2" y1="90.13" x2="80.33" y2="69.15"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
