@@ -42,8 +42,10 @@
     document.getElementsByClassName('dir-upload-wrapper')[0].appendChild(shareLinkWrapper);
   };
 
-  const removeListItem = (item) => () => {
+  const removeListItem = (item) => (e) => {
     item.parentElement.remove();
+    // console.log(e.currentTarget);
+    window.alert(`${item.parentElement.firstElementChild.textContent} was deleted successfully.`)
     if (document.getElementsByClassName('files-list')[0].children.length === 0) {
       document.getElementsByClassName('dir-files-wrapper')[0].classList.add('hidden');
     }
@@ -70,10 +72,16 @@
         const buttons = document.getElementsByClassName('delete-button');
         for (let button of buttons) {
           button.addEventListener('click', (e) => {
-            let deleteRequest = new XMLHttpRequest();
-            deleteRequest.onload = removeListItem(e.currentTarget);
-            deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
-            deleteRequest.send();
+            if (window.confirm(`Are you sure you want to delete ${e.currentTarget.parentElement.firstElementChild.innerText}`)) {
+              let deleteRequest = new XMLHttpRequest();
+              deleteRequest.onload = removeListItem(e.currentTarget);
+              deleteRequest.onerror = () => {
+                //TODO: Other ways to feedback error?
+                console.log(e.currentTarget.response);
+              }
+              deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
+              deleteRequest.send();
+            }
           });
         }
         addFilesDecrypt();

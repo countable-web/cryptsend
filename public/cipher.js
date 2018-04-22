@@ -1,8 +1,8 @@
 const encryptFiles = async ([files, hashKey]) => {
-  let key = null;
-  console.log(!hashKey);
+  let key = '';
+  // console.log(!hashKey);
   if (!hashKey) {
-    console.log('Generating Key');
+    // console.log('Generating Key');
     key = await window.crypto.subtle.generateKey(
       {
         name: "AES-GCM",
@@ -11,15 +11,15 @@ const encryptFiles = async ([files, hashKey]) => {
       true,
       ["encrypt", "decrypt"]
     );
-    console.log(key);
+    // console.log(key);
     const keydata = await window.crypto.subtle.exportKey(
       "jwk",
       key
     );
     hashKey = keydata.k;
-    console.log(hashKey);
+    // console.log(hashKey);
   } else {
-    console.log('Importing Key');
+    // console.log('Importing Key');
     key = await window.crypto.subtle.importKey(
       "jwk",
       {
@@ -36,7 +36,7 @@ const encryptFiles = async ([files, hashKey]) => {
     );
   }
   return new Promise((resolve, reject) => {
-    console.log(key);
+    // console.log(key);
     let encryptedFiles = {};
     for (const file of files) {
       const reader = new FileReader();
