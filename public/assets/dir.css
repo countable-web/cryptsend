@@ -78,6 +78,17 @@ html, main, body {
   color: #fff;
 }
 
+#del-feedback {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #4BB543;
+  line-height: 3;
+  color: black;
+}
+
 /* CLEARFIX */
 
 .cf:before,

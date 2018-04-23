@@ -166,8 +166,8 @@ const http404 = (res) => {
 
 const del = (req, res) => {
   // console.log('Path on delete', req.file_path);
-  fs.unlink(req.file_path, (err) => {
-    if (err) {
+  fs.unlink(req.file_path, (error) => {
+    if (error) {
       console.error(error);
       if (error.code === 'ENOENT') {
           return http404(res);
