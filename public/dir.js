@@ -43,18 +43,14 @@
   };
 
   const deletionFeedback = name => {
-    if (document.getElementById('del-feedback')) {
-      document.getElementById('del-feedback').innerText = `${name} was deleted.`;
-    } else {
-      let feedbackElement = document.createElement('p');
-      feedbackElement.id = 'del-feedback';
-      feedbackElement.innerText = `${name} was deleted.`;
-      // document.getElementsByTagName('main')[0].appendChild(feedbackElement);
-      document.body.appendChild(feedbackElement);
-      window.setTimeout(() => {
-        document.getElementById('del-feedback').remove();
-      }, 3000);
-    }
+    let feedbackElement = document.createElement('p');
+    feedbackElement.id = 'del-feedback';
+    feedbackElement.innerText = `${name} was deleted.`;
+    document.body.appendChild(feedbackElement);
+    window.setTimeout(() => {
+      document.getElementById('del-feedback').remove();
+    }, 3000);
+
   };
 
   const removeListItem = (item) => (e) => {
