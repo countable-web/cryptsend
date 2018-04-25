@@ -42,8 +42,26 @@
     document.getElementsByClassName('dir-upload-wrapper')[0].appendChild(shareLinkWrapper);
   };
 
-  const removeListItem = (item) => () => {
+  const deletionFeedback = name => {
+    if (document.getElementById('del-feedback')) {
+      document.getElementById('del-feedback').innerText = `${name} was deleted.`;
+    } else {
+      let feedbackElement = document.createElement('p');
+      feedbackElement.id = 'del-feedback';
+      feedbackElement.innerText = `${name} was deleted.`;
+      // document.getElementsByTagName('main')[0].appendChild(feedbackElement);
+      document.body.appendChild(feedbackElement);
+      window.setTimeout(() => {
+        document.getElementById('del-feedback').remove();
+      }, 3000);
+    }
+  };
+
+  const removeListItem = (item) => (e) => {
     item.parentElement.remove();
+    // console.log(e.currentTarget);
+    // window.alert(`${item.parentElement.firstElementChild.textContent} was deleted successfully.`);
+    deletionFeedback(item.parentElement.firstElementChild.textContent);
     if (document.getElementsByClassName('files-list')[0].children.length === 0) {
       document.getElementsByClassName('dir-files-wrapper')[0].classList.add('hidden');
     }
@@ -70,10 +88,16 @@
         const buttons = document.getElementsByClassName('delete-button');
         for (let button of buttons) {
           button.addEventListener('click', (e) => {
-            let deleteRequest = new XMLHttpRequest();
-            deleteRequest.onload = removeListItem(e.currentTarget);
-            deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
-            deleteRequest.send();
+            if (window.confirm(`Are you sure you want to delete ${e.currentTarget.parentElement.firstElementChild.innerText}`)) {
+              let deleteRequest = new XMLHttpRequest();
+              deleteRequest.onload = removeListItem(e.currentTarget);
+              deleteRequest.onerror = (e) => {
+                //TODO: Other ways to feedback error?
+                window.alert(e.currentTarget.response);
+              }
+              deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
+              deleteRequest.send();
+            }
           });
         }
         addFilesDecrypt();

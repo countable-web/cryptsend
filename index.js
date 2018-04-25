@@ -166,11 +166,21 @@ const http404 = (res) => {
 
 const del = (req, res) => {
   // console.log('Path on delete', req.file_path);
-  fs.unlink(req.file_path, (err) => {
-    if (err) throw err;
-    // console.log(req.file_path + ' was deleted');
+  fs.unlink(req.file_path, (error) => {
+    if (error) {
+      console.error(error);
+      if (error.code === 'ENOENT') {
+          return http404(res);
+      } else {
+          res.writeHead(500);
+          res.end('error: ' + error.code + ' ..\n');
+      }
+    } else {
+      // console.log(req.file_path + ' was deleted');
+      res.writeHead(204);
+      res.end();
+    }
   });
-  res.end();
 }
 
 http.createServer((req, res) => {
@@ -190,16 +200,6 @@ http.createServer((req, res) => {
     if (req.method == 'POST') {
         return upload(req, res);
     }
-
-    // Gian: making sure requests for js files from /dir are handled correctly.
-    // if (path.extname(req.file_path) === ".js" || path.extname(req.file_path) === ".css") {
-    //   if (path.extname(req.file_path) === ".css") {
-    //     req.file_path = `public${path.sep}assets${path.sep}${toks[toks.length - 1]}`;
-    //   } else {
-    //     req.file_path = `public${path.sep}${toks[toks.length - 1]}`;
-    //   }
-    //   return cat(req, res);
-    // }
 
     if (command === '') {
         command = 'cat';
