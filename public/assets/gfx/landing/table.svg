@@ -85,7 +85,7 @@
       }
     </style>
   </defs>
-  <title>table</title>
+  <title>features-table</title>
   <g id="Layer_2" data-name="Layer 2">
     <g id="section">
       <g id="table">
@@ -98,7 +98,7 @@
         <text class="cls-3" transform="translate(59.13 24.85) scale(0.93 1)">Featu<tspan class="cls-4" x="40.29" y="0">r</tspan><tspan class="cls-5" x="45.85" y="0">e</tspan></text>
         <text class="cls-3" transform="translate(318.34 24.85) scale(0.93 1)">FTP</text>
         <text class="cls-3" transform="translate(378.49 24.84) scale(0.93 1)">Email</text>
-        <text class="cls-6" transform="translate(457 24.84) scale(0.93 1)">SendCrypt</text>
+        <text class="cls-6" transform="translate(457 24.84) scale(0.93 1)">CryptSend</text>
         <text class="cls-7" transform="translate(12.37 66.23) scale(0.87 1)">Open Sou<tspan class="cls-8" x="59.79" y="0">r</tspan><tspan x="63.97" y="0">ce</tspan></text>
         <rect class="cls-9" y="78.66" width="567.59" height="34.42"/>
         <text class="cls-7" transform="translate(12.01 100.76) scale(0.87 1)"><tspan class="cls-10">T</tspan><tspan x="6.4" y="0">rustless client encryption</tspan></text>
