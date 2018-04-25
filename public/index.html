@@ -1,29 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SendCrypt</title>
 
-<html>
-<style>
-    body {
-        font-family: sans-serif;
-    }
-    h1 {
-        text-align: center;
-    }
-    a {
-        background: gold;
-        padding: 1vw 4vw;
-        font-size: 4vw;
-        border-radius: 1vw;
-        color: black;
-        display: inline-block;
-    }
-    p {
-        text-align: center;
-    }
-</style>
+    <!--FAVICON-->
+    <link rel="icon" type="favicon" href="/cat/public/favicon.ico" sizes="16x16"/>
+
+
+    <!--jQUERY-->
+
+    <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
+
+    <!--jQUERY UI-->
+    <!--<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>-->
+
+
+    <!--CUSTOM JAVASCRIPT-->
+    <script src="/cat/public/assets/js/navbar.js"></script>
+    <!--<script src="assets/js/header-animation.js"></script>-->
+    <!--<script src="assets/js/landing-animations.js"></script>-->
+
+
+
+
+
+    <!--CONTENT-->
+    <link rel="stylesheet" href="/cat/public/assets/css/content/buttons.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/content/icons.css">
+
+    <!--CUSTOM CSS-->
+    <link rel="stylesheet" href="/cat/public/assets/css/section-animation.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/others/normalize.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/others/cf.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/grids/desktop-grid.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/grids/mobile-grid.css">
+
+    <!--ANIMATIONS-->
+    <link rel="stylesheet" href="/cat/public/assets/css/animations/landing.css">
+
+
+    <!--LANDING PAGE-->
+    <link rel="stylesheet" href="/cat/public/assets/css/landing.css">
+
+
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <!--FONTAWESOME-->
+    <link rel="stylesheet" href="/cat/public/assets/fonts/fontawesome-all.css">
+    <!--CUSTOM FONTS-->
+    <link rel="stylesheet" href="/cat/public/assets/fonts/helvetica-neue/stylesheet.css">
+
+
+    <!--MENU SCROLLING EFFECT-->
+    <!--<script src="assets/js/scroll-section.js"></script>-->
+
+</head>
 <body>
-<h1>Sendcrypt</h1>
-<p>
-    <a href="/mkdir">upload files</a>
-</p>
+
+<header class="col-sm-12 col-md-12">
+
+    <nav class="wrapper">
+
+        <div class="col-sm-8 col-md-3">
+
+            <a href="/cat/public/index.html">
+                <img src="/cat/public/assets/gfx/logo.svg" alt="Sendcrypt Logo" class="sendcrypt-logo">
+            </a>
+
+        </div>
+
+        <div class="col-sm-4 mobile-only">
+            <i class="fas fa-bars navbar-menu-icon"></i>
+        </div>
+
+
+        <div class="desktop-only col-md-9">
+
+            <ul class="navbar-menu">
+                <li class="menu-features">
+                    <a href="#section-features">Features</a>
+                </li>
+
+                <li class="menu-how-it-works">
+                    <a href="#section-how-it-works"> How it Works</a>
+                </li>
+
+                <li class="menu-web-crypto">
+                    <a href="#section-web-crypto">Web Crypto</a>
+                </li>
+
+
+                <li class="menu-open-source">
+                    <a href="#open-source-section"> Github</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </nav>
+
+
+    <div class="mobile-only col-sm-12 slider closed" id="menu-mobile">
+        <ul class="navbar-menu-mobile">
+            <li class="menu-features">
+                <a href="#section-features">Features</a>
+            </li>
+
+            <li class="menu-how-it-works">
+                <a href="#section-how-it-works"> How it Works</a>
+            </li>
+
+            <li class="menu-web-crypto">
+                <a href="#section-web-crypto">Web Crypto</a>
+            </li>
+
+            <li class="menu-open-source">
+                <a href="#open-source-section"> Github</a>
+            </li>
+
+
+        </ul>
+    </div>
+
+</header>
+
+
+<main class="col-sm-12 col-md-12">
+
+
+    <section class="main-section">
+
+
+        <!--CONTENT-->
+
+        <div class="main-section-title">
+            Don't trust others with your data
+
+            <span class="main-section-subtitle"> There's simply no reason to. </span>
+
+
+            <!--CUSTOM BUTTON-->
+            <!-- <a href="upload.html"> -->
+            <a href="/mkdir">
+                <div class="btn btn-cta btn-shadow" id="btn-cta-landing">
+                    Upload Your Files
+                    <img src="/cat/public/assets/gfx/custom-icons/upload-icon.svg" alt="upload icon" class="custom-icon">
+                    <!--<i class="fa fa-upload"></i>-->
+                </div>
+            </a>
+            <!--END CUSTOM BUTTON-->
+
+
+        </div>
+
+        <!--END CONTENT-->
+
+        <!--SVG IMG AND ANIMATION-->
+        <!--<div class="squares">-->
+        <!--</div>-->
+        <img src="/cat/public/assets/gfx/server.svg" alt="Server" id="server">
+        <img src="/cat/public/assets/gfx/server.svg" alt="Server" id="server2">
+
+    </section>
+
+
+    <!--SECTION FEATURES-->
+    <section class="wrapper col-sm-12 col-md-12" id="section-features">
+
+
+        <!--SECTION-->
+        <div class="section-title col-sm-12 col-md-6 section-align-left" style=" margin-top:3rem;">
+
+            Trustless open source file sending
+
+
+            <div class="section-content section-align-left" style="padding-right:2rem;">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet
+                dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+                suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </div>
+
+            <!--CROSS BROWSER ICONS-->
+            <div class="cross-browser-wrapper">
+
+                <div class="cross-browser-title">Cross-browser Compatibility</div>
+
+
+                <span class="cross-browser-icon-wrapper">
+                           <img src="/cat/public/assets/gfx/landing/chrome-square.svg" alt="crossbrowser icon"
+                                class="crossbrowser-icon">
+
+                  <img src="/cat/public/assets/gfx/landing/firefox-square.svg" alt="crossbrowser icon" class="crossbrowser-icon">
+
+                  <img src="/cat/public/assets/gfx/landing/safari-square.svg" alt="crossbrowser icon" class="crossbrowser-icon">
+                    </span>
+
+            </div>
+            <!--END CROSS BROWSER ICONS-->
+
+        </div>
+
+
+        <div class="section-img col-sm-12 col-md-6 desktop-only">
+
+            <div class="section-first-table">
+
+                <img src="/cat/public/assets/gfx/landing/table.svg" alt="Features table" class="section-table-img">
+
+
+            </div>
+        </div>
+
+
+    </section>
+    <!--END SECTION-->
+
+
+    <!--DIVISOR-->
+    <span class="wrapper">
+           <div class="section-divisor col-sm-12 col-md-12"></div>
+    </span>
+    <!--END DIVISOR-->
+
+    <!--SENSITIVE DATA SECTION-->
+    <section class="section-right wrapper col-sm-12 col-md-12" id="section-how-it-works">
+
+
+        <div class="section-title col-sm-12 col-md-6 section-align-right section-float-right" id="how-it-works-title">
+            How it Works?
+
+
+            <div class="section-content section-align-right" style="padding-left:2rem;">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+            </div>
+            <a href="#">
+                <div class="btn btn-primary btn-medium btn-center btn-shadow" id="btn-get-started">Get Started Now</div>
+            </a>
+
+        </div>
+
+        <div class="how-it-works-img col-sm-12 col-md-6 section-float-left">
+            <img src="/cat/public/assets/gfx/landing/how-it-works.svg" alt="How it works">
+        </div>
+
+
+    </section>
+    <!--END SENSITIVE DATA SECTION-->
+
+    <span class="wrapper">
+           <div class="section-divisor col-sm-12 col-md-12"></div>
+    </span>
+
+
+    <!--WEB CRYPTO SECTION-->
+    <section class="wrapper col-sm-12 col-md-12" id="section-web-crypto">
+
+
+        <!--SECTION-->
+        <div class="section-title col-sm-12 col-md-6 section-align-left">
+
+            Web Crypto
+
+
+            <div class="section-content section-align-left" style="padding-right:2rem;">
+
+                <p> The reality is, risk is complex, and it's about practical ways to reduce surface area. Web crypto is
+                    an additional layer that makes it much harder for an attacker to reach someone's private data. </p>
+
+                <p> Self
+                    hosting is yet another way, Open source is another (allows verification),Signed javascripts are another,
+                    and so on.</p>
+
+                <p>Just because even combined it's not perfect, doesn't mean users shouldn't have access to the
+                    best thing available instead of using file sharing programs with none of these features</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="section-img col-sm-12 col-md-6">
+
+            <a href="https://github.com/countable-web/sendcrypt" target="_blank">
+
+                <img src="/cat/public/assets/gfx/landing/crypto-icon.svg" alt="Web Crypto" class="section-img web-crypto-svg">
+
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+    <!--END WEB CRYPTO SECTION-->
+
+
+    <span class="wrapper">
+           <div class="section-divisor col-sm-12 col-md-12"></div>
+    </span>
+
+    <!--OPEN SOURCE SECTION-->
+    <section class="wrapper col-sm-12 col-md-12" id="section-open-source">
+
+
+        <!--SECTION-->
+        <div class="section-title col-sm-12 col-md-6 section-align-left" id="open-source-section">
+
+            Open Source Project
+
+
+            <div class="section-content section-align-left" style="padding-right:2rem;">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet
+                dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+                suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            </div>
+            <a href="https://github.com/countable-web/sendcrypt" target="_blank">
+                <div class="btn btn-primary btn-medium btn-center btn-shadow">Fork Us!</div>
+            </a>
+
+
+        </div>
+
+
+        <div class="section-img col-sm-12 col-md-6">
+
+            <a href="https://github.com/countable-web/sendcrypt" target="_blank"> <img src="/cat/public/assets/gfx/octocat.png"
+                                                                                       alt="Octocat Github"
+                                                                                       class="octocat"></a>
+
+
+        </div>
+
+
+    </section>
+    <!--END OPEN SOURCE SECTION-->
+
+    <span class="wrapper">
+           <div class="section-divisor col-sm-12 col-md-12"></div>
+    </span>
+
+    <!--ABOUT US SECTION-->
+    <section class="section-right wrapper col-sm-12 col-md-12" id="section-about-us">
+
+
+        <div class="section-title col-sm-12 col-md-6 section-align-right section-float-right">
+            About Us
+
+
+            <div class="section-content section-align-right" style="padding-left:2rem;">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat.
+            </div>
+            <!--<div class="btn btn-primary btn-medium btn-center">Get Started Now</div>-->
+
+        </div>
+
+        <div class="section-img col-sm-12 col-md-6 section-float-left">
+            <img src="/cat/public/assets/gfx/landing/countable-web.png" alt="Countable Logo">
+        </div>
+
+
+    </section>
+    <!--END SECTION-->
+
+</main>
+
+
+<footer class="col-sm-12 col-md-12">
+
+    <p><a href="https://github.com/countable-web/sendcrypt" target="_blank"><i class="fab fa-github"></i></a> This open
+        source project is maintained by <a href="http://countable.ca/"
+                                           target="_blank"><strong>Countable.ca</strong></a> <a href="/cat/public/credits.html">- Credits</a></p>
+
+</footer>
+
+
+<!--CUSTOM SCRIPTS-->
+<!--MODAL-->
+<!--<script src="node_modules/izimodal/js/iziModal.min.js"></script>-->
 
 </body>
 </html>

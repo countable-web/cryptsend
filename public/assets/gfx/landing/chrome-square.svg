@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 69.98 69.98">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #495f7f;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-1, .cls-2 {
+        opacity: 0.41;
+      }
+
+      .cls-3 {
+        fill: #495f7f;
+      }
+    </style>
+  </defs>
+  <title>Asset 6</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="section">
+      <g>
+        <rect class="cls-1" x="1" y="1" width="67.98" height="67.98"/>
+        <g id="_Group_" data-name="&lt;Group&gt;" class="cls-2">
+          <path id="_Path_" data-name="&lt;Path&gt;" class="cls-3" d="M27.69,35a7.3,7.3,0,1,0,7.3-7.3A7.31,7.31,0,0,0,27.69,35Z"/>
+          <path id="_Path_2" data-name="&lt;Path&gt;" class="cls-3" d="M51.8,25.35a.32.32,0,0,0,0-.32A19.52,19.52,0,0,0,35,15.45a19.45,19.45,0,0,0-15.27,7.35.32.32,0,0,0,0,.36l5.5,9.52a.32.32,0,0,0,.28.16h0a.32.32,0,0,0,.27-.24A9.51,9.51,0,0,1,35,25.48c.27,0,.55,0,.83,0H51.52A.32.32,0,0,0,51.8,25.35Z"/>
+          <path id="_Path_3" data-name="&lt;Path&gt;" class="cls-3" d="M37.88,44.27a.32.32,0,0,0-.34-.11A9.51,9.51,0,0,1,26.38,39v0L18.52,25.41a.32.32,0,0,0-.28-.16h0a.32.32,0,0,0-.28.16,19.54,19.54,0,0,0,14.11,28.9h0a.32.32,0,0,0,.28-.16l5.5-9.53A.32.32,0,0,0,37.88,44.27Z"/>
+          <path id="_Path_4" data-name="&lt;Path&gt;" class="cls-3" d="M52.88,27.65h-11a.32.32,0,0,0-.22.55A9.49,9.49,0,0,1,42.8,40.41v0L34.93,54a.32.32,0,0,0,.28.48h0a19.54,19.54,0,0,0,18-26.67A.32.32,0,0,0,52.88,27.65Z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

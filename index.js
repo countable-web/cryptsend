@@ -35,7 +35,7 @@ const upload = (req, res) => {
     var paths = [],
         ajax = false;
 
-    console.log('File path on Upload:', req.file_path);
+    // console.log('File path on Upload:', req.file_path);
 
     form.uploadDir = req.file_path;
 
@@ -44,11 +44,11 @@ const upload = (req, res) => {
         //TODO: Possible problem when using POSIX file paths on Windows.
         //DONE: Using path.sep instead of "/" (which is not Windows compliant).
         // file.path = form.uploadDir + "/" + encodeURIComponent(file.name);
-        console.log('Upload Directory:', form.uploadDir);
-        console.log('File Name:', file.name);
-        console.log('Encoded File Name:', encodeURIComponent(file.name));
+        // console.log('Upload Directory:', form.uploadDir);
+        // console.log('File Name:', file.name);
+        // console.log('Encoded File Name:', encodeURIComponent(file.name));
         file.path = form.uploadDir + path.sep + encodeURIComponent(file.name);
-        console.log('File Path:', file.path);
+        // console.log('File Path:', file.path);
         paths.push(file.path);
     });
 
@@ -62,7 +62,7 @@ const upload = (req, res) => {
     form.on('end', function() {
         var content, contentType, success = true;
         if (paths.length) {
-            console.log('paths', paths);
+            // console.log('paths', paths);
             // New paths:
             var newfiles = paths.map(function(f) {
                 return server + f.replace(/^.\/public/g, '');
@@ -136,6 +136,9 @@ const cat = (req, res) => {
         case '.jpg':
             contentType = 'image/jpg';
             break;
+        case '.svg':
+            contentType = 'image/svg+xml';
+            break;
     }
     fs.readFile(req.file_path, function(error, content) {
         if (error) {
@@ -161,25 +164,41 @@ const http404 = (res) => {
     res.end("no such file.");
 }
 
+const del = (req, res) => {
+  // console.log('Path on delete', req.file_path);
+  fs.unlink(req.file_path, (error) => {
+    if (error) {
+      console.error(error);
+      if (error.code === 'ENOENT') {
+          return http404(res);
+      } else {
+          res.writeHead(500);
+          res.end('error: ' + error.code + ' ..\n');
+      }
+    } else {
+      // console.log(req.file_path + ' was deleted');
+      res.writeHead(204);
+      res.end();
+    }
+  });
+}
+
 http.createServer((req, res) => {
 
     var _tmp = req.url.split("?");
     const query = _tmp[1];
     var toks = _tmp[0].split("/");
-    console.log("toks", toks);
+    // console.log("toks", toks);
 
     req.file_path = toks.slice(2).join(path.sep);
     var command = toks[1];
 
-    console.log(req.method);
+    // console.log(req.method);
+    if (req.method == 'DELETE') {
+      return del(req, res);
+    }
     if (req.method == 'POST') {
         return upload(req, res);
-    }
-
-    //Gian: making sure requests for js files from /dir are handled correctly.
-    if (path.extname(req.file_path) === ".js") {
-      req.file_path = `public${path.sep}${toks[toks.length - 1]}`;
-      return cat(req, res);
     }
 
     if (command === '') {

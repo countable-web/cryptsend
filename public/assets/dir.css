@@ -1,0 +1,332 @@
+html, main, body {
+  background-color: #1E1E1E;
+}
+
+.hidden {
+  display: none;
+}
+
+.dir-upload-wrapper {
+  border-radius: 1rem;
+  padding: 1.5rem 5%;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 1rem;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.box.is-success .box__success {
+  margin-bottom: 2.5rem;
+}
+
+.box__message > p {
+  font-size: 1.2rem;
+}
+
+.dir-files-wrapper {
+  padding: 1.5rem 5% 0;
+  border-top: 1px solid #1E1E1E;
+}
+
+.files-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.files-list > li {
+  line-height: 2;
+  cursor: pointer;
+  border: 1px solid #fff;
+  margin-bottom: 1px;
+}
+
+.files-list > li > a {
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  width: 80%;
+  border: 1px solid #eee;
+  border-right: none;
+  text-decoration: none;
+  color: #000;
+}
+
+.files-list > li:nth-child(2n) > a {
+  background-color: #eee;
+}
+
+.files-list > li > a:hover {
+  border-color: #bbb;
+}
+
+.files-list > li > div {
+  display: block;
+  float: right;
+  box-sizing: border-box;
+  width: 20%;
+  background-color: #bbb;
+  border: 1px solid #bbb;
+  font-variant: small-caps;
+}
+
+.files-list > li > div:hover {
+  background-color: #3A3A3A;
+  color: #fff;
+}
+
+#del-feedback {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: #4BB543;
+  line-height: 3;
+  color: black;
+}
+
+/* CLEARFIX */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+#share-link-wrapper > a {
+  margin-top: .3rem;
+  padding: 1rem;
+  font-variant: small-caps;
+  display: block;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  background-color: #eee;
+  color: #000;
+  text-decoration: none;
+}
+
+#share-link-wrapper > a:hover {
+  color: #fff;
+  background-color: #3A3A3A;
+}
+
+/* Original style (with some small modifications): */
+
+html
+{
+}
+  body
+  {
+    font-family: Roboto, sans-serif;
+    /*color: #0f3c4b;*/
+    color: #3A3A3A;
+    /*background-color: #fff;*/
+    /*padding: 5rem 1.25rem;*/
+    padding: 5rem 5%; /* 80 20 */
+  }
+
+  .container
+  {
+    width: 100%;
+    text-align: center;
+  }
+
+    .container h1
+    {
+      font-size: 42px;
+      font-weight: 300;
+      color: #0f3c4b;
+      margin-bottom: 40px;
+    }
+    .container h1 a:hover,
+    .container h1 a:focus
+    {
+      color: #39bfd3;
+    }
+
+    .container nav
+    {
+      margin-bottom: 40px;
+    }
+      .container nav a
+      {
+        border-bottom: 2px solid #c8dadf;
+        display: inline-block;
+        padding: 4px 8px;
+        margin: 0 5px;
+      }
+      .container nav a.is-selected
+      {
+        font-weight: 700;
+        color: #39bfd3;
+        border-bottom-color: currentColor;
+      }
+      .container nav a:not( .is-selected ):hover,
+      .container nav a:not( .is-selected ):focus
+      {
+        border-bottom-color: #0f3c4b;
+      }
+
+    .box
+    {
+      font-size: 1.25rem; /* 20 */
+      /*background-color: #f8f8f8;*/
+      /*position: relative;*/
+      padding: 100px 20px;
+    }
+    .box.has-advanced-upload
+    {
+      outline: 2px dashed #ddd;
+      outline-offset: -2px;
+
+      -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    }
+    .box.is-dragover
+    {
+      outline-offset: -20px;
+      outline-color: #c8dadf;
+      background-color: #fff;
+    }
+      .box__dragndrop,
+      .box__icon
+      {
+        display: none;
+      }
+      .box.has-advanced-upload .box__dragndrop
+      {
+        display: inline;
+      }
+      .box.has-advanced-upload .box__icon
+      {
+        width: 100%;
+        height: 80px;
+        fill: #92b0b3;
+        display: block;
+        margin-bottom: 40px;
+      }
+
+      .box.is-uploading .box__input,
+      .box.is-success .box__input,
+      .box.is-error .box__input
+      {
+        visibility: hidden;
+      }
+
+      .box__uploading,
+      .box__success,
+      .box__error
+      {
+        display: none;
+      }
+      .box.is-uploading .box__uploading,
+      .box.is-success .box__success,
+      .box.is-error .box__error
+      {
+        display: block;
+        /*position: absolute;*/
+        /*top: 50%;*/
+        right: 0;
+        left: 0;
+
+        -webkit-transform: translateY( -50% );
+        transform: translateY( -50% );
+      }
+      .box__uploading
+      {
+        font-style: italic;
+      }
+      .box__success
+      {
+        -webkit-animation: appear-from-inside .25s ease-in-out;
+        animation: appear-from-inside .25s ease-in-out;
+      }
+        @-webkit-keyframes appear-from-inside
+        {
+          from	{ -webkit-transform: translateY( -50% ) scale( 0 ); }
+          75%		{ -webkit-transform: translateY( -50% ) scale( 1.1 ); }
+          to		{ -webkit-transform: translateY( -50% ) scale( 1 ); }
+        }
+        @keyframes appear-from-inside
+        {
+          from	{ transform: translateY( -50% ) scale( 0 ); }
+          75%		{ transform: translateY( -50% ) scale( 1.1 ); }
+          to		{ transform: translateY( -50% ) scale( 1 ); }
+        }
+
+      .box__restart
+      {
+        font-weight: 700;
+      }
+      .box__restart:focus,
+      .box__restart:hover
+      {
+        color: #39bfd3;
+      }
+
+      .js .box__file
+      {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        /*position: absolute;*/
+        z-index: -1;
+      }
+      .js .box__file + label
+      {
+        max-width: 80%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+      }
+      .js .box__file + label:hover strong,
+      .box__file:focus + label strong,
+      .box__file.has-focus + label strong
+      {
+        color: #39bfd3;
+      }
+      .js .box__file:focus + label,
+      .js .box__file.has-focus + label
+      {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px;
+      }
+        .js .box__file + label *
+        {
+          /* pointer-events: none; */ /* in case of FastClick lib use */
+        }
+
+      .no-js .box__file + label
+      {
+        display: none;
+      }
+
+      .no-js .box__button
+      {
+        display: block;
+      }
+      .box__button
+      {
+        font-weight: 700;
+        color: #e5edf1;
+        background-color: #39bfd3;
+        display: none;
+        padding: 8px 16px;
+        margin: 40px auto 0;
+      }
+        .box__button:hover,
+        .box__button:focus
+        {
+          background-color: #0f3c4b;
+        }
