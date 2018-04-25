@@ -26,6 +26,5 @@ The concept is that it's 2018 and there's no really good general purpose file sh
 This would be useful for any transmission of sensitive data you don't want a trail of in emails, or for files too big for email. The closest thing I've found to this service is things like wetransfer.com but they only fill half the above bullets.
 
 TODO: 
-  - client encryption
   - client receive mode
   - electron / cordova / whatever packaging for devices?
