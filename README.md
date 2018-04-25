@@ -1,4 +1,4 @@
-# sendcrypt (new name pending)
+# CryptSend.io
 
 ## run
 
