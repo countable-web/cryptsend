@@ -6,18 +6,23 @@
   //Functions for handling file decryption:
   const handleFileDownload = (e) => {
     e.preventDefault;
-    let currentLink = e.currentTarget;
-    if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
-      // currentLink.setAttribute('download', currentLink.innerText);
-      const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
-      fetch(filePath)
-      .then(res => res.blob())
-      .then(blob => decryptFile(blob))
-      .then(downloadLink => {
-        currentLink.setAttribute('href', downloadLink);
-        currentLink.setAttribute('download', currentLink.innerText);
-        currentLink.click();
-      });
+    if (window.location.hash) {
+      let currentLink = e.currentTarget;
+      if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
+        // currentLink.setAttribute('download', currentLink.innerText);
+        const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
+        fetch(filePath)
+        .then(res => res.blob())
+        .then(blob => decryptFile(blob))
+        .then(downloadLink => {
+          currentLink.setAttribute('href', downloadLink);
+          currentLink.setAttribute('download', currentLink.innerText);
+          currentLink.click();
+        });
+      }
+    } else {
+      //TODO: better feedback?
+      window.alert('Error: no hash found.');
     }
   };
 
