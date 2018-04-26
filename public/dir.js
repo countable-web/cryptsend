@@ -62,7 +62,6 @@
 
   const removeListItem = (item) => (e) => {
     item.parentElement.remove();
-    // console.log(e.currentTarget);
     // window.alert(`${item.parentElement.firstElementChild.textContent} was deleted successfully.`);
     deletionFeedback(item.parentElement.firstElementChild.textContent);
     if (document.getElementsByClassName('files-list')[0].children.length === 0) {
@@ -92,14 +91,13 @@
         for (let button of buttons) {
           button.addEventListener('click', (e) => {
             if (window.confirm(`Are you sure you want to delete ${e.currentTarget.parentElement.firstElementChild.innerText}`)) {
-              let deleteRequest = new XMLHttpRequest();
-              deleteRequest.onload = removeListItem(e.currentTarget);
-              deleteRequest.onerror = (e) => {
-                //TODO: Other ways to feedback error?
-                window.alert(e.currentTarget.response);
-              }
-              deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
-              deleteRequest.send();
+              fetch(`${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, {
+                method: 'DELETE'
+              })
+              .then(removeListItem(e.currentTarget))
+              .catch(error => {
+                window.alert(error);
+              });
             }
           });
         }
@@ -227,44 +225,31 @@
 						});
 					}
 
-					// ajax request
-					var ajax = new XMLHttpRequest();
-					ajax.open( form.getAttribute( 'method' ), form.getAttribute( 'action' ), true );
+          const status = response => {
+            if( response.status >= 200 && response.status < 400 ) {
+              return Promise.resolve(response);
+            } else {
+              return Promise.reject(new Error(response.statusText));
+            }
+          }
 
-					ajax.onload = function()
-					{
-						// console.log('onload');
-						form.classList.remove( 'is-uploading' );
-						if( ajax.status >= 200 && ajax.status < 400 )
-						{
-							var data = JSON.parse( ajax.responseText );
-							form.classList.add( data.success == true ? 'is-success' : 'is-error' );
-              data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
-
-                // document.getElementsByClassName('box__input')[0].innerHTML = '';
-                document.querySelector('.box__message').innerHTML = "Uploaded to your <a href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p>Do not lose this link, or the uploaded files will never be found again!</p>";
-                //Gian: forcing a page refresh (which will not happen after the insertion of the hash).
-                document.querySelector('.box__message > a').addEventListener('click', (e) => {
-                  window.location.reload();
-                });
-                if (!window.location.hash) {
-                  window.location.href += '#' + hash;
-                }
-                listingFiles();
-
-							if( !data.success ) errorMsg.textContent = data.error;
-						}
-						else alert( 'Error. Please, contact the webmaster!' );
-					};
-
-					ajax.onerror = function()
-					{
-						form.classList.remove( 'is-uploading' );
-						alert( 'Error. Please, try again!' );
-					};
+          const uploadFile = async ajax => {
+            form.classList.remove( 'is-uploading' );
+            let data = await ajax.json();
+            form.classList.add( data.success == true ? 'is-success' : 'is-error' );
+            data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
+            document.querySelector('.box__message').innerHTML = "Uploaded to your <a href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p>Do not lose this link, or the uploaded files will never be found again!</p>";
+            document.querySelector('.box__message > a').addEventListener('click', e => {
+              window.location.reload();
+            });
+            if (!window.location.hash) {
+              window.location.href += '#' + hash;
+            }
+            listingFiles();
+            if( !data.success ) errorMsg.textContent = data.error;
+          };
 
           let hash = window.location.hash ? window.location.hash.slice(1) : '';
-          // console.log(hash);
           encryptFiles([
             ajaxData.getAll(input.getAttribute('name')),
             hash
@@ -275,7 +260,16 @@
             for (const [name, value] of Object.entries(encryptedFiles)) {
               ajaxData.append( input.getAttribute( 'name' ), value, name );
             }
-            ajax.send( ajaxData );
+            fetch(form.getAttribute( 'action' ), {
+              method: 'POST',
+              body: ajaxData
+            })
+            .then(status)
+            .then(uploadFile)
+            .catch(error => {
+              form.classList.remove( 'is-uploading' );
+              alert( 'Error. Please, try again!' );
+            });
           });
 				}
 				else // fallback Ajax solution upload for older browsers
