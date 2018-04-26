@@ -89,6 +89,23 @@ html, main, body {
   color: black;
 }
 
+.dir-files-wrapper > div:first-child {
+  float: left;
+  line-height: 2;
+  width: 80%;
+  background-color: #eee;
+  font-variant: small-caps;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  color: black;
+}
+
+#ls {
+  clear: both;
+}
+
 /* CLEARFIX */
 
 .cf:before,
