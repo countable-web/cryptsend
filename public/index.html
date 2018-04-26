@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SendCrypt</title>
+    <title>CryptSend</title>
 
     <!--FAVICON-->
     <link rel="icon" type="favicon" href="/cat/public/favicon.ico" sizes="16x16"/>
@@ -25,9 +25,6 @@
     <!--<script src="assets/js/landing-animations.js"></script>-->
 
 
-
-
-
     <!--CONTENT-->
     <link rel="stylesheet" href="/cat/public/assets/css/content/buttons.css">
     <link rel="stylesheet" href="/cat/public/assets/css/content/icons.css">
@@ -38,6 +35,7 @@
     <link rel="stylesheet" href="/cat/public/assets/css/others/cf.css">
     <link rel="stylesheet" href="/cat/public/assets/css/grids/desktop-grid.css">
     <link rel="stylesheet" href="/cat/public/assets/css/grids/mobile-grid.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/table.css">
 
     <!--ANIMATIONS-->
     <link rel="stylesheet" href="/cat/public/assets/css/animations/landing.css">
@@ -48,7 +46,8 @@
 
 
     <!--FONTS-->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!--<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">-->
+    <link rel="stylesheet" href="/cat/public/assets/fonts/confortaa-font/stylesheet.css">
 
     <!--FONTAWESOME-->
     <link rel="stylesheet" href="/cat/public/assets/fonts/fontawesome-all.css">
@@ -69,7 +68,7 @@
         <div class="col-sm-8 col-md-3">
 
             <a href="/cat/public/index.html">
-                <img src="/cat/public/assets/gfx/logo.svg" alt="Sendcrypt Logo" class="sendcrypt-logo">
+                <img src="/cat/public/assets/gfx/logo.svg" alt="CryptSend Logo" class="sendcrypt-logo">
             </a>
 
         </div>
@@ -151,11 +150,21 @@
             <a href="/mkdir">
                 <div class="btn btn-cta btn-shadow" id="btn-cta-landing">
                     Auto-encrypt &amp; Upload
-                    <img src="/cat/public/assets/gfx/custom-icons/upload-icon.svg" alt="upload icon" class="custom-icon">
+                    <img src="/cat/public/assets/gfx/custom-icons/upload-icon.svg" alt="upload icon"
+                         class="custom-icon">
                     <!--<i class="fa fa-upload"></i>-->
+
+
                 </div>
+
             </a>
             <!--END CUSTOM BUTTON-->
+            <div class="alpha-disclaimer"><p><strong>Disclaimer: </strong>This is a brand new site! we are alpha testing
+                an security auditing it! Do NOT store private data here yet until we finish testing and try to hack it
+                for a while.
+                Only store
+                data which would have a low impact if lost or stolen. </p>
+            </div>
 
 
         </div>
@@ -182,32 +191,23 @@
 
 
             <div class="section-content section-align-left" style="padding-right:2rem;">
-                It's 2018, and we've been unable to find a simple way to send
-                files to each other without also sharing it with dozens of cloud provider companies in between. Any of these
-                companies could be next on the news with a data breach. Large risk, or small, there's simply no reason to share
-                anyone's private data with several arbitrary parties. Infact, it's ethically questionable to do so. In many cases
-                we have a non-disclosure agreement with one party, and then send their data through several others with whom we have
-                damage waivers signed when clicking past their terms of service. So, what's the point of an NDA when your data is all over the
-                cloud, and could easily be all over the web in the next breach?
-            </div>
 
-            <!--CROSS BROWSER ICONS-->
-            <div class="cross-browser-wrapper">
+                <p>It's 2018, and we've been unable to find a simple way to send
+                    files to each other without also sharing it with dozens of cloud provider companies in between. Any
+                    of these
+                    companies could be next on the news with a data breach. Large risk, or small, there's simply no
+                    reason to share
+                    anyone's private data with several arbitrary parties.</p>
 
-                <div class="cross-browser-title">Cross-browser Compatibility</div>
-
-
-                <span class="cross-browser-icon-wrapper">
-                           <img src="/cat/public/assets/gfx/landing/chrome-square.svg" alt="crossbrowser icon"
-                                class="crossbrowser-icon">
-
-                  <img src="/cat/public/assets/gfx/landing/firefox-square.svg" alt="crossbrowser icon" class="crossbrowser-icon">
-
-                  <img src="/cat/public/assets/gfx/landing/safari-square.svg" alt="crossbrowser icon" class="crossbrowser-icon">
-                    </span>
+                <p>Infact, it's ethically questionable to do so. In many cases
+                    we have a non-disclosure agreement with one party, and then send their data through several others
+                    with whom we have
+                    damage waivers signed when clicking past their terms of service. So, what's the point of an NDA when
+                    your data is all over the
+                    cloud, and could easily be all over the web in the next breach?</p>
 
             </div>
-            <!--END CROSS BROWSER ICONS-->
+
 
         </div>
 
@@ -216,7 +216,150 @@
 
             <div class="section-first-table">
 
-                <img src="/cat/public/assets/gfx/landing/table.svg" alt="Features table" class="section-table-img">
+                <table class="features-table">
+
+                    <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Similar Products</th>
+                        <th>FTP</th>
+                        <th>Email</th>
+                        <th class="blue-row">CryptSend</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <!--TABLE ROW-->
+                    <tr>
+                        <td>Open Source</td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-check"></i>
+                        </td>
+                        <td>
+                            Some
+                        </td>
+                        <td class="blue-row">
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                    <!--END TABLE ROW-->
+
+                    <!--TABLE ROW-->
+                    <tr>
+                        <td>Trustless Client Encryption</td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td class="blue-row">
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                    <!--END TABLE ROW-->
+
+                    <!--TABLE ROW-->
+                    <tr>
+                        <td>Self Hosting</td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            Some
+                        </td>
+                        <td>
+                            Some
+                        </td>
+                        <td class="blue-row">
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                    <!--END TABLE ROW-->
+
+                    <!--TABLE ROW-->
+                    <tr>
+                        <td>Web Interface</td>
+                        <td>
+                            <i class="fas fa-check"></i>
+                        </td>
+                        <td>
+                            Some
+                        </td>
+                        <td>
+                            Some
+                        </td>
+                        <td class="blue-row">
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                    <!--END TABLE ROW-->
+
+                    <!--TABLE ROW-->
+                    <tr>
+                        <td>Secure Link & No Auth</td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td class="blue-row">
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                    <!--END TABLE ROW-->
+
+                    <!--TABLE ROW-->
+                    <tr>
+                        <td>Work with Big Files</td>
+                        <td>
+                           Some
+                        </td>
+                        <td>
+                            <i class="fas fa-check"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td class="blue-row">
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                    <!--END TABLE ROW-->
+
+                    <!--TABLE ROW-->
+                    <tr>
+                        <td>No JS Dependencies</td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td>
+                            <i class="fas fa-times"></i>
+                        </td>
+                        <td class="blue-row">
+                            <i class="fas fa-check"></i>
+                        </td>
+                    </tr>
+                    <!--END TABLE ROW-->
+
+
+                    </tbody>
+
+
+                </table>
 
 
             </div>
@@ -226,10 +369,41 @@
     </section>
     <!--END SECTION-->
 
+    <!--DIVISOR-->
+    <span class="wrapper">
+           <div class="section-divisor col-sm-12 col-md-12" style="margin-top:1.5rem;margin-bottom:0rem;"></div>
+    </span>
+    <!--END DIVISOR-->
+
+
+    <section class="wrapper col-sm-12 col-md-12" id="section-cross-browser">
+
+        <!--CROSS BROWSER ICONS-->
+        <div class="cross-browser-wrapper">
+
+            <div class="cross-browser-title">Cross-browser Compatibility</div>
+
+
+            <span class="cross-browser-icon-wrapper">
+                           <img src="/cat/public/assets/gfx/landing/chrome-square.svg" alt="crossbrowser icon"
+                                class="crossbrowser-icon">
+
+                  <img src="/cat/public/assets/gfx/landing/firefox-square.svg" alt="crossbrowser icon"
+                       class="crossbrowser-icon">
+
+                  <img src="/cat/public/assets/gfx/landing/safari-square.svg" alt="crossbrowser icon"
+                       class="crossbrowser-icon">
+                    </span>
+
+        </div>
+        <!--END CROSS BROWSER ICONS-->
+
+    </section>
+
 
     <!--DIVISOR-->
     <span class="wrapper">
-           <div class="section-divisor col-sm-12 col-md-12"></div>
+           <div class="section-divisor col-sm-12 col-md-12" style="margin-top:-2.5rem;margin-bottom:1.5rem;"></div>
     </span>
     <!--END DIVISOR-->
 
@@ -242,9 +416,15 @@
 
 
             <div class="section-content section-align-right" style="padding-left:2rem;">
-                It all happens automatically. Your computer encrypts your data and then we store it. We can't see it because it's encrypted and we don't have the key.
-                Then, you share a link with the intended recipient. The link contains a key to decrypt the data, but [in a way that we never receive it](https://www.w3.org/2001/tag/doc/hash-in-url).
-                All you have to remember is, don't share (or lose) the secure link.
+                <p> It all happens automatically. Your computer encrypts your data and then we store it. We can't see it
+                    because it's encrypted and we don't have the key.
+                    Then, you share a link with the intended recipient. The link contains a key to decrypt the data, but
+                    <a href="https://www.w3.org/2001/tag/doc/hash-in-url" target="blank"> in
+                        a way that we never receive it.</a>
+                </p>
+
+
+                <p>All you have to remember is, don't share (or lose) the secure link.</p>
             </div>
             <a href="#">
                 <div class="btn btn-primary btn-medium btn-center btn-shadow" id="btn-get-started">Get Started Now</div>
@@ -276,17 +456,22 @@
 
 
             <div class="section-content section-align-left" style="padding-right:2rem;">
-                <p> The Web Crypto API provides a blanket of trustlessness for the cloud. One goal for this project is provide
-                    an example for more cloud services to provide client encryption. However, it's not perfect.</p>
-                <p> The reality is, privacy and security risks are complex, and it's about practical ways to reduce surface area. Web crypto is
+                <p> The reality is, privacy and security risks are complex, and it's about practical ways to reduce
+                    surface area. Web crypto is
                     a layer which makes it much harder for an attacker to reach someone's private data.</p>
+
 
                 <p>Here are some potential risks, take care.</p>
                 <ul>
                     <li>Rogue browser extensions - disable extensions you don't trust.</li>
                     <li>Secure link stored in your history - use incognito mode.</li>
-                    <li>Secure link is all-powerful - there is no additional auth layer, which is convenient but some cases may warrant a 2nd factor.</li>
-                    <li>XSS - We've looked for every possibile exploit we can think of but it's possible we missed one.</li>
+                    <li>Secure link is all-powerful - there is no additional auth layer, which is convenient but some
+                        cases may warrant a 2nd factor.
+                    </li>
+                    <li>XSS - We've looked for every possibile exploit we can think of but it's possible we missed
+                        one.
+                    </li>
+
                 </ul>
 
             </div>
@@ -296,9 +481,10 @@
 
         <div class="section-img col-sm-12 col-md-6">
 
-            <a href="https://github.com/countable-web/sendcrypt" target="_blank">
+            <a href="https://github.com/countable-web/cryptsend" target="_blank">
 
-                <img src="/cat/public/assets/gfx/landing/crypto-icon.svg" alt="Web Crypto" class="section-img web-crypto-svg">
+                <img src="/cat/public/assets/gfx/landing/crypto-icon.svg" alt="Web Crypto"
+                     class="section-img web-crypto-svg">
 
 
             </a>
@@ -326,24 +512,29 @@
 
 
             <div class="section-content section-align-left" style="padding-right:2rem;">
-                By making CryptSend open source, we allow and encourage peer review to maximize the chances of finding security flaws. This
-                also allows the community involvement and easily allows adding packaging or deployments for various environments.
+                By making CryptSend open source, we allow and encourage peer review to maximize the chances of finding
+                security flaws. This
+                also allows the community involvement and easily allows adding packaging or deployments for various
+                environments.
             </div>
-            <a href="https://github.com/countable-web/sendcrypt" target="_blank">
-                <div class="btn btn-primary btn-medium btn-center btn-shadow">Fork Us!</div>
+            <a href="https://github.com/countable-web/cryptsend" target="_blank" class="btn-link">
+                <div class="btn btn-primary btn-medium btn-center btn-shadow">Fork Us</div>
             </a>
-            <a href="https://github.com/countable-web/sendcrypt#self-host" target="_blank">
+            <span class="btn-or">or</span>
+            <a href="https://github.com/countable-web/cryptsend#self-host" target="_blank" class="btn-link">
                 <div class="btn btn-primary btn-medium btn-center btn-shadow">Self Host!</div>
             </a>
+
 
         </div>
 
 
         <div class="section-img col-sm-12 col-md-6">
 
-            <a href="https://github.com/countable-web/sendcrypt" target="_blank"> <img src="/cat/public/assets/gfx/octocat.png"
-                                                                                       alt="Octocat Github"
-                                                                                       class="octocat"></a>
+            <a href="https://github.com/countable-web/cryptsend" target="_blank"> <img
+                    src="/cat/public/assets/gfx/octocat.png"
+                    alt="Octocat Github"
+                    class="octocat"></a>
 
 
         </div>
@@ -353,7 +544,7 @@
     <!--END OPEN SOURCE SECTION-->
 
     <span class="wrapper">
-           <div class="section-divisor col-sm-12 col-md-12"></div>
+           <div class="section-divisor col-sm-12 col-md-12" style="margin-top:3.5rem;"></div>
     </span>
 
     <!--ABOUT US SECTION-->
@@ -365,8 +556,10 @@
 
 
             <div class="section-content section-align-right" style="padding-left:2rem;">
-                We're Countable Web Productions a web techn firm who believe in transparency and fun. We started CryptSend 
+                We're Countable Web Productions a web techn firm who believe in transparency and fun. We started
+                CryptSend
                 because we weren't comfortable sharing clients' private data on the cloud.
+
             </div>
             <!--<div class="btn btn-primary btn-medium btn-center">Get Started Now</div>-->
 
@@ -385,9 +578,10 @@
 
 <footer class="col-sm-12 col-md-12">
 
-    <p><a href="https://github.com/countable-web/sendcrypt" target="_blank"><i class="fab fa-github"></i></a> This open
+    <p><a href="https://github.com/countable-web/cryptsend" target="_blank"><i class="fab fa-github"></i></a> This open
         source project is maintained by <a href="http://countable.ca/"
-                                           target="_blank"><strong>Countable.ca</strong></a> <a href="/cat/public/credits.html">- Credits</a></p>
+                                           target="_blank"><strong>Countable.ca</strong></a> <a
+                href="/cat/public/credits.html">- Credits</a></p>
 
 </footer>
 
