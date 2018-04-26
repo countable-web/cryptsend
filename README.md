@@ -1,16 +1,20 @@
 # CryptSend.io
 
-## run
+### Stop leaking private data on the cloud.
+Share files with people you trust, and not all the cloud providers in between.
+
+## Self Host
 
 ```
+git clone git@github.com:countable-web/cryptsend.git
 docker-compose up
 ```
 
-visit localhost:1234
+visit localhost
 
-## concept
+## Concept
 
-Send files anywhere->anywhere securely
+Send files anywhere -> anywhere securely
 
 The concept is that it's 2018 and there's no really good general purpose file sharing tool.
 
@@ -22,9 +26,10 @@ The concept is that it's 2018 and there's no really good general purpose file sh
 | web interface | yes | some | some | yes |
 | secure link / no auth | no | no | no | yes |
 | works with big files | some | yes | no | yes |
+| dependency free (javascript) | no | some | no | yes |
 
-This would be useful for any transmission of sensitive data you don't want a trail of in emails, or for files too big for email. The closest thing I've found to this service is things like wetransfer.com but they only fill half the above bullets.
+This would be useful for any transmission of sensitive data you don't want a trail of in emails, or for files too big for email. The closest thing I've found to this service is things like wetransfer.com but they only fill some of the above bullets.
 
-TODO: 
-  - client receive mode
-  - electron / cordova / whatever packaging for devices?
+## Discussion
+
+We manage issues and features in [Trello](https://trello.com/b/8NzklvZI/cryptsend-public), not the GitHub issues.
