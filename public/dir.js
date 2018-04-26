@@ -6,18 +6,25 @@
   //Functions for handling file decryption:
   const handleFileDownload = (e) => {
     e.preventDefault;
-    let currentLink = e.currentTarget;
-    if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
-      // currentLink.setAttribute('download', currentLink.innerText);
-      const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
-      fetch(filePath)
-      .then(res => res.blob())
-      .then(blob => decryptFile(blob))
-      .then(downloadLink => {
-        currentLink.setAttribute('href', downloadLink);
-        currentLink.setAttribute('download', currentLink.innerText);
-        currentLink.click();
-      });
+    if (window.location.hash) {
+      //Note: I'm just checking for A key/hash, not the same key used to encrypt the files on the list (i.e. there is no key authentication yet).
+      //If the user tries to decrypt/download a file with the wrong key, nothing will happen.
+      let currentLink = e.currentTarget;
+      if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
+        // currentLink.setAttribute('download', currentLink.innerText);
+        const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
+        fetch(filePath)
+        .then(res => res.blob())
+        .then(blob => decryptFile(blob))
+        .then(downloadLink => {
+          currentLink.setAttribute('href', downloadLink);
+          currentLink.setAttribute('download', currentLink.innerText);
+          currentLink.click();
+        });
+      }
+    } else {
+      //TODO: better feedback?
+      window.alert('Error: no hash found.');
     }
   };
 
@@ -43,23 +50,18 @@
   };
 
   const deletionFeedback = name => {
-    if (document.getElementById('del-feedback')) {
-      document.getElementById('del-feedback').innerText = `${name} was deleted.`;
-    } else {
-      let feedbackElement = document.createElement('p');
-      feedbackElement.id = 'del-feedback';
-      feedbackElement.innerText = `${name} was deleted.`;
-      // document.getElementsByTagName('main')[0].appendChild(feedbackElement);
-      document.body.appendChild(feedbackElement);
-      window.setTimeout(() => {
-        document.getElementById('del-feedback').remove();
-      }, 3000);
-    }
+    let feedbackElement = document.createElement('p');
+    feedbackElement.id = 'del-feedback';
+    feedbackElement.innerText = `${name} was deleted.`;
+    document.body.appendChild(feedbackElement);
+    window.setTimeout(() => {
+      document.getElementById('del-feedback').remove();
+    }, 3000);
+
   };
 
   const removeListItem = (item) => (e) => {
     item.parentElement.remove();
-    // console.log(e.currentTarget);
     // window.alert(`${item.parentElement.firstElementChild.textContent} was deleted successfully.`);
     deletionFeedback(item.parentElement.firstElementChild.textContent);
     if (document.getElementsByClassName('files-list')[0].children.length === 0) {
@@ -89,14 +91,13 @@
         for (let button of buttons) {
           button.addEventListener('click', (e) => {
             if (window.confirm(`Are you sure you want to delete ${e.currentTarget.parentElement.firstElementChild.innerText}`)) {
-              let deleteRequest = new XMLHttpRequest();
-              deleteRequest.onload = removeListItem(e.currentTarget);
-              deleteRequest.onerror = (e) => {
-                //TODO: Other ways to feedback error?
-                window.alert(e.currentTarget.response);
-              }
-              deleteRequest.open('DELETE', `${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, true);
-              deleteRequest.send();
+              fetch(`${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, {
+                method: 'DELETE'
+              })
+              .then(removeListItem(e.currentTarget))
+              .catch(error => {
+                window.alert(error);
+              });
             }
           });
         }
@@ -133,7 +134,20 @@
 						"bubbles": true,
 						"cancelable": false
 					});
-					form.dispatchEvent( event );
+          if (document.getElementById('ls').firstElementChild.firstElementChild) {
+            //Note: I'm just checking for A key/hash, not the same key used to encrypt the files on the list (i.e. there is no key authentication yet).
+            //If the user tries to upload a new file with the wrong (or an invalid) key/hash, the app will try to recreate (import) the key using the current hash (assuming JWK) and encrypt the file with it.
+            //In other words, this does not garantee all the files on the list are encrypted with the same key (we would need to setup a key authentication for that). I'm just trying to avoid people from accidentally uploading new files when visiting the secret folder without a key/hash on the URL.
+            if (window.location.hash) {
+              //TODO: key authentication would be done here.
+              form.dispatchEvent( event );
+            } else {
+              //TODO: better feedback?
+              window.alert('Error: no hash found.');
+            }
+          } else {
+            form.dispatchEvent( event );
+          }
 				};
 
 			// letting the server side to know we are going to make an Ajax request
@@ -211,44 +225,31 @@
 						});
 					}
 
-					// ajax request
-					var ajax = new XMLHttpRequest();
-					ajax.open( form.getAttribute( 'method' ), form.getAttribute( 'action' ), true );
+          const status = response => {
+            if( response.status >= 200 && response.status < 400 ) {
+              return Promise.resolve(response);
+            } else {
+              return Promise.reject(new Error(response.statusText));
+            }
+          }
 
-					ajax.onload = function()
-					{
-						// console.log('onload');
-						form.classList.remove( 'is-uploading' );
-						if( ajax.status >= 200 && ajax.status < 400 )
-						{
-							var data = JSON.parse( ajax.responseText );
-							form.classList.add( data.success == true ? 'is-success' : 'is-error' );
-              data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
-
-                // document.getElementsByClassName('box__input')[0].innerHTML = '';
-                document.querySelector('.box__message').innerHTML = "Uploaded to your <a href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p>Do not lose this link, or the uploaded files will never be found again!</p>";
-                //Gian: forcing a page refresh (which will not happen after the insertion of the hash).
-                document.querySelector('.box__message > a').addEventListener('click', (e) => {
-                  window.location.reload();
-                });
-                if (!window.location.hash) {
-                  window.location.href += '#' + hash;
-                }
-                listingFiles();
-
-							if( !data.success ) errorMsg.textContent = data.error;
-						}
-						else alert( 'Error. Please, contact the webmaster!' );
-					};
-
-					ajax.onerror = function()
-					{
-						form.classList.remove( 'is-uploading' );
-						alert( 'Error. Please, try again!' );
-					};
+          const uploadFile = async ajax => {
+            form.classList.remove( 'is-uploading' );
+            let data = await ajax.json();
+            form.classList.add( data.success == true ? 'is-success' : 'is-error' );
+            data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
+            document.querySelector('.box__message').innerHTML = "Uploaded to your <a href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p>Do not lose this link, or the uploaded files will never be found again!</p>";
+            document.querySelector('.box__message > a').addEventListener('click', e => {
+              window.location.reload();
+            });
+            if (!window.location.hash) {
+              window.location.href += '#' + hash;
+            }
+            listingFiles();
+            if( !data.success ) errorMsg.textContent = data.error;
+          };
 
           let hash = window.location.hash ? window.location.hash.slice(1) : '';
-          // console.log(hash);
           encryptFiles([
             ajaxData.getAll(input.getAttribute('name')),
             hash
@@ -259,7 +260,16 @@
             for (const [name, value] of Object.entries(encryptedFiles)) {
               ajaxData.append( input.getAttribute( 'name' ), value, name );
             }
-            ajax.send( ajaxData );
+            fetch(form.getAttribute( 'action' ), {
+              method: 'POST',
+              body: ajaxData
+            })
+            .then(status)
+            .then(uploadFile)
+            .catch(error => {
+              form.classList.remove( 'is-uploading' );
+              alert( 'Error. Please, try again!' );
+            });
           });
 				}
 				else // fallback Ajax solution upload for older browsers
