@@ -6,7 +6,7 @@ Share files with people you trust, and not all the cloud providers in between.
 ## Self Host
 
 ```
-git clone <this repo>
+git clone git@github.com:countable-web/cryptsend.git
 docker-compose up
 ```
 
