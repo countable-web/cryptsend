@@ -577,14 +577,14 @@ section {
     }
 }
 
-/*@media only screen*/
-/*and (min-device-width : 1080px)*/
-/*and (max-device-width : 1400px) {*/
-    /*.wrapper {*/
-        /*padding-left: 6rem;*/
-        /*padding-right: 6rem;*/
-    /*}*/
-/*}*/
+@media only screen
+and (min-device-width : 1080px)
+and (max-device-width : 1400px) {
+    .wrapper {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+}
 
 /* ------------------------------------------------------------|
 | FOOTER

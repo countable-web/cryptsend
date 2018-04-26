@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/assets/css/table.css" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/landing.css" afterPath="$PROJECT_DIR$/public/assets/css/landing.css" />
-      <change beforePath="$PROJECT_DIR$/public/assets/gfx/landing/table.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,21 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/table.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="landing.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/css/landing.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="336" column="22" lean-forward="true" selection-start-line="336" selection-start-column="22" selection-end-line="336" selection-end-column="22" />
+            <state relative-caret-position="578">
+              <caret line="582" column="14" lean-forward="true" selection-start-line="582" selection-start-column="14" selection-end-line="582" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -86,8 +73,10 @@
       <find>landing.html</find>
       <find>US</find>
       <find>Auto-en</find>
-      <find>#c6c9c4</find>
       <find>table</find>
+      <find>section-first-table</find>
+      <find>#c6c9c4</find>
+      <find>wrapper</find>
     </findStrings>
     <replaceStrings>
       <replace>Comfortaa</replace>
@@ -196,7 +185,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css" />
+    <property name="SearchEverywhereHistoryKey" value="landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -238,12 +227,12 @@
       <workItem from="1524626852331" duration="1603000" />
       <workItem from="1524687681133" duration="4232000" />
       <workItem from="1524696378574" duration="100000" />
-      <workItem from="1524775681295" duration="3130000" />
+      <workItem from="1524775681295" duration="3262000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9135000" />
+    <option name="totallyTimeSpent" value="9267000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -415,7 +404,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/table.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="312">
           <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
           <folding />
         </state>
@@ -442,8 +431,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/landing.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="336" column="22" lean-forward="true" selection-start-line="336" selection-start-column="22" selection-end-line="336" selection-end-column="22" />
+        <state relative-caret-position="578">
+          <caret line="582" column="14" lean-forward="true" selection-start-line="582" selection-start-column="14" selection-end-line="582" selection-end-column="14" />
           <folding />
         </state>
       </provider>
