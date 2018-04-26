@@ -7,6 +7,8 @@
   const handleFileDownload = (e) => {
     e.preventDefault;
     if (window.location.hash) {
+      //Note: I'm just checking for A key/hash, not the same key used to encrypt the files on the list (i.e. there is no key authentication yet).
+      //If the user tries to decrypt/download a file with the wrong key, nothing will happen.
       let currentLink = e.currentTarget;
       if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
         // currentLink.setAttribute('download', currentLink.innerText);
@@ -134,7 +136,20 @@
 						"bubbles": true,
 						"cancelable": false
 					});
-					form.dispatchEvent( event );
+          if (document.getElementById('ls').firstElementChild.firstElementChild) {
+            //Note: I'm just checking for A key/hash, not the same key used to encrypt the files on the list (i.e. there is no key authentication yet).
+            //If the user tries to upload a new file with the wrong (or an invalid) key/hash, the app will try to recreate (import) the key using the current hash (assuming JWK) and encrypt the file with it.
+            //In other words, this does not garantee all the files on the list are encrypted with the same key (we would need to setup a key authentication for that). I'm just trying to avoid people from accidentally uploading new files when visiting the secret folder without a key/hash on the URL.
+            if (window.location.hash) {
+              //TODO: key authentication would be done here.
+              form.dispatchEvent( event );
+            } else {
+              //TODO: better feedback?
+              window.alert('Error: no hash found.');
+            }
+          } else {
+            form.dispatchEvent( event );
+          }
 				};
 
 			// letting the server side to know we are going to make an Ajax request
