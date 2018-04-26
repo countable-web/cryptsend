@@ -12,13 +12,13 @@
       let currentLink = e.currentTarget;
       if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
         // currentLink.setAttribute('download', currentLink.innerText);
-        const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
+        const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.dataset.file;
         fetch(filePath)
         .then(res => res.blob())
         .then(blob => decryptFile(blob))
         .then(downloadLink => {
           currentLink.setAttribute('href', downloadLink);
-          currentLink.setAttribute('download', currentLink.innerText);
+          currentLink.setAttribute('download', currentLink.dataset.file);
           currentLink.click();
         });
       }
@@ -31,10 +31,10 @@
   const addFilesDecrypt = () => {
     const fileItems = document.getElementById('ls').firstElementChild.children;
     for (let file of fileItems) {
-      file.firstElementChild.setAttribute('href', window.location.hash);
+      file.firstElementChild.firstElementChild.nextElementSibling.setAttribute('href', window.location.hash);
       // file.firstElementChild.setAttribute('download', file.firstElementChild.innerText);
       //Gian: I'm only decrypting files that are explicitly selected:
-      file.firstElementChild.addEventListener('click', handleFileDownload);
+      file.firstElementChild.firstElementChild.nextElementSibling.addEventListener('click', handleFileDownload);
     }
   }
 
@@ -63,7 +63,7 @@
   const removeListItem = (item) => (e) => {
     item.parentElement.remove();
     // window.alert(`${item.parentElement.firstElementChild.textContent} was deleted successfully.`);
-    deletionFeedback(item.parentElement.firstElementChild.textContent);
+    deletionFeedback(item.parentElement.firstElementChild.firstElementChild.innerText);
     if (document.getElementsByClassName('files-list')[0].children.length === 0) {
       document.getElementsByClassName('dir-files-wrapper')[0].classList.add('hidden');
     }
@@ -77,7 +77,7 @@
       .catch(error => console.error('Error:', error))
       .then(files => {
         files.forEach(file => {
-          content += '<li class="cf"><a href="">' + file + '</a><div class="delete-button">delete</div></li>';
+          content += '<li class="cf"><div class="file-wrapper"><p class="file-item">' + file + '</p><a href="" data-file=' + file + '></a></div><div class="delete-button">delete</div></li>';
         });
         document.getElementById('ls').innerHTML = '<ul class="files-list">' + content + '</ul>';
         if (content) {
@@ -90,8 +90,8 @@
         const buttons = document.getElementsByClassName('delete-button');
         for (let button of buttons) {
           button.addEventListener('click', (e) => {
-            if (window.confirm(`Are you sure you want to delete ${e.currentTarget.parentElement.firstElementChild.innerText}`)) {
-              fetch(`${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, {
+            if (window.confirm(`Are you sure you want to delete ${e.currentTarget.parentElement.firstElementChild.firstElementChild.innerText}`)) {
+              fetch(`${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.firstElementChild.innerText}`, {
                 method: 'DELETE'
               })
               .then(removeListItem(e.currentTarget))
