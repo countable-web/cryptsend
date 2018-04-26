@@ -41,6 +41,17 @@ nav {
     z-index: 999;
 }
 
+.alpha-disclaimer {
+    font-size:.8rem;
+    color:silver;
+    opacity:.5;
+    text-align: center;
+    display: block;
+    margin:0 auto;
+    padding-top:1rem;
+    width:40%;
+}
+
 .navbar-menu {
     font-size: .9rem;
     padding: 0;

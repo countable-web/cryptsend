@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/landing.css" afterPath="$PROJECT_DIR$/public/assets/css/landing.css" />
       <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2215">
-              <caret line="320" column="20" lean-forward="false" selection-start-line="320" selection-start-column="20" selection-end-line="320" selection-end-column="20" />
+            <state relative-caret-position="592">
+              <caret line="162" column="17" lean-forward="false" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
               <folding>
                 <element signature="e#4428#4433#0" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#section#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -45,21 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buttons.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/content/buttons.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="landing.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/css/landing.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9284">
-              <caret line="422" column="1" lean-forward="false" selection-start-line="422" selection-start-column="1" selection-end-line="422" selection-end-column="1" />
+            <state relative-caret-position="594">
+              <caret line="51" column="11" lean-forward="false" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -83,6 +74,7 @@
       <find>octopus</find>
       <find>landing.html</find>
       <find>US</find>
+      <find>Auto-en</find>
     </findStrings>
     <replaceStrings>
       <replace>Comfortaa</replace>
@@ -96,9 +88,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/assets/css/landing.css" />
         <option value="$PROJECT_DIR$/public/assets/css/content/buttons.css" />
         <option value="$PROJECT_DIR$/public/credits.html" />
+        <option value="$PROJECT_DIR$/public/assets/css/landing.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
@@ -210,12 +202,12 @@
       <workItem from="1524626852331" duration="1603000" />
       <workItem from="1524687681133" duration="4232000" />
       <workItem from="1524696378574" duration="100000" />
-      <workItem from="1524775681295" duration="229000" />
+      <workItem from="1524775681295" duration="1475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6234000" />
+    <option name="totallyTimeSpent" value="7480000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -228,7 +220,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28987068" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40193966" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -370,14 +362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/landing.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9284">
-          <caret line="422" column="1" lean-forward="false" selection-start-line="422" selection-start-column="1" selection-end-line="422" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/content/buttons.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -393,10 +377,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/landing.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="51" column="11" lean-forward="false" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2215">
-          <caret line="320" column="20" lean-forward="false" selection-start-line="320" selection-start-column="20" selection-end-line="320" selection-end-column="20" />
+        <state relative-caret-position="592">
+          <caret line="162" column="17" lean-forward="false" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
           <folding>
             <element signature="e#4428#4433#0" expanded="true" />
             <element signature="n#style#0;n#div#0;n#section#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
