@@ -201,11 +201,11 @@ html
     }
     .box.has-advanced-upload
     {
-      outline: 2px dashed #ddd;
-      outline-offset: -2px;
+      /*outline: 2px dashed #ddd;*/
+      /*outline-offset: -2px;*/
 
-      -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-      transition: outline-offset .15s ease-in-out, background-color .15s linear;
+      /*-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;*/
+      /*transition: outline-offset .15s ease-in-out, background-color .15s linear;*/
     }
     .box.is-dragover
     {
@@ -304,8 +304,15 @@ html
         text-overflow: ellipsis;
         white-space: nowrap;
         cursor: pointer;
-        display: inline-block;
+        display: block;
         overflow: hidden;
+        /*border: solid 1px hotpink;*/
+                box-sizing: border-box;
+
+        margin:0 auto;
+        text-align: center;
+
+
       }
       .js .box__file + label:hover strong,
       .box__file:focus + label strong,
