@@ -57,7 +57,6 @@
     window.setTimeout(() => {
       document.getElementById('del-feedback').remove();
     }, 3000);
-
   };
 
   const removeListItem = (item) => (e) => {
@@ -103,6 +102,10 @@
         }
         addFilesDecrypt();
       });
+  }
+
+  if (window.location.protocol === 'http:') {
+    window.alert('Warning: CryptSend is using an insecure (http) connection. Some cryptographic operations might not work as expected.');
   }
 
 	;( function ( document, window, index )
