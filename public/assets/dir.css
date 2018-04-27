@@ -44,26 +44,41 @@ html, main, body {
   margin-bottom: 1px;
 }
 
-.files-list > li > a {
+.files-list .file-wrapper > a {
   display: block;
   float: left;
+  width: 20%;
+  height: 32px;
   box-sizing: border-box;
-  width: 80%;
-  border: 1px solid #eee;
-  border-right: none;
   text-decoration: none;
   color: #000;
+  background-image: url(/cat/public/assets/gfx/upload-form/icons/download.svg);
+  background-size: auto 24px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.files-list > li:nth-child(2n) > a {
+.files-list .file-wrapper {
+  float: left;
+  width: 80%;
+}
+
+.files-list .file-item {
+  float: right;
+  width: 80%;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  margin: 0;
+  cursor: default;
+  height: 32px;
+  overflow: hidden;
+}
+
+.files-list > li:nth-child(2n) .file-item {
   background-color: #eee;
 }
 
-.files-list > li > a:hover {
-  border-color: #bbb;
-}
-
-.files-list > li > div {
+.files-list .delete-button {
   display: block;
   float: right;
   box-sizing: border-box;
@@ -71,9 +86,10 @@ html, main, body {
   background-color: #bbb;
   border: 1px solid #bbb;
   font-variant: small-caps;
+  height: 32px;
 }
 
-.files-list > li > div:hover {
+.files-list .delete-button:hover {
   background-color: #3A3A3A;
   color: #fff;
 }
@@ -89,22 +105,26 @@ html, main, body {
   color: black;
 }
 
-.dir-files-wrapper > div:first-child {
-  float: left;
-  line-height: 2;
-  width: 80%;
-  background-color: #eee;
-  font-variant: small-caps;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  border: 1px solid #fff;
-  box-sizing: border-box;
-  color: black;
-}
+/* MEDIA QUERIES */
 
-#ls {
-  clear: both;
-}
+/*@media screen and (max-width: 470px) {
+  .files-list > li {
+    padding-bottom: 1rem;
+  }
+
+  .files-list .file-wrapper, .files-list .file-wrapper > a, .files-list .delete-button {
+    width: 100%;
+  }
+
+  .files-list .file-item {
+    width: 100%;
+    float: left;
+  }
+
+  .files-list .file-wrapper > a {
+    padding: 2.5rem 0;
+  }
+}*/
 
 /* CLEARFIX */
 
