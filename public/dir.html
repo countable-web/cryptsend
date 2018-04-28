@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/cat/public/assets/fonts.css">
     <link rel="icon" type="favicon" href="/cat/public/favicon.ico" sizes="16x16"/>
     <link rel="stylesheet" href="/cat/public/assets/dir.css">
-    <title>SendCrypt | Directory</title>
+    <title>CryptSend | Directory</title>
     <!-- remove this if you use Modernizr -->
     <script>(function (e, t, n) {
         var r = e.querySelectorAll("html")[0];
@@ -38,6 +38,9 @@
     <link rel="stylesheet" href="/cat/public/assets/fonts/fontawesome-all.css">
     <link rel="stylesheet" href="/cat/public/assets/fonts/helvetica-neue/stylesheet.css">
 
+    <!--ANIMATIONS-->
+    <link rel="stylesheet" href="/cat/public/assets/css/animations/landing.css">
+
 
     <!--jQUERY-->
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -55,9 +58,82 @@
     <!--<script src="/cat/public/assets/js/modal-handler.js"></script>-->
     <script src="/cat/public/assets/js/copy-clipboard.js"></script>
 
+    <script src="/cat/public/assets/js/navbar.js"></script>
+
+
 
 </head>
 <body>
+
+
+<header class="col-sm-12 col-md-12">
+
+    <nav class="wrapper">
+
+        <div class="col-sm-8 col-md-3">
+
+            <a href="/cat/public/index.html">
+                <img src="/cat/public/assets/gfx/logo.svg" alt="CryptSend Logo" class="sendcrypt-logo">
+            </a>
+
+        </div>
+
+        <div class="col-sm-4 mobile-only">
+            <i class="fas fa-bars navbar-menu-icon"></i>
+        </div>
+
+
+        <div class="desktop-only col-md-9">
+
+            <ul class="navbar-menu">
+                <li class="menu-features">
+                    <a href="#section-features">Features</a>
+                </li>
+
+                <li class="menu-how-it-works">
+                    <a href="#section-how-it-works"> How it Works</a>
+                </li>
+
+                <li class="menu-web-crypto">
+                    <a href="#section-web-crypto">Web Crypto</a>
+                </li>
+
+
+                <li class="menu-open-source">
+                    <a href="https://github.com/countable-web/cryptsend" target="_blank"> Github</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </nav>
+
+
+    <div class="mobile-only col-sm-12 slider closed" id="menu-mobile">
+        <ul class="navbar-menu-mobile">
+            <li class="menu-features">
+                <a href="#section-features">Features</a>
+            </li>
+
+            <li class="menu-how-it-works">
+                <a href="#section-how-it-works"> How it Works</a>
+            </li>
+
+            <li class="menu-web-crypto">
+                <a href="#section-web-crypto">Web Crypto</a>
+            </li>
+
+            <li class="menu-open-source">
+                <a href="#open-source-section"> Github</a>
+            </li>
+
+
+        </ul>
+    </div>
+
+</header>
 
 <!--<main class="container" role="main">-->
 <!--<section class="dir-files-wrapper hidden cf">-->
@@ -204,10 +280,10 @@
                     <input type="hidden" name="ajax" value="1">
                 </form>
 
-                <div class="upload-drop-area-description">
-                    Click or drop your files here to upload.
-                    <strong>You’ll be given an unique and secure link. Don’t lose it!</strong>
-                </div>
+                <!--<div class="upload-drop-area-description">-->
+                    <!--Click or drop your files here to upload.-->
+                    <!--<strong>You’ll be given an unique and secure link. Don’t lose it!</strong>-->
+                <!--</div>-->
 
             </section>
         </div>

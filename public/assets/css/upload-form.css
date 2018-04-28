@@ -26,6 +26,24 @@ main {
 
 }
 
+
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 1080px) {
+
+    .panel-wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .upload-main-panel {
+
+        padding-bottom:1.5rem;
+        padding-top:.5rem;
+
+    }
+}
+
+
 /*DESKTOP ONLY CODE*/
 
 @media screen and (min-width: 1080px) {
