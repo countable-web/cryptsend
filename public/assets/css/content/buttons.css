@@ -1,3 +1,17 @@
+ .btn-link {
+     text-decoration: none;
+     color:inherit;
+ }
+
+ .btn-or {
+     font-family: "Comfortaa Light", sans-serif;
+     font-size:.9rem;
+     opacity:.8;
+     padding-left:1rem;
+     padding-right:1rem;
+     color:#41464C;
+ }
+
 .btn {
     font-size: 1rem;
     font-family: 'Helvetica Neue', serif;
