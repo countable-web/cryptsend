@@ -214,23 +214,34 @@ html
         border-bottom-color: #0f3c4b;
       }
 
+      .secure-link {
+          text-decoration: underline;
+          font-weight: bold;
+          cursor:pointer;
+      }
+
     .box
     {
       font-size: 1.25rem; /* 20 */
       /*background-color: #f8f8f8;*/
       /*position: relative;*/
-      padding: 100px 20px;
+      /*padding: 100px 20px;*/
+        /*border: solid 1px hotpink;*/
+                box-sizing: border-box;
+        display: inline-block;
+        padding-top:2rem;
+        padding-bottom:2rem;
+
+        height:inherit;
+
+
+
     }
     .box.has-advanced-upload
     {
 
+        width: inherit;
 
-      /*outline: 2px dashed #ddd;*/
-      /*outline-offset: -2px;*/
-
-      /*-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;*/
-      /*transition: outline-offset .15s ease-in-out, background-color .15s linear;*/
-      height:10vh;
     }
     .box.is-dragover
     {
@@ -260,7 +271,7 @@ html
       .box.is-success .box__input,
       .box.is-error .box__input
       {
-        visibility: hidden;
+        display: none;
       }
 
       .box__uploading,
@@ -302,6 +313,10 @@ html
           from	{ transform: translateY( -50% ) scale( 0 ); }
           75%		{ transform: translateY( -50% ) scale( 1.1 ); }
           to		{ transform: translateY( -50% ) scale( 1 ); }
+        }
+
+        .box__success,.box__message,.box__error {
+            text-align:center;
         }
 
       .box__restart

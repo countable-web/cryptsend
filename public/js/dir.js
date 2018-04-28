@@ -5,25 +5,51 @@ let content = ''; //list of uploaded files.
 
 //Functions for handling file decryption:
 const handleFileDownload = (e) => {
-    e.preventDefault;
+
+
+
     if (window.location.hash) {
         //Note: I'm just checking for A key/hash, not the same key used to encrypt the files on the list (i.e. there is no key authentication yet).
         //If the user tries to decrypt/download a file with the wrong key, nothing will happen.
         let currentLink = e.currentTarget;
 
-        if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
-            // currentLink.setAttribute('download', currentLink.innerText);
-            const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
+            if(currentLink.classList.contains("download-button")) { //if used clicked on the download button
 
-            fetch(filePath)
-                .then(res => res.blob())
-                .then(blob => decryptFile(blob))
-                .then(downloadLink => {
-                    currentLink.setAttribute('href', downloadLink);
-                    currentLink.setAttribute('download', currentLink.innerText);
-                    currentLink.click();
-                });
+            if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
+                // currentLink.setAttribute('download', currentLink.innerText);
+                const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.getAttribute("file-name");
+
+                fetch(filePath)
+                    .then(res => res.blob())
+                    .then(blob => decryptFile(blob))
+                    .then(downloadLink => {
+                        currentLink.setAttribute('href', downloadLink);
+                        currentLink.setAttribute('download', currentLink.getAttribute("file-name"));
+                        currentLink.click();
+                    });
+            }
+
+
+        } else { //we are dealing with file name click then
+
+            if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
+                // currentLink.setAttribute('download', currentLink.innerText);
+                const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
+
+                fetch(filePath)
+                    .then(res => res.blob())
+                    .then(blob => decryptFile(blob))
+                    .then(downloadLink => {
+                        currentLink.setAttribute('href', downloadLink);
+                        currentLink.setAttribute('download', currentLink.innerText);
+                        currentLink.click();
+                    });
+            }
         }
+
+
+
+
 
     } else {
         //TODO: better feedback?
@@ -35,11 +61,27 @@ const addFilesDecrypt = () => {
 
     const fileItems2 = document.querySelector(".files-listing").children;
 
+
+    /* File name  =========================================== */
+
     for (let file of fileItems2) {
 
         file.firstElementChild.children[1].setAttribute('href', window.location.hash);
         file.firstElementChild.children[1].addEventListener('click', handleFileDownload);
     }
+
+    /* Download icon =========================================== */
+
+    let downloadIcons = document.querySelectorAll(".download-button");
+
+    for (let icon of downloadIcons) {
+        let ownerName = icon.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
+        icon.setAttribute('href', window.location.hash);
+        icon.setAttribute("file-name", ownerName);
+        icon.addEventListener('click', handleFileDownload);
+
+    }
+
 
 };
 
@@ -58,7 +100,6 @@ const createShareLink = () => {
 /* ------------------------------------------------------------|
 | FILE DELETION
 *-------------------------------------------------------------*/
-
 
 
 const deletionFeedback = name => {
@@ -111,10 +152,12 @@ const listingFiles = () => {
                         <img src="/cat/public/assets/fonts/custom-icons/file.svg" class="upload-panel-icon" alt="file">
                        <a class="file-name">${file}</a>
                     </td>
-                    <td>Xmb</td>
+                    <td>-</td>
                     <td>File</td>
-                    <td>
-                    <i class="fas fa-trash-alt delete-button"></i>
+                    <td class="upload-file-actions">
+                    
+                    <a class="fas fa-download download-button upload-form-icon"></a>
+                    <i class="fas fa-trash-alt delete-button upload-form-icon"></i>
                     
                     
 </td>
@@ -278,7 +321,7 @@ const listingFiles = () => {
                     let data = await ajax.json();
                     form.classList.add(data.success == true ? 'is-success' : 'is-error');
                     data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
-                    document.querySelector('.box__message').innerHTML = "Uploaded to your <a href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p>Do not lose this link, or the uploaded files will never be found again!</p>";
+                    document.querySelector('.box__message').innerHTML = "Uploaded to your <a class='secure-link' href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p><strong>Do not lose this link</strong>, or the uploaded files will never be found again!</p>";
                     document.querySelector('.box__message > a').addEventListener('click', e => {
                         window.location.reload();
                     });

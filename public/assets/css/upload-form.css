@@ -114,6 +114,34 @@ main {
 
 }
 
+.upload-form-icon {
+    font-size:1rem;
+    margin-right:.4rem;
+    display: block;
+}
+
+.upload-form-icon:hover{
+    cursor:pointer;
+    color:#355FF2;
+}
+
+.upload-file-actions {
+
+}
+
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 1080px) {
+
+    .upload-form-icon {
+        font-size: .9rem;
+        display: block;
+        margin: 0 auto;
+    }
+
+}
+
+
 .files-area {
     box-sizing: border-box;
 
