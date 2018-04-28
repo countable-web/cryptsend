@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/upload-form.css" afterPath="$PROJECT_DIR$/public/assets/css/upload-form.css" />
-      <change beforePath="$PROJECT_DIR$/public/assets/dir.css" afterPath="$PROJECT_DIR$/public/assets/dir.css" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/navbar.js" afterPath="$PROJECT_DIR$/public/assets/js/navbar.js" />
+      <change beforePath="$PROJECT_DIR$/public/cipher.js" afterPath="$PROJECT_DIR$/public/js/cipher.js" />
       <change beforePath="$PROJECT_DIR$/public/dir.html" afterPath="$PROJECT_DIR$/public/dir.html" />
+      <change beforePath="$PROJECT_DIR$/public/dir.js" afterPath="$PROJECT_DIR$/public/js/dir.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,53 +25,29 @@
     <fileColor scope="Non-Project Files (Material Oceanic)" color="2E3C43" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.68078756">
+    <splitter split-orientation="horizontal" split-proportion="0.6635417">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="dir.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="dir.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/dir.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="631">
-                  <caret line="285" column="26" lean-forward="true" selection-start-line="282" selection-start-column="13" selection-end-line="285" selection-end-column="26" />
+                <state relative-caret-position="-2147">
+                  <caret line="81" column="25" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="navbar.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/assets/js/navbar.js">
+          <file leaf-file-name="dir.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/js/dir.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="154">
-                  <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                <state relative-caret-position="375">
+                  <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
                   <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="40" column="2" lean-forward="false" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="80" />
-                  <folding>
-                    <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dir.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/dir.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding>
-                    <marker date="1524882610934" expanded="true" signature="4553:4995" ph="..." />
-                    <marker date="1524882610934" expanded="true" signature="4578:4780" ph="..." />
-                    <marker date="1524882610934" expanded="true" signature="4872:4973" ph="..." />
-                    <marker date="1524882610934" expanded="true" signature="13952:13966" ph="..." />
+                    <marker date="1524887456669" expanded="true" signature="3968:4424" ph="..." />
+                    <marker date="1524887456669" expanded="true" signature="3993:4195" ph="..." />
+                    <marker date="1524887456669" expanded="true" signature="4287:4402" ph="..." />
+                    <marker date="1524887456669" expanded="true" signature="13777:13791" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -85,7 +60,7 @@
           <file leaf-file-name="dir.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/assets/dir.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="558">
+                <state relative-caret-position="492">
                   <caret line="232" column="18" lean-forward="false" selection-start-line="232" selection-start-column="18" selection-end-line="232" selection-end-column="18" />
                   <folding />
                 </state>
@@ -108,14 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>main-section-title</find>
-      <find>section-content</find>
-      <find>SendCrypt</find>
-      <find>Countable</find>
-      <find>subtitle</find>
-      <find>How It works</find>
-      <find>Web Crypto</find>
-      <find>web-crypto</find>
       <find>FOrk us</find>
       <find>octopus</find>
       <find>landing.html</find>
@@ -138,6 +105,14 @@
       <find>700px</find>
       <find>has</find>
       <find>description</find>
+      <find>files-listing</find>
+      <find>dir.js</find>
+      <find>Upload</find>
+      <find>Handle</find>
+      <find>handleFileDownload</find>
+      <find>addFilesDecrypt</find>
+      <find>fas</find>
+      <find>button</find>
     </findStrings>
     <replaceStrings>
       <replace>Comfortaa</replace>
@@ -161,11 +136,13 @@
         <option value="$PROJECT_DIR$/public/assets/css/landing.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/upload.html" />
-        <option value="$PROJECT_DIR$/public/dir.js" />
         <option value="$PROJECT_DIR$/public/assets/js/navbar.js" />
         <option value="$PROJECT_DIR$/public/assets/css/upload-form.css" />
         <option value="$PROJECT_DIR$/public/assets/dir.css" />
+        <option value="$PROJECT_DIR$/public/dir.js" />
+        <option value="$PROJECT_DIR$/public/js/classes/uploaded-files.js" />
         <option value="$PROJECT_DIR$/public/dir.html" />
+        <option value="$PROJECT_DIR$/public/js/dir.js" />
       </list>
     </option>
   </component>
@@ -221,6 +198,12 @@
               <item name="cryptsend" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cryptsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cryptsend" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -234,16 +217,17 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;upload-form&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css" />
+    <property name="SearchEverywhereHistoryKey" value="dir.js&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/js/dir.js&#10;navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;upload-form&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx\landing" />
-      <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\joaop\Desktop\cryptsend\public" />
       <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\fonts" />
+      <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joaop\Desktop\cryptsend\public\js" />
+      <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx\landing" />
       <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx" />
     </key>
   </component>
@@ -281,20 +265,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18646000" />
+    <option name="totallyTimeSpent" value="22345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.082974136" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45905173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -335,15 +319,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dir.js">
+    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524882610934" expanded="true" signature="4553:4995" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4578:4780" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4872:4973" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="13952:13966" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="3968:4424" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="3993:4195" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="4287:4402" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="13777:13791" ph="..." />
           </folding>
         </state>
       </provider>
@@ -356,28 +340,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dir.js">
+    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524882610934" expanded="true" signature="4553:4995" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4578:4780" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4872:4973" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="13952:13966" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="3968:4424" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="3993:4195" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="4287:4402" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="13777:13791" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dir.js">
+    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1524882610934" expanded="true" signature="4553:4995" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4578:4780" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4872:4973" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="13952:13966" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="3968:4424" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="3993:4195" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="4287:4402" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="13777:13791" ph="..." />
           </folding>
         </state>
       </provider>
@@ -520,6 +504,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-22">
           <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="48" selection-end-column="66" />
+          <folding>
+            <element signature="n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -527,26 +514,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3815">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/cipher.js">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-854">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/dir.js">
+    <entry file="file://$PROJECT_DIR$/public/assets/dir.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1524882610934" expanded="true" signature="4553:4995" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4578:4780" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="4872:4973" ph="..." />
-            <marker date="1524882610934" expanded="true" signature="13952:13966" ph="..." />
-          </folding>
+        <state relative-caret-position="492">
+          <caret line="232" column="18" lean-forward="false" selection-start-line="232" selection-start-column="18" selection-end-line="232" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -555,7 +539,7 @@
         <state relative-caret-position="154">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -570,27 +554,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
+    <entry file="file://$PROJECT_DIR$/public/js/cipher.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="-1228">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/dir.css">
+    <entry file="file://$PROJECT_DIR$/public/js/classes/uploaded-files.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="232" column="18" lean-forward="false" selection-start-line="232" selection-start-column="18" selection-end-line="232" selection-end-column="18" />
+        <state relative-caret-position="440">
+          <caret line="66" column="11" lean-forward="true" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="285" column="26" lean-forward="true" selection-start-line="282" selection-start-column="13" selection-end-line="285" selection-end-column="26" />
+        <state relative-caret-position="-2147">
+          <caret line="81" column="25" lean-forward="false" selection-start-line="81" selection-start-column="22" selection-end-line="81" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+          <folding>
+            <marker date="1524887456669" expanded="true" signature="3968:4424" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="3993:4195" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="4287:4402" ph="..." />
+            <marker date="1524887456669" expanded="true" signature="13777:13791" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

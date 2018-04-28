@@ -11,16 +11,6 @@ const handleFileDownload = (e) => {
         //If the user tries to decrypt/download a file with the wrong key, nothing will happen.
         let currentLink = e.currentTarget;
 
-        console.log("handleFileDownload");
-        console.log(currentLink);
-
-
-        // let fileLink = currentLink.getAttribute("href");
-        // let fileName = currentLink.firstElementChild.lastElementChild.innerHTML;
-        //
-
-
-
         if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
             // currentLink.setAttribute('download', currentLink.innerText);
             const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
@@ -35,17 +25,6 @@ const handleFileDownload = (e) => {
                 });
         }
 
-
-
-
-
-
-
-
-
-
-
-
     } else {
         //TODO: better feedback?
         window.alert('Error: no hash found.');
@@ -53,28 +32,14 @@ const handleFileDownload = (e) => {
 };
 
 const addFilesDecrypt = () => {
-    // const fileItems = document.getElementById('ls').firstElementChild.children;
-    // for (let file of fileItems) {
-    //     // console.log(file);
-    //     file.firstElementChild.setAttribute('href', window.location.hash);
-    //     // file.firstElementChild.setAttribute('download', file.firstElementChild.innerText);
-    //     //Gian: I'm only decrypting files that are explicitly selected:
-    //     file.firstElementChild.addEventListener('click', handleFileDownload);
-    // }
 
     const fileItems2 = document.querySelector(".files-listing").children;
-    console.log(fileItems2);
 
+    for (let file of fileItems2) {
 
-
-    for(let file of fileItems2) {
-        console.log(file.firstElementChild);
         file.firstElementChild.children[1].setAttribute('href', window.location.hash);
         file.firstElementChild.children[1].addEventListener('click', handleFileDownload);
     }
-
-
-
 
 };
 
@@ -89,6 +54,13 @@ const createShareLink = () => {
     document.getElementsByClassName('dir-upload-wrapper')[0].appendChild(shareLinkWrapper);
 };
 
+
+/* ------------------------------------------------------------|
+| FILE DELETION
+*-------------------------------------------------------------*/
+
+
+
 const deletionFeedback = name => {
     let feedbackElement = document.createElement('p');
     feedbackElement.id = 'del-feedback';
@@ -100,33 +72,41 @@ const deletionFeedback = name => {
 
 };
 
-const removeListItem = (item) => (e) => {
-    item.parentElement.remove();
+const removeListItem = (item, itemName) => (e) => {
+
+    console.log(item);
+
+    item.remove();
     // window.alert(`${item.parentElement.firstElementChild.textContent} was deleted successfully.`);
-    deletionFeedback(item.parentElement.firstElementChild.textContent);
-    if (document.getElementsByClassName('files-list')[0].children.length === 0) {
-        document.getElementsByClassName('dir-files-wrapper')[0].classList.add('hidden');
-    }
+    deletionFeedback(itemName);
+    // if (document.getElementsByClassName('files-list')[0].children.length === 0) {
+    //     document.getElementsByClassName('dir-files-wrapper')[0].classList.add('hidden');
+    // }
 };
 
-//Listing uploaded files:
+
+/* ------------------------------------------------------------|
+| FILE LISTING
+*-------------------------------------------------------------*/
+
+
 const listingFiles = () => {
 
-    /* ------------------------------------------------------------|
-    | LISTING FILES
-    *-------------------------------------------------------------*/
-    //This part is responsible for listing files in "My Files" section.
+        /* ------------------------------------------------------------|
+        | LISTING FILES
+        *-------------------------------------------------------------*/
+        //This part is responsible for listing files in "My Files" section.
 
-        let content, content2;
+        let content = '';
         fetch((window.location + '').replace("dir", "ls"))
             .then(response => response.json())
             .catch(error => console.error('Error:', error))
             .then(files => {
+
+
                 files.forEach(file => {
 
-                    console.log(file);
-
-                    content += `  <tr>
+                    content += `<tr>
                     <td>
                         <img src="/cat/public/assets/fonts/custom-icons/file.svg" class="upload-panel-icon" alt="file">
                        <a class="file-name">${file}</a>
@@ -134,7 +114,7 @@ const listingFiles = () => {
                     <td>Xmb</td>
                     <td>File</td>
                     <td>
-                    <i class="fas fa-trash-alt"></i>
+                    <i class="fas fa-trash-alt delete-button"></i>
                     
                     
 </td>
@@ -146,7 +126,6 @@ const listingFiles = () => {
 
                 document.querySelector(".files-listing").innerHTML = content;
 
-
                 if (content) {
                     if (!(document.getElementById('share-link-wrapper'))) {
                         createShareLink();
@@ -156,13 +135,18 @@ const listingFiles = () => {
                 const buttons = document.getElementsByClassName('delete-button');
                 for (let button of buttons) {
                     button.addEventListener('click', (e) => {
-                        if (window.confirm(`Are you sure you want to delete ${e.currentTarget.parentElement.firstElementChild.innerText}`)) {
-                            fetch(`${window.location.pathname}/${e.currentTarget.parentElement.firstElementChild.innerText}`, {
-                                method: 'DELETE'
+
+                        let deleteItem = e.currentTarget.parentElement.parentElement;
+                        let deleteItemName = e.currentTarget.parentElement.parentElement.firstElementChild.children[1].innerText;
+
+
+                        if (window.confirm(`Are you sure you want to delete ${deleteItemName}`)) {
+                            fetch(`${window.location.pathname}/${deleteItemName}`, {
+                                method: 'DELETE' //make a DELETE request and delete it on server
                             })
-                                .then(removeListItem(e.currentTarget))
+                                .then(removeListItem(deleteItem, deleteItemName))
                                 .catch(error => {
-                                    window.alert(error);
+                                    console.log(error);
                                 });
                         }
                     });
@@ -210,6 +194,13 @@ const listingFiles = () => {
                     form.dispatchEvent(event);
                 }
             };
+
+
+        /* ------------------------------------------------------------|
+        | UPLOAD
+        *-------------------------------------------------------------*/
+        //handling drag and drop events
+
 
         // letting the server side to know we are going to make an Ajax request
         var ajaxFlag = document.createElement('input');
