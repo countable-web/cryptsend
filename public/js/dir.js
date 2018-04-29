@@ -3,13 +3,16 @@
 //TODO: avoid global variables...
 let content = ''; //list of uploaded files.
 
-  if (window.location.protocol === 'http:') {
-    window.alert('Warning: CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.');
-  }
+if (window.location.protocol === 'http:') {
+    // window.alert('Warning: CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.');
+
+    //Using Display UI Class
+    let alert = new Alert().showMessage("warning","CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.");
+
+}
 
 //Functions for handling file decryption:
 const handleFileDownload = (e) => {
-
 
 
     if (window.location.hash) {
@@ -17,7 +20,7 @@ const handleFileDownload = (e) => {
         //If the user tries to decrypt/download a file with the wrong key, nothing will happen.
         let currentLink = e.currentTarget;
 
-            if(currentLink.classList.contains("download-button")) { //if used clicked on the download button
+        if (currentLink.classList.contains("download-button")) { //if used clicked on the download button
 
             if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
                 // currentLink.setAttribute('download', currentLink.innerText);
@@ -50,9 +53,6 @@ const handleFileDownload = (e) => {
                     });
             }
         }
-
-
-
 
 
     } else {
@@ -107,13 +107,14 @@ const createShareLink = () => {
 
 
 const deletionFeedback = name => {
-    let feedbackElement = document.createElement('p');
-    feedbackElement.id = 'del-feedback';
-    feedbackElement.innerText = `${name} was deleted.`;
-    document.body.appendChild(feedbackElement);
-    window.setTimeout(() => {
-        document.getElementById('del-feedback').remove();
-    }, 3000);
+    // let feedbackElement = document.createElement('p');
+    // feedbackElement.id = 'del-feedback';
+    // feedbackElement.innerText = `${name} was deleted.`;
+    // document.body.appendChild(feedbackElement);
+    // window.setTimeout(() => {
+    //     document.getElementById('del-feedback').remove();
+    // }, 3000);
+    let deleteFeedback = new Alert().showMessage("danger",`${name} was deleted.`)
 
 };
 
@@ -318,13 +319,21 @@ const listingFiles = () => {
                     } else {
                         return Promise.reject(new Error(response.statusText));
                     }
-                }
+                };
 
                 const uploadFile = async ajax => {
                     form.classList.remove('is-uploading');
                     let data = await ajax.json();
                     form.classList.add(data.success == true ? 'is-success' : 'is-error');
                     data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
+                    if(data.success) {
+                        let successUpload = new Alert().showMessage("success","Your file was successfully uploaded! <strong>Don't lose your link!</strong>")
+                    }
+
+                    console.log(data.success);
+
+
+
                     document.querySelector('.box__message').innerHTML = "Uploaded to your <a class='secure-link' href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p><strong>Do not lose this link</strong>, or the uploaded files will never be found again!</p>";
                     document.querySelector('.box__message > a').addEventListener('click', e => {
                         window.location.reload();
