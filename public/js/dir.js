@@ -114,7 +114,7 @@ const deletionFeedback = name => {
     // window.setTimeout(() => {
     //     document.getElementById('del-feedback').remove();
     // }, 3000);
-    let deleteFeedback = new Alert().showMessage("danger",`${name} was deleted.`)
+    let deleteFeedback = new Alert().showMessage("success",`${name} was deleted.`)
 
 };
 
