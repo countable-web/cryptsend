@@ -3,6 +3,10 @@
 //TODO: avoid global variables...
 let content = ''; //list of uploaded files.
 
+  if (window.location.protocol === 'http:') {
+    window.alert('Warning: CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.');
+  }
+
 //Functions for handling file decryption:
 const handleFileDownload = (e) => {
 
@@ -155,11 +159,11 @@ const listingFiles = () => {
                     <td>-</td>
                     <td>File</td>
                     <td class="upload-file-actions">
-                    
+
                     <a class="fas fa-download download-button upload-form-icon"></a>
                     <i class="fas fa-trash-alt delete-button upload-form-icon"></i>
-                    
-                    
+
+
 </td>
                 </tr>`
 
