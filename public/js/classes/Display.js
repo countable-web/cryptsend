@@ -116,3 +116,37 @@ class Alert extends Display {
     }
 }
 
+
+ class FileListing extends Display {
+
+     constructor(id) {
+         super(id); // super call parent constructor methods
+
+     }
+
+     addFileRow(icon, filename, size, type){
+
+        let fileRow = `<tr>
+                    <td>
+                        <img src="/cat/public/assets/fonts/custom-icons/${icon}" class="upload-panel-icon" alt="file">
+                       <a class="file-name">${filename}</a>
+                    </td>
+                    <td>${size}</td>
+                    <td>${type}</td>
+                    <td class="upload-file-actions">
+
+                    <a class="fas fa-download download-button upload-form-icon"></a>
+                    <i class="fas fa-trash-alt delete-button upload-form-icon"></i>
+
+
+</td>
+                </tr>`
+
+         return fileRow;
+
+    }
+
+
+
+  }
+
