@@ -49,8 +49,28 @@ nav {
     display: block;
     margin:0 auto;
     padding-top:1rem;
-    width:40%;
+
 }
+
+/*DESKTOP ONLY CODE*/
+
+@media screen and (min-width: 700px) {
+
+    .alpha-disclaimer {
+        width:40%;
+    }
+}
+
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 700px) {
+
+    .alpha-disclaimer {
+        width:100%;
+    }
+}
+
+
 
 .navbar-menu {
     font-size: .9rem;
@@ -213,6 +233,16 @@ main {
 
     }
 }
+
+@media screen and (device-aspect-ratio: 40/71) {
+    .main-section-title {
+        top: calc(51.2vh / 2);
+    }
+
+}
+
+
+
 
 /*DESKTOP ONLY CODE*/
 

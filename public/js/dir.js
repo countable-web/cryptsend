@@ -3,36 +3,71 @@
 //TODO: avoid global variables...
 let content = ''; //list of uploaded files.
 
-  if (window.location.protocol === 'http:') {
-    window.alert('Warning: CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.');
-  }
 
-//Functions for handling file decryption:
+/*#############################################################|
+|                        VALIDATION
+*##############################################################*/
+
+
+/* User Hints about security =========================================== */
+let hints = function () {
+    let info = new Alert().showMessage("info", `<strong>Hints:</strong>
+ <ol class="box-alert-list">
+ <li>Use this app in cognito mode before going to your folder</li>
+ <li>Disable extensions</li>
+ <li>Be careful to only transmit the link over secure media. remember, if you email the link, that's the same as emailing the file contents. Your mail provider will have access to your data.</li>
+ </ol>
+`);
+};
+
+/* HTTP protocol validation =========================================== */
+// show a warning if user is using unsecure connection (non-https)
+
+if (window.location.protocol === 'http:') {
+
+    let httpWarning = new Alert().showMessage("warning", "Warning: You're using an insecure (http) connection. Some cryptographic operations may not work as expected.");
+
+    hints(); //show security hints
+
+} else {
+    hints();
+}
+
+
+/*#############################################################|
+|                        FILE HANDLING
+*##############################################################*/
+
+
+/* File download =========================================== */
+
 const handleFileDownload = (e) => {
-
-
 
     if (window.location.hash) {
         //Note: I'm just checking for A key/hash, not the same key used to encrypt the files on the list (i.e. there is no key authentication yet).
         //If the user tries to decrypt/download a file with the wrong key, nothing will happen.
+
+        let fetchFilePath = function (filePath, filename) {
+            fetch(filePath)
+                .then(res => res.blob())
+                .then(blob => decryptFile(blob))
+                .then(downloadLink => {
+                    currentLink.setAttribute('href', downloadLink);
+                    currentLink.setAttribute('download', filename);
+                    currentLink.click();
+                });
+        };
+
         let currentLink = e.currentTarget;
 
-            if(currentLink.classList.contains("download-button")) { //if used clicked on the download button
+        if (currentLink.classList.contains("download-button")) { //if used clicked on the download button
 
             if (currentLink.href.includes('/dir')) { //Gian: I'm only decrypting a file once...
-                // currentLink.setAttribute('download', currentLink.innerText);
+
                 const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.getAttribute("file-name");
 
-                fetch(filePath)
-                    .then(res => res.blob())
-                    .then(blob => decryptFile(blob))
-                    .then(downloadLink => {
-                        currentLink.setAttribute('href', downloadLink);
-                        currentLink.setAttribute('download', currentLink.getAttribute("file-name"));
-                        currentLink.click();
-                    });
+                fetchFilePath(filePath, currentLink.getAttribute("file-name"));
             }
-
 
         } else { //we are dealing with file name click then
 
@@ -40,41 +75,40 @@ const handleFileDownload = (e) => {
                 // currentLink.setAttribute('download', currentLink.innerText);
                 const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
 
-                fetch(filePath)
-                    .then(res => res.blob())
-                    .then(blob => decryptFile(blob))
-                    .then(downloadLink => {
-                        currentLink.setAttribute('href', downloadLink);
-                        currentLink.setAttribute('download', currentLink.innerText);
-                        currentLink.click();
-                    });
+                let filename = currentLink.innerText;
+
+                fetchFilePath(filePath, filename);
             }
         }
 
-
-
-
-
     } else {
         //TODO: better feedback?
-        window.alert('Error: no hash found.');
+        let hashWarning = new Alert().showMessage("danger", "Error: no hash found.");
+        console.log('Error: no hash found.');
     }
 };
 
+
+/* Prepare files for decrypting =========================================== */
+
+//This script adds the href and click event to the file name and download link, so they can trigger a download
+//event
+
 const addFilesDecrypt = () => {
 
-    const fileItems2 = document.querySelector(".files-listing").children;
+    const files = document.querySelector(".files-listing").children;
 
+    /* Adds FILE NAME href link and click event  =========================================== */
 
-    /* File name  =========================================== */
+    for (let file of files) {
 
-    for (let file of fileItems2) {
+        let target = file.firstElementChild.children[1];
 
-        file.firstElementChild.children[1].setAttribute('href', window.location.hash);
-        file.firstElementChild.children[1].addEventListener('click', handleFileDownload);
+        target.setAttribute('href', window.location.hash);
+        target.addEventListener('click', handleFileDownload);
     }
 
-    /* Download icon =========================================== */
+    /* Adds DOWNLOAD ICON href link and click event =========================================== */
 
     let downloadIcons = document.querySelectorAll(".download-button");
 
@@ -86,8 +120,10 @@ const addFilesDecrypt = () => {
 
     }
 
-
 };
+
+
+/* Generate shareable link =========================================== */
 
 const createShareLink = () => {
     let shareLink = document.createElement('a');
@@ -101,108 +137,84 @@ const createShareLink = () => {
 };
 
 
-/* ------------------------------------------------------------|
-| FILE DELETION
-*-------------------------------------------------------------*/
-
+/* File deletion =========================================== */
 
 const deletionFeedback = name => {
-    let feedbackElement = document.createElement('p');
-    feedbackElement.id = 'del-feedback';
-    feedbackElement.innerText = `${name} was deleted.`;
-    document.body.appendChild(feedbackElement);
-    window.setTimeout(() => {
-        document.getElementById('del-feedback').remove();
-    }, 3000);
-
+    let deleteFeedback = new Alert().showMessage("success", `${name} was deleted.`)
 };
 
+//Remove item from file listing
 const removeListItem = (item, itemName) => (e) => {
-
-    console.log(item);
-
     item.remove();
-    // window.alert(`${item.parentElement.firstElementChild.textContent} was deleted successfully.`);
     deletionFeedback(itemName);
-    // if (document.getElementsByClassName('files-list')[0].children.length === 0) {
-    //     document.getElementsByClassName('dir-files-wrapper')[0].classList.add('hidden');
-    // }
 };
 
 
-/* ------------------------------------------------------------|
-| FILE LISTING
-*-------------------------------------------------------------*/
-
+/*#############################################################|
+|                        FILE LISTING
+*##############################################################*/
+//This code is responsible for listing files in "Your Private Folder" section.
 
 const listingFiles = () => {
 
-        /* ------------------------------------------------------------|
-        | LISTING FILES
-        *-------------------------------------------------------------*/
-        //This part is responsible for listing files in "My Files" section.
+    let fileListing = new FileListing(); //create instance of class responsible for file listing ( check Display.js)
 
-        let content = '';
-        fetch((window.location + '').replace("dir", "ls"))
-            .then(response => response.json())
-            .catch(error => console.error('Error:', error))
-            .then(files => {
+    let content = '';
+    fetch((window.location + '').replace("dir", "ls"))
+        .then(response => response.json())
+        .catch(error => console.error('Error:', error))
+        .then(files => {
+            files.forEach(file => {
+                //Create Display UI class reponsible for managing content (FileListing)
+                content += fileListing.addFileRow("file.svg", file, "-", "File");
 
-
-                files.forEach(file => {
-
-                    content += `<tr>
-                    <td>
-                        <img src="/cat/public/assets/fonts/custom-icons/file.svg" class="upload-panel-icon" alt="file">
-                       <a class="file-name">${file}</a>
-                    </td>
-                    <td>-</td>
-                    <td>File</td>
-                    <td class="upload-file-actions">
-
-                    <a class="fas fa-download download-button upload-form-icon"></a>
-                    <i class="fas fa-trash-alt delete-button upload-form-icon"></i>
-
-
-</td>
-                </tr>`
-
-
-                });
-
-
-                document.querySelector(".files-listing").innerHTML = content;
-
-                if (content) {
-                    if (!(document.getElementById('share-link-wrapper'))) {
-                        createShareLink();
-                    }
-                }
-                // Setting up delete buttons:
-                const buttons = document.getElementsByClassName('delete-button');
-                for (let button of buttons) {
-                    button.addEventListener('click', (e) => {
-
-                        let deleteItem = e.currentTarget.parentElement.parentElement;
-                        let deleteItemName = e.currentTarget.parentElement.parentElement.firstElementChild.children[1].innerText;
-
-
-                        if (window.confirm(`Are you sure you want to delete ${deleteItemName}`)) {
-                            fetch(`${window.location.pathname}/${deleteItemName}`, {
-                                method: 'DELETE' //make a DELETE request and delete it on server
-                            })
-                                .then(removeListItem(deleteItem, deleteItemName))
-                                .catch(error => {
-                                    console.log(error);
-                                });
-                        }
-                    });
-                }
-                addFilesDecrypt();
             });
-    }
 
-;(function (document, window, index) {
+            document.querySelector(".files-listing").innerHTML = content; //refresh content (blank)
+
+            if (content) { //Email Your secure link CTA
+                if (!(document.getElementById('share-link-wrapper'))) {
+                    createShareLink();
+                }
+            }
+
+
+            /* Setting up DELETE BUTTONS =========================================== */
+
+            const buttons = document.getElementsByClassName('delete-button');
+            for (let button of buttons) {
+                button.addEventListener('click', (e) => {
+
+                    let deleteItem = e.currentTarget.parentElement.parentElement;
+                    let deleteItemName = e.currentTarget.parentElement.parentElement.firstElementChild.children[1].innerText;
+
+                    if (window.confirm(`Are you sure you want to delete ${deleteItemName}`)) {
+                        fetch(`${window.location.pathname}/${deleteItemName}`, {
+                            method: 'DELETE' //make a DELETE request and delete it on server
+                        })
+                            .then(removeListItem(deleteItem, deleteItemName)) //remove item from file listing
+                            .catch(error => {
+                                let deleteError = new Alert().showMessage("danger", `Error while trying to delete your file: ${error}`);
+                                console.log(error);
+                            });
+                    }
+                });
+            }
+
+
+            //after we load the files on listing, add href/click events to them...
+
+            addFilesDecrypt();
+        });
+};
+
+
+/*#############################################################|
+|                        FILE DRAG AND DROP
+*##############################################################*/
+
+
+(function (document, window, index) {
     // feature detection for drag&drop upload
     var isAdvancedUpload = function () {
         var div = document.createElement('div');
@@ -318,13 +330,20 @@ const listingFiles = () => {
                     } else {
                         return Promise.reject(new Error(response.statusText));
                     }
-                }
+                };
 
                 const uploadFile = async ajax => {
                     form.classList.remove('is-uploading');
                     let data = await ajax.json();
                     form.classList.add(data.success == true ? 'is-success' : 'is-error');
                     data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
+                    if (data.success) {
+
+                        let downloadLink = '/dir/' + data.dir + '#' + hash;
+
+                        let successUpload = new Alert().showMessage("success", `Your file was successfully uploaded!  Remember, this link provides <strong>full access </strong>to your folder. If you email the link, it's essentially the same as emailing the original contents.`)
+                    }
+
                     document.querySelector('.box__message').innerHTML = "Uploaded to your <a class='secure-link' href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p><strong>Do not lose this link</strong>, or the uploaded files will never be found again!</p>";
                     document.querySelector('.box__message > a').addEventListener('click', e => {
                         window.location.reload();
