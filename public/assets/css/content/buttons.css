@@ -50,6 +50,30 @@
     padding-left:3rem;
     padding-right:3rem;
 }
+
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 700px) {
+
+    .btn-cta {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+ /*DESKTOP ONLY CODE*/
+
+ @media screen and (min-width: 700px) {
+
+     .btn-cta {
+         padding-left:3rem;
+         padding-right:3rem;
+     }
+ }
+
+
+
+
 .btn-cta:hover {
     background-color: #B52F31;
     -webkit-transition-duration: 0.4s; /* Safari */

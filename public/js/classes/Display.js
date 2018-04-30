@@ -25,7 +25,7 @@ class Alert extends Display {
             this.close();//it will add click events to them
 
             //auto-close after 3 seconds
-            this.destroy(this.id, true, 6000);
+            this.destroy(this.id, true, 20000);
         }, 1);
 
     }
@@ -75,7 +75,8 @@ class Alert extends Display {
         let typeIcon = {
             "warning": "fa-exclamation-triangle",
             "success": "fas fa-check-circle",
-            "danger": "fas fa-exclamation-circle"
+            "danger": "fas fa-exclamation-circle",
+            "info":"fas fa-info-circle"
         };
 
 

@@ -3,12 +3,31 @@
 //TODO: avoid global variables...
 let content = ''; //list of uploaded files.
 
+
+/* User Hints about security =========================================== */
+let hints = function () {
+    let info = new Alert().showMessage("info", `<strong>Hints:</strong>
+ <ol class="box-alert-list">
+ <li>Use this app in cognito mode before going to your folder</li>
+ <li>Disable extensions</li>
+ <li>Be careful to only transmit the link over secure media. remember, if you email the link, that's the same as emailing the file contents. Your mail provider will have access to your data.</li>
+ </ol>
+`);
+};
+
+/* HTTP protocol verification =========================================== */
+//show a warning if user is using unsecure connection (non-https)
+
 if (window.location.protocol === 'http:') {
     // window.alert('Warning: CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.');
 
     //Using Display UI Class
-    let alert = new Alert().showMessage("warning","CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.");
+    let httpWarning = new Alert().showMessage("warning", "Warning: You're using an insecure (http) connection. Some cryptographic operations may not work as expected.");
 
+    hints(); //show security hints
+
+} else {
+    hints();
 }
 
 //Functions for handling file decryption:
@@ -114,7 +133,7 @@ const deletionFeedback = name => {
     // window.setTimeout(() => {
     //     document.getElementById('del-feedback').remove();
     // }, 3000);
-    let deleteFeedback = new Alert().showMessage("success",`${name} was deleted.`)
+    let deleteFeedback = new Alert().showMessage("success", `${name} was deleted.`)
 
 };
 
@@ -326,13 +345,12 @@ const listingFiles = () => {
                     let data = await ajax.json();
                     form.classList.add(data.success == true ? 'is-success' : 'is-error');
                     data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
-                    if(data.success) {
-                        let successUpload = new Alert().showMessage("success","Your file was successfully uploaded! <strong>Don't lose your link!</strong>")
+                    if (data.success) {
+
+                        let downloadLink = '/dir/' + data.dir + '#' + hash;
+
+                        let successUpload = new Alert().showMessage("success", `Your file was successfully uploaded!  Remember, this link provides <strong>full access </strong>to your folder. If you email the link, it's essentially the same as emailing the original contents.`)
                     }
-
-                    console.log(data.success);
-
-
 
                     document.querySelector('.box__message').innerHTML = "Uploaded to your <a class='secure-link' href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p><strong>Do not lose this link</strong>, or the uploaded files will never be found again!</p>";
                     document.querySelector('.box__message > a').addEventListener('click', e => {

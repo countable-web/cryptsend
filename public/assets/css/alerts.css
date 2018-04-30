@@ -30,8 +30,16 @@
 .danger {
     background-color: #F8D7DA;
     border: solid 1px #F5C6CB;
-    color: ##881C59;
+    color: #881C59;
 }
+
+.info {
+    background-color: #D1ECF1;
+    border: solid 1px #BEE5EB;
+    color: #2B6C77;
+}
+
+
 
 
 .box-alert-icon {
@@ -44,4 +52,14 @@
     right: 0.5rem;
     opacity: 0.6;
     font-size: 0.7rem;
+}
+
+.box-alert-list {
+    padding-left: 2rem;
+    padding-top: .5rem;
+    margin: 0;
+}
+
+.box-alert-list li {
+    margin-bottom: 0.2rem;
 }
