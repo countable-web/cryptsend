@@ -4,6 +4,11 @@
 let content = ''; //list of uploaded files.
 
 
+/*#############################################################|
+|                        VALIDATION
+*##############################################################*/
+
+
 /* User Hints about security =========================================== */
 let hints = function () {
     let info = new Alert().showMessage("info", `<strong>Hints:</strong>
@@ -15,13 +20,11 @@ let hints = function () {
 `);
 };
 
-/* HTTP protocol verification =========================================== */
-//show a warning if user is using unsecure connection (non-https)
+/* HTTP protocol validation =========================================== */
+// show a warning if user is using unsecure connection (non-https)
 
 if (window.location.protocol === 'http:') {
-    // window.alert('Warning: CryptSend is using an insecure (http) connection. Some cryptographic operations may not work as expected.');
 
-    //Using Display UI Class
     let httpWarning = new Alert().showMessage("warning", "Warning: You're using an insecure (http) connection. Some cryptographic operations may not work as expected.");
 
     hints(); //show security hints
@@ -33,10 +36,21 @@ if (window.location.protocol === 'http:') {
 //Functions for handling file decryption:
 const handleFileDownload = (e) => {
 
-
     if (window.location.hash) {
         //Note: I'm just checking for A key/hash, not the same key used to encrypt the files on the list (i.e. there is no key authentication yet).
         //If the user tries to decrypt/download a file with the wrong key, nothing will happen.
+
+        let fetchFilePath = function(filePath, filename) {
+            fetch(filePath)
+                .then(res => res.blob())
+                .then(blob => decryptFile(blob))
+                .then(downloadLink => {
+                    currentLink.setAttribute('href', downloadLink);
+                    currentLink.setAttribute('download', filename);
+                    currentLink.click();
+                });
+        };
+
         let currentLink = e.currentTarget;
 
         if (currentLink.classList.contains("download-button")) { //if used clicked on the download button
@@ -45,16 +59,8 @@ const handleFileDownload = (e) => {
                 // currentLink.setAttribute('download', currentLink.innerText);
                 const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.getAttribute("file-name");
 
-                fetch(filePath)
-                    .then(res => res.blob())
-                    .then(blob => decryptFile(blob))
-                    .then(downloadLink => {
-                        currentLink.setAttribute('href', downloadLink);
-                        currentLink.setAttribute('download', currentLink.getAttribute("file-name"));
-                        currentLink.click();
-                    });
+                fetchFilePath(filePath, currentLink.getAttribute("file-name"));
             }
-
 
         } else { //we are dealing with file name click then
 
@@ -62,35 +68,37 @@ const handleFileDownload = (e) => {
                 // currentLink.setAttribute('download', currentLink.innerText);
                 const filePath = (window.location.href.replace(location.hash, '')).replace('/dir', '/cat') + '/' + currentLink.innerText;
 
-                fetch(filePath)
-                    .then(res => res.blob())
-                    .then(blob => decryptFile(blob))
-                    .then(downloadLink => {
-                        currentLink.setAttribute('href', downloadLink);
-                        currentLink.setAttribute('download', currentLink.innerText);
-                        currentLink.click();
-                    });
+                let filename = currentLink.innerText;
+
+                fetchFilePath(filePath, filename);
             }
         }
 
-
     } else {
         //TODO: better feedback?
-        window.alert('Error: no hash found.');
+        let hashWarning = new Alert().showMessage("danger", "Error: no hash found.");
+        console.log('Error: no hash found.');
     }
 };
 
+
+/* Prepare files for decrypting =========================================== */
+//This script adds the href and click event to the file name and download link, so they can trigger a download
+//event
+
 const addFilesDecrypt = () => {
 
-    const fileItems2 = document.querySelector(".files-listing").children;
+    const files = document.querySelector(".files-listing").children;
 
 
     /* File name  =========================================== */
 
-    for (let file of fileItems2) {
+    for (let file of files) {
 
-        file.firstElementChild.children[1].setAttribute('href', window.location.hash);
-        file.firstElementChild.children[1].addEventListener('click', handleFileDownload);
+        let target =  file.firstElementChild.children[1];
+
+       target.setAttribute('href', window.location.hash);
+       target.addEventListener('click', handleFileDownload);
     }
 
     /* Download icon =========================================== */

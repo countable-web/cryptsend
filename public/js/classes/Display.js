@@ -24,7 +24,7 @@ class Alert extends Display {
         setTimeout(() => { //we wrap this into a setTimeout so the close button element has time to be created
             this.close();//it will add click events to them
 
-            //auto-close after 3 seconds
+            //auto-close after some seconds
             this.destroy(this.id, true, 20000);
         }, 1);
 
