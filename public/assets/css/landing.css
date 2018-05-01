@@ -444,8 +444,8 @@ section {
 
     margin: 0 auto;
     display: block;
-
-    max-width: 222px;
+    margin-top:-2rem;
+    max-width: 280px;
     height: auto;
 }
 
