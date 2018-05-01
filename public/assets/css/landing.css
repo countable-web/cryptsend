@@ -11,7 +11,7 @@ body {
 *-------------------------------------------------------------*/
 
 header {
-    font-family: 'Helvetica Neue', serif;
+    font-family: 'Helvetica Neue', sans-serif;
     display: inline-block;
     float: left;
     position: fixed;
@@ -42,9 +42,9 @@ nav {
 }
 
 .alpha-disclaimer {
-    font-size:.8rem;
+    font-size:1rem;
     color:silver;
-    opacity:.5;
+    opacity:.8;
     text-align: center;
     display: block;
     margin:0 auto;
@@ -204,7 +204,7 @@ main {
     height: auto;
     text-align: center;
     font-size: 3.4rem;
-    font-family: 'Comfortaa', serif;
+    font-family: 'Comfortaa', sans-serif;
     color: white;
     z-index: 3;
     left: 0;
@@ -342,7 +342,7 @@ main {
 .section-first-header {
     background-color: #1E1E1E;
     color: white;
-    font-family: Comfortaa, serif;
+    font-family: Comfortaa, sans-serif;
     font-size: 1.7rem;
     padding: 1rem 1rem 3rem;
     font-weight: bolder;
@@ -354,7 +354,7 @@ main {
 .section-first-content {
     color: #495F7F;
     font-size: 1rem;
-    font-family: "Comfortaa Light", serif;
+    font-family: "Comfortaa Light", sans-serif;
     padding: 1rem;
     text-align: center;
 
@@ -377,8 +377,6 @@ main {
     box-sizing: border-box;
     min-height:230px;
     /*min-height: 10rem;*/
-
-
 }
 
 .section-divisor {
@@ -388,7 +386,6 @@ main {
     opacity: .2;
     margin-top: 3rem;
     margin-bottom: 3rem;
-
 }
 
 /* Section left or right =========================================== */
@@ -412,7 +409,7 @@ section {
     color: #3A3A3A;
     text-align: center;
 
-    font-family: "Comfortaa", serif;
+    font-family: "Comfortaa", sans-serif;
 
 }
 
@@ -423,7 +420,7 @@ section {
     color: #41464C;
     font-size: .9rem;
     line-height: 1.8;
-    font-family: "Comfortaa Light", serif;
+    font-family: "Comfortaa Light", sans-serif !important;
 
     text-align: center;
     margin-top: 2rem;
@@ -467,6 +464,12 @@ section {
     /*max-width: 150px !important;*/
     padding-top:5rem !important;
 }
+
+.potential-risks-list{
+    list-style-type: none;
+
+}
+
 
 
 /*MOBILE ONLY CODE*/
@@ -542,7 +545,7 @@ section {
  }
 
 .cross-browser-title {
-    font-family: "Comfortaa Light", serif;
+    font-family: "Comfortaa Light", sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
     color: #333333;
@@ -622,7 +625,7 @@ and (max-device-width : 1400px) {
 
 footer {
     margin-top: 4rem;
-    font-family: "Comfortaa", serif;
+    font-family: "Comfortaa", sans-serif;
     background-color: #1E1E1E;
     display: inline-block;
     float: left;
