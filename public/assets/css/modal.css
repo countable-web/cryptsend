@@ -1,78 +1,236 @@
 
-.modal-text {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    text-align: center;
-    font-family: "Quicksand Light", serif;
+body {
+    z-index: -2;
 }
 
-.modal-text-info {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    text-align: center;
-    font-family: "Quicksand Light", serif;
-    font-size: .8rem;
+/* Main modal structure =========================================== */
+
+.modal-wrapper {
+    position: fixed;
+    top: 21.3vh;
+
+    /*always center box on position fixed*/
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    height: auto;
+}
+
+.modal {
+    border: solid 1px #41464cc2;
+    box-sizing: border-box;
+
+    background-color: white;
+    border-radius: 0.4rem;
+    font-family: Comfortaa, sans-serif;
+
+    /* Positioning =========================================== */
+    display: inline-block;
+    float: left;
+
+    /* Shadow =========================================== */
+    -webkit-box-shadow: 6px 6px 2px 0px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 6px 6px 2px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 6px 6px 2px 0px rgba(0, 0, 0, 0.16);
+
+    padding-bottom: 1rem;
+
+}
+
+.shadow-background {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/*DESKTOP ONLY CODE*/
+
+@media screen and (min-width: 700px) {
+    .modal-small {
+        width: 60vw;
+    }
+
+}
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 700px) {
+
+    .modal-small {
+        width: 80vw;
+
+    }
+}
+
+/* Title and subtitle =========================================== */
+
+.modal-title-section {
+    background-color: #495F7F;
+    width: 100%;
+    height: 5rem;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    border-top-right-radius: 0.4rem;
+    border-top-left-radius: 0.4rem;
+
+    display: inline-block;
+    float: left;
+
+}
+
+.modal-title {
+    display: inline-block;
+    float: left;
+    width: 100%;
+    color: white;
+    font-size: 1.4rem;
+    padding-left: 4.6rem;
+    box-sizing: border-box;
+}
+
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 1080px) {
+
+    .modal-title {
+        text-align: center;
+        padding-left: 0;
+        box-sizing: border-box;
+        margin-top: 0.5rem;
+    }
+    
+}
+
+
+
+.modal-subtitle {
+    display: inline-block;
+    float: left;
+
     color: silver;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    opacity: .5;
+    padding-left: 4.6rem;
 }
 
-.modal-text-big {
+/* Icons =========================================== */
 
-    padding: 1rem;
+.modal-icon {
+    position: absolute;
+    top: 1.3rem;
+    left: 1.9rem;
+    color: white;
+    opacity: .5;
+    font-size: 2.4rem;
+}
+
+.modal-close-icon {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.8rem;
+    color: white;
+    opacity: .5;
     font-size: 1rem;
-    font-weight: bolder;
-    text-align: center;
-    font-family: "Quicksand Light", serif;
-
-            box-sizing: border-box;
 }
 
-#modal-upload-btn {
-    margin: 0 auto;
-    display: block;
-    width: 30%;
-    margin-bottom: 2rem;
 
-}
+/* Modal Content =========================================== */
 
 .modal-content {
-    padding:2rem;
-}
-
-.modal-label {
-
-    font-family: "Quicksand Light", serif;
-    font-size: 1rem;
-
-    display: block;
-    text-align: center;
-}
-
-.modal-input {
-    margin-left: 1rem;
-}
-
-.modal-upload-form {
-
-}
-
-.file-encrypt-wrapper {
-    position: relative;
-    overflow: hidden;
+    /* border: solid 1px hotpink; */
+    box-sizing: border-box;
     display: inline-block;
-    /*border: solid 1px hotpink;*/
+    float: left;
+    padding-left: 0.7rem;
+    padding-right: 1rem;
+    margin-top: 1.2rem;
+    font-family: 'Comfortaa Light', sans-serif;
+    height: auto;
+    width: 100%;
+}
+
+#btn-send-email {
+    margin: 0 auto;
+    display: block;
+    width: 10%;
+}
+
+.modal-content-description {
+    display: inline-block;
+    float: left;
+    font-size: .8rem;
+    padding-left: 1.1rem;
+
+    margin: 0;
+
     box-sizing: border-box;
     width: 100%;
 }
 
-.file-encrypt-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
+.modal-content-description p {
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 
-#btn-send-email {
-    margin-left:1rem;
+.modal-input {
+
+    box-sizing: border-box;
+    margin-right:2rem;
+    width: 98.8%;
+    height: 2.3rem;
+    border-radius: 0.2rem;
+    margin-bottom: 1rem;
+    color: #41464cab;
+    font-family: Comfortaa, sans-serif;
+    font-size: 1.1rem;
+    padding-left: 0.7rem;
+    border: 1px solid #33333326;
+
+}
+
+.modal-input:active {
+    outline-color: #355FF2;
+}
+
+.modal-input:focus {
+    outline-color: #355FF2;
+}
+
+
+/* Desktop  & Mobile only code =========================================== */
+
+
+/*DESKTOP ONLY CODE*/
+
+@media screen and (min-width: 1080px) {
+
+    .desktop-only {
+        display: block;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+
+}
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 1080px) {
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
 
 }
