@@ -44,7 +44,6 @@ class Alert extends Display {
     }
 
 
-
     /* Destroying alert =========================================== */
     destroy(id, delayed = false, timeout = null) {
         function destroyMe() {
@@ -76,7 +75,7 @@ class Alert extends Display {
             "warning": "fa-exclamation-triangle",
             "success": "fas fa-check-circle",
             "danger": "fas fa-exclamation-circle",
-            "info":"fas fa-info-circle"
+            "info": "fas fa-info-circle"
         };
 
 
@@ -117,14 +116,14 @@ class Alert extends Display {
 }
 
 
- class FileListing extends Display {
+class FileListing extends Display {
 
-     constructor(id) {
-         super(id); // super call parent constructor methods
+    constructor(id) {
+        super(id); // super call parent constructor methods
 
-     }
+    }
 
-     addFileRow(icon, filename, size, type){
+    addFileRow(icon, filename, size, type) {
 
         let fileRow = `<tr>
                     <td>
@@ -142,11 +141,138 @@ class Alert extends Display {
 </td>
                 </tr>`
 
-         return fileRow;
+        return fileRow;
 
     }
 
 
+}
 
-  }
+
+class Modal extends Display {
+
+    constructor(id) {
+        super(id);
+
+
+        //auto-add click event to close icon
+
+        setTimeout(() => {
+
+
+            let closeIcons = document.querySelectorAll(".modal-close-icon");
+
+
+            closeIcons.forEach((icon) => {
+
+                icon.addEventListener('click', function (e) {
+
+                    let modalId = e.currentTarget.parentElement.parentElement.parentElement.getAttribute("data-modal-id");
+
+                    Modal.close(modalId);
+
+                });
+
+            });
+
+        }, 1);
+
+
+    }
+
+
+    open(title, subtitle, content, faIcon) {
+
+        //prepare modal boilerplane
+
+        let modal = ` <!--MODALS-->
+    <div class="shadow-background" style="display: none;" data-modal-id="${this.id}"></div>
+    <div class="modal-wrapper" style="display: none" data-modal-id="${this.id}">
+        <div class="modal modal-small">
+
+            <div class="modal-title-section desktop-only">
+
+                <i class="${faIcon} modal-icon"></i>
+
+
+                <div class="modal-title">
+                    ${title}
+                </div>
+                <div class="modal-subtitle">
+                    ${subtitle}
+                </div>
+
+            </div>
+
+
+            <div class="modal-title-section mobile-only">
+
+
+
+                <div class="modal-title">
+                   ${title}
+                </div>
+            </div>
+            <div class="modal-content">
+
+
+               ${content}
+
+
+                <!--Close icon-->
+                <i class="fas fa-times-circle modal-close-icon"></i>
+
+
+            </div>
+
+
+           
+
+        </div> <!--END MODALS-->`;
+
+
+        //inject modal into html content
+
+        let modalListings = document.querySelector(".modal-listings");
+
+        modalListings.innerHTML = modal;
+
+        //then display it
+        document.querySelector(".shadow-background").style.display = "block";
+        document.querySelector(".modal-wrapper").style.display = "block";
+
+        //create data representation
+        let newModal = {
+            id: this.id,
+            title,
+            subtitle,
+            content,
+            faIcon
+        };
+
+        //send it to our display data list.
+        Display.list.push(newModal);
+
+    };
+
+    static close(id) {
+        let modals = document.querySelectorAll(".modal-listings .modal-wrapper");
+        let shadows = document.querySelectorAll(".shadow-background");
+
+
+        modals.forEach((modal) => {
+            if (modal.getAttribute("data-modal-id") == id) {
+                modal.remove();
+            }
+        });
+
+        shadows.forEach((shadow) => {
+            shadow.remove();
+        });
+
+
+    }
+
+
+}
 

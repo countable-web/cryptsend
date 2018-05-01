@@ -92,7 +92,6 @@ body {
     box-sizing: border-box;
 }
 
-
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
 
@@ -102,10 +101,8 @@ body {
         box-sizing: border-box;
         margin-top: 0.5rem;
     }
-    
+
 }
-
-
 
 .modal-subtitle {
     display: inline-block;
@@ -137,7 +134,6 @@ body {
     opacity: .5;
     font-size: 1rem;
 }
-
 
 /* Modal Content =========================================== */
 
@@ -183,7 +179,7 @@ body {
 .modal-input {
 
     box-sizing: border-box;
-    margin-right:2rem;
+    margin-right: 2rem;
     width: 98.8%;
     height: 2.3rem;
     border-radius: 0.2rem;
@@ -204,9 +200,7 @@ body {
     outline-color: #355FF2;
 }
 
-
 /* Desktop  & Mobile only code =========================================== */
-
 
 /*DESKTOP ONLY CODE*/
 
