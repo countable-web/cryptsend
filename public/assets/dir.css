@@ -9,6 +9,8 @@ html, main, body {
 .dir-upload-wrapper {
   border-radius: 1rem;
   padding: 1.5rem 5%;
+  box-sizing: border-box;
+  width:100%;
 }
 
 .container {
@@ -143,12 +145,32 @@ html
   body
   {
     font-family: Roboto, sans-serif;
-    /*color: #0f3c4b;*/
+
     color: #3A3A3A;
-    /*background-color: #fff;*/
-    /*padding: 5rem 1.25rem;*/
-    padding: 5rem 5%; /* 80 20 */
   }
+
+
+  /*MOBILE ONLY CODE*/
+  @media screen and (max-width: 1080px) {
+
+      body {
+        padding-left:0rem;
+        padding-right:0rem;
+      }
+  }
+
+/*DESKTOP ONLY CODE*/
+
+@media screen and (min-width: 1080px) {
+
+    body {
+      padding-left:2rem;
+      padding-right:2rem;
+    }
+}
+
+
+
 
   .container
   {
@@ -192,20 +214,34 @@ html
         border-bottom-color: #0f3c4b;
       }
 
+      .secure-link {
+          text-decoration: underline;
+          font-weight: bold;
+          cursor:pointer;
+      }
+
     .box
     {
       font-size: 1.25rem; /* 20 */
       /*background-color: #f8f8f8;*/
       /*position: relative;*/
-      padding: 100px 20px;
+      /*padding: 100px 20px;*/
+        /*border: solid 1px hotpink;*/
+                box-sizing: border-box;
+        display: inline-block;
+        padding-top:2rem;
+        padding-bottom:2rem;
+
+        height:inherit;
+
+
+
     }
     .box.has-advanced-upload
     {
-      outline: 2px dashed #ddd;
-      outline-offset: -2px;
 
-      -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-      transition: outline-offset .15s ease-in-out, background-color .15s linear;
+        width: inherit;
+
     }
     .box.is-dragover
     {
@@ -235,7 +271,7 @@ html
       .box.is-success .box__input,
       .box.is-error .box__input
       {
-        visibility: hidden;
+        display: none;
       }
 
       .box__uploading,
@@ -279,6 +315,10 @@ html
           to		{ transform: translateY( -50% ) scale( 1 ); }
         }
 
+        .box__success,.box__message,.box__error {
+            text-align:center;
+        }
+
       .box__restart
       {
         font-weight: 700;
@@ -304,8 +344,15 @@ html
         text-overflow: ellipsis;
         white-space: nowrap;
         cursor: pointer;
-        display: inline-block;
+        display: block;
         overflow: hidden;
+        /*border: solid 1px hotpink;*/
+                box-sizing: border-box;
+
+        margin:0 auto;
+        text-align: center;
+
+
       }
       .js .box__file + label:hover strong,
       .box__file:focus + label strong,

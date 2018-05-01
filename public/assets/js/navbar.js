@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+
     //Navbar slide down effect on vanillaJS
     let menuIcon = document.querySelector(".navbar-menu-icon");
     let menu = document.querySelector("#menu-mobile");
