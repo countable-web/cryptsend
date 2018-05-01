@@ -39,6 +39,10 @@ const upload = (req, res) => {
 
     form.uploadDir = req.file_path;
 
+    form.on('error', function(error) {
+      res.end(error);
+    });
+
     form.on('fileBegin', function(name, file) {
         //rename the incoming file to the file's name
         //TODO: Possible problem when using POSIX file paths on Windows.
