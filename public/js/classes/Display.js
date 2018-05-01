@@ -4,7 +4,17 @@ class Display {
         this.id = Display.instances;
 
 
+
     }
+
+    static disableScrolling(){
+        let body = document.querySelector("body").classList.add("stop-scrolling");
+    }
+
+    static enableScrolling(){
+        let body = document.querySelector("body").classList.remove("stop-scrolling");
+    }
+
 
 
     static numberOfDisplays() {
@@ -183,6 +193,11 @@ class Modal extends Display {
 
     open(title, subtitle, content, faIcon) {
 
+        //prevent body from scrolling
+        Display.disableScrolling();
+
+
+
         //prepare modal boilerplane
 
         let modal = ` <!--MODALS-->
@@ -256,6 +271,7 @@ class Modal extends Display {
     };
 
     static close(id) {
+
         let modals = document.querySelectorAll(".modal-listings .modal-wrapper");
         let shadows = document.querySelectorAll(".shadow-background");
 
@@ -266,9 +282,15 @@ class Modal extends Display {
             }
         });
 
+        //remove background shadow
         shadows.forEach((shadow) => {
             shadow.remove();
         });
+
+
+        //enable scrolling again on body
+        Display.enableScrolling();
+
 
 
     }

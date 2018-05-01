@@ -228,3 +228,10 @@ body {
     }
 
 }
+
+/* Prevent scrolling =========================================== */
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
