@@ -13,8 +13,8 @@ let content = ''; //list of uploaded files.
 let hints = function () {
     let info = new Alert().showMessage("info", `<strong>Hints:</strong>
  <ol class="box-alert-list">
- <li>Use this app in cognito mode before going to your folder</li>
- <li>Disable extensions</li>
+ <li>Use this app in private (incognito) mode before going to your folder.</li>
+ <li>Disable extensions.</li>
  <li>Be careful to only transmit the link over secure media. remember, if you email the link, that's the same as emailing the file contents. Your mail provider will have access to your data.</li>
  </ol>
 `);
