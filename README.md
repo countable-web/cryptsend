@@ -18,7 +18,7 @@ Send files anywhere -> anywhere securely
 
 The concept is that it's 2018 and there's no really good general purpose file sharing tool.
 
-| Feature | WeTransfer etc. | FTP | email | Our Product |
+| Feature | WeTransfer etc. | FTP | email | CryptSend |
 | --- | --- | --- | --- | --- |
 | open source | no | yes | some | yes |
 | trustless client encryption | no | no | no | yes |
