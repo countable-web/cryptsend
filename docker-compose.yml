@@ -2,7 +2,7 @@ version: '2'
 
 services:
     web:
-        image: node:9-alpine
+        build: .
         volumes:
           - .:/code/
         working_dir: /code/
