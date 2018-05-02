@@ -44,8 +44,7 @@ const upload = (req, res) => {
     form.uploadDir = req.file_path;
 
     form.on('error', function(error) {
-      console.log(error);
-      res.end(error);
+      res.end(error.message);
     });
 
     form.on('fileBegin', function(name, file) {
