@@ -431,9 +431,9 @@ if (window.location.pathname !== '/dir') {
 |                        MODAL HANDLER
 *##############################################################*/
 
-let modalBtn = document.querySelector("#btn-open-modal-email-link");
+let emailLinkBtn = document.querySelector("#btn-open-modal-email-link");
 
-modalBtn.addEventListener('click', function () {
+emailLinkBtn.addEventListener('click', function () {
 
 
     let emailModal = new Modal().open("E-mail Your Link", "Send your link to someone trustable",
@@ -450,5 +450,13 @@ modalBtn.addEventListener('click', function () {
                     </a>
 
                 </div>`, 'fas fa-share-square');
+
+});
+
+let shareLinkBtn = document.querySelector("#btn-open-modal-link-folder");
+
+shareLinkBtn.addEventListener('click', function () {
+
+     Display.copyLinkClipboard();
 
 });

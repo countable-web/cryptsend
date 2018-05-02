@@ -176,6 +176,32 @@ body {
     margin-bottom: 1rem;
 }
 
+.modal-content-folder-link {
+    display: inline-block;
+    float:left;
+    width:100%;
+    font-size:1rem;
+    font-weight: bolder;
+
+
+    border: solid 1px hotpink;
+            box-sizing: border-box;
+    overflow-wrap: break-word   ;
+
+}
+
+.folder-link-icon {
+
+    display: inline-block;
+    float: left;
+    color: #333333;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    padding-left: 0.9rem;
+    padding-top: -1.1rem;
+    margin-top: -0.2rem;
+}
+
 .modal-input {
 
     box-sizing: border-box;

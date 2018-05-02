@@ -4,17 +4,30 @@ class Display {
         this.id = Display.instances;
 
 
+    }
+
+    static copyLinkClipboard() {
+
+        let folderLink = window.location.href;
+        navigator.clipboard.writeText(folderLink).then(function() {
+
+            let copiedAlert = new Alert().showMessage("success", "Your link was copied to clipboard. Press CTRL + C to share it");
+
+
+        }, function(err) {
+            let copiedAlert = new Alert().showMessage("danger", "An error occurred while trying to copy your folder link to clipboard. Try doing it manually.");
+
+        });
 
     }
 
-    static disableScrolling(){
+    static disableScrolling() {
         let body = document.querySelector("body").classList.add("stop-scrolling");
     }
 
-    static enableScrolling(){
+    static enableScrolling() {
         let body = document.querySelector("body").classList.remove("stop-scrolling");
     }
-
 
 
     static numberOfDisplays() {
@@ -35,7 +48,7 @@ class Alert extends Display {
             this.close();//it will add click events to them
 
             //auto-close after some seconds
-            this.destroy(this.id, true, 20000);
+            this.destroy(this.id, true, 6000);
         }, 1);
 
     }
@@ -185,6 +198,25 @@ class Modal extends Display {
 
             });
 
+
+            let shadow = document.querySelector(".shadow-background ");
+
+            shadow.addEventListener("click",function(e){
+
+
+                //remove modal
+                this.nextElementSibling.remove();
+
+                //self destroy
+                this.remove();
+
+                Display.enableScrolling();
+
+
+            })
+
+
+
         }, 1);
 
 
@@ -195,7 +227,6 @@ class Modal extends Display {
 
         //prevent body from scrolling
         Display.disableScrolling();
-
 
 
         //prepare modal boilerplane
@@ -290,7 +321,6 @@ class Modal extends Display {
 
         //enable scrolling again on body
         Display.enableScrolling();
-
 
 
     }
