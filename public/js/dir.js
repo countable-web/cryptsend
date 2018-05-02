@@ -426,3 +426,41 @@ const listingFiles = () => {
 if (window.location.pathname !== '/dir') {
     listingFiles();
 }
+
+/*#############################################################|
+|                        MODAL HANDLER
+*##############################################################*/
+
+let emailLinkBtn = document.querySelector("#btn-open-modal-email-link");
+
+emailLinkBtn.addEventListener('click', function (e) {
+
+    e.preventDefault();
+
+
+    let emailModal = new Modal().open("E-mail Your Link", "Send your link to someone trustable",
+        `<div class="modal-content-description" >
+
+                    <p>Share your link with someone</p>
+
+
+                    <input type="email" name="send-email" id="send-email" class="modal-input">
+
+
+                    <a href="javascript:void(0)">
+                        <div class="btn btn-primary btn-medium btn-center btn-shadow" id="btn-send-email">Send</div>
+                    </a>
+
+                </div>`, 'fas fa-share-square');
+
+});
+
+let shareLinkBtn = document.querySelector("#btn-open-modal-link-folder");
+
+shareLinkBtn.addEventListener('click', function (e) {
+
+    e.preventDefault(); //we should prevent click action, otherwise hash will break.
+
+     Display.copyLinkClipboard();
+
+});
