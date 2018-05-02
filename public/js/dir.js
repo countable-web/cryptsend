@@ -433,7 +433,9 @@ if (window.location.pathname !== '/dir') {
 
 let emailLinkBtn = document.querySelector("#btn-open-modal-email-link");
 
-emailLinkBtn.addEventListener('click', function () {
+emailLinkBtn.addEventListener('click', function (e) {
+
+    e.preventDefault();
 
 
     let emailModal = new Modal().open("E-mail Your Link", "Send your link to someone trustable",
