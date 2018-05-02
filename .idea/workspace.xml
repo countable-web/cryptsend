@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -22,7 +20,7 @@
     <fileColor scope="Non-Project Files (Material Oceanic)" color="2E3C43" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.496875">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="dir.html" pinned="false" current-in-tab="false">
@@ -34,19 +32,22 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="dir.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="dir.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/dir.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                <state relative-caret-position="203">
+                  <caret line="438" lean-forward="true" selection-start-line="438" selection-end-line="438" />
+                  <folding>
+                    <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Display.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Display.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/js/classes/Display.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-600">
+                <state relative-caret-position="-510">
                   <caret line="164" column="22" selection-start-line="164" selection-start-column="22" selection-end-line="164" selection-end-column="22" />
                 </state>
               </provider>
@@ -202,12 +203,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="scrolling&#9;null&#9;null&#10;copy&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/copy-clipboard.js&#10;dir.js&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/js/dir.js&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;index&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/index.html&#10;dir&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/dir.css&#10;dir.css&#9;null&#9;null&#10;upload&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;buttons.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/content/buttons.css&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;upload-form&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="SearchEverywhereHistoryKey" value="copy&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/copy-clipboard.js&#10;dir.js&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/js/dir.js&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;index&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/index.html&#10;dir&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/dir.css&#10;dir.css&#9;null&#9;null&#10;upload&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;buttons.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/content/buttons.css&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;upload-form&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -268,12 +269,12 @@
       <workItem from="1525065852677" duration="75000" />
       <workItem from="1525066557308" duration="6178000" />
       <workItem from="1525199650834" duration="7921000" />
-      <workItem from="1525222073536" duration="588000" />
+      <workItem from="1525222073536" duration="904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52156000" />
+    <option name="totallyTimeSpent" value="52472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1600" height="875" extended-state="6" />
@@ -288,7 +289,7 @@
       <window_info anchor="bottom" id="Run" order="4" weight="0.3297414" />
       <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="15" weight="0.53333336" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="15" visible="true" weight="0.14" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.28448275" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -318,6 +319,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -559,15 +563,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/classes/Display.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-600">
+        <state relative-caret-position="-510">
           <caret line="164" column="22" selection-start-line="164" selection-start-column="22" selection-end-line="164" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -575,6 +572,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2325">
           <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="438" lean-forward="true" selection-start-line="438" selection-end-line="438" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

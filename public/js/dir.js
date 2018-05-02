@@ -447,7 +447,7 @@ emailLinkBtn.addEventListener('click', function (e) {
                     <input type="email" name="send-email" id="send-email" class="modal-input">
 
 
-                    <a href="#">
+                    <a href="javascript:void(0)">
                         <div class="btn btn-primary btn-medium btn-center btn-shadow" id="btn-send-email">Send</div>
                     </a>
 
