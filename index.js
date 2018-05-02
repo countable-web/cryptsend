@@ -5,6 +5,10 @@ const crypto = require('crypto');
 const mkdirp = require('mkdirp');
 const path = require('path');
 const slug = require('slug');
+const raven = require('raven');
+
+raven.config(process.env.SENTRY_DSN).install();
+// raven.config('http://96fb5d27720b42fb94b6fc741408d540:4b700fa84dbc476d9ce6e410e33a00f4@bool.countable.ca:9000/7').install();
 
 const server = process.env.SERVER || 'http://localhost:1234';
 
@@ -38,6 +42,10 @@ const upload = (req, res) => {
     // console.log('File path on Upload:', req.file_path);
 
     form.uploadDir = req.file_path;
+
+    form.on('error', function(error) {
+      res.end(error.message);
+    });
 
     form.on('fileBegin', function(name, file) {
         //rename the incoming file to the file's name
@@ -199,6 +207,10 @@ http.createServer((req, res) => {
     }
     if (req.method == 'POST') {
         return upload(req, res);
+    }
+
+    if (command === 'fail') {
+      throw new Error('Test Trace');
     }
 
     if (command === '') {
