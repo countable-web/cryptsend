@@ -455,7 +455,9 @@ emailLinkBtn.addEventListener('click', function () {
 
 let shareLinkBtn = document.querySelector("#btn-open-modal-link-folder");
 
-shareLinkBtn.addEventListener('click', function () {
+shareLinkBtn.addEventListener('click', function (e) {
+
+    e.preventDefault(); //we should prevent click action, otherwise hash will break.
 
      Display.copyLinkClipboard();
 
