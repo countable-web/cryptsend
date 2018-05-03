@@ -1,5 +1,7 @@
 data/*
 public/data
+docker-compose.override.yml
+.idea
 
 # Logs
 logs

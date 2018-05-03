@@ -1,0 +1,27 @@
+html, main, body {
+  background-color: #1E1E1E;
+}
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.index-upload-wrapper {
+  text-align: center;
+  padding: 5rem 5%;
+}
+
+.upload-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #1E1E1E;
+  background: #eee;
+  padding: 1rem 10%;
+  border-radius: 1rem;
+  font-size: 2.5rem;
+  font-variant: small-caps;
+}
+
+.upload-button:hover {
+  background: #bbb;
+}
