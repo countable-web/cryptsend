@@ -3,6 +3,15 @@
 //TODO: avoid global variables...
 let content = ''; //list of uploaded files.
 
+/*#############################################################|
+|                          TESTS
+*##############################################################*/
+
+const regressionTest = () => {
+    window.location.hash = '';
+    window.location.href = window.location.origin + '/dir/data/cc8/tluICx+fpoDNb+DsLMquWl+aai5sVg#NfF6mwHOSZire9yal1dlOMFn67RTD8tsL_mjlsPP_Is';
+    window.location.reload();
+}
 
 /*#############################################################|
 |                        VALIDATION
@@ -41,6 +50,24 @@ if (window.location.protocol === 'http:') {
 
 /* File download =========================================== */
 
+const beforeDownload = blob => {
+    if (window.location.hash === '#NfF6mwHOSZire9yal1dlOMFn67RTD8tsL_mjlsPP_Is') {
+        return new Promise((resolve, reject) => {
+            let reader = new FileReader();
+            reader.onload = (e => {
+                if (e.target.result === 'bar') {
+                  //TODO: setup back-end hook;
+                  console.log('success');
+                }
+                resolve('#'); // this prevents page refresh on click
+            });
+            reader.readAsText(blob);
+        });
+    } else {
+        return window.URL.createObjectURL(blob);
+    }
+}
+
 const handleFileDownload = (e) => {
 
     if (window.location.hash) {
@@ -50,7 +77,8 @@ const handleFileDownload = (e) => {
         let fetchFilePath = function (filePath, filename) {
             fetch(filePath)
                 .then(res => res.blob())
-                .then(blob => decryptFile(blob))
+                .then(blob => decryptFile([blob, window.location.hash.slice(1)]))
+                .then(beforeDownload)
                 .then(downloadLink => {
                     currentLink.setAttribute('href', downloadLink);
                     currentLink.setAttribute('download', filename);
@@ -84,7 +112,7 @@ const handleFileDownload = (e) => {
     } else {
         //TODO: better feedback?
         let hashWarning = new Alert().showMessage("danger", "Error: no hash found.");
-        console.log('Error: no hash found.');
+        console.error('Error: no hash found.');
     }
 };
 
@@ -120,6 +148,10 @@ const addFilesDecrypt = () => {
 
     }
 
+    /* Triggers regression test =========================================== */
+    if (window.location.hash === '#NfF6mwHOSZire9yal1dlOMFn67RTD8tsL_mjlsPP_Is') {
+        document.querySelector(".files-listing").firstElementChild.firstElementChild.children[1].click(); // trigger regression-control.txt
+    }
 };
 
 
@@ -195,7 +227,7 @@ const listingFiles = () => {
                             .then(removeListItem(deleteItem, deleteItemName)) //remove item from file listing
                             .catch(error => {
                                 let deleteError = new Alert().showMessage("danger", `Error while trying to delete your file: ${error}`);
-                                console.log(error);
+                                console.error(error);
                             });
                     }
                 });
