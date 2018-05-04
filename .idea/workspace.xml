@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="" />
+    <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/public/assets/css/upload-form.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/upload-form.css" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -20,14 +22,14 @@
     <fileColor scope="Non-Project Files (Material Oceanic)" color="2E3C43" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5463542">
+    <splitter split-orientation="horizontal" split-proportion="0.48854166">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="dir.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="dir.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/dir.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="205" column="37" lean-forward="true" selection-start-line="204" selection-start-column="17" selection-end-line="205" selection-end-column="37" />
+                <state relative-caret-position="155">
+                  <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
                   <folding>
                     <element signature="n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
                   </folding>
@@ -35,11 +37,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/index.html">
+          <file leaf-file-name="dir.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/js/dir.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="23">
-                  <caret line="430" column="12" selection-start-line="430" selection-start-column="12" selection-end-line="430" selection-end-column="120" />
+                <state relative-caret-position="287">
+                  <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
+                  <folding>
+                    <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -51,8 +56,8 @@
           <file leaf-file-name="upload-form.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="167">
-                  <caret line="208" column="34" selection-start-line="208" selection-start-column="25" selection-end-line="208" selection-end-column="34" />
+                <state relative-caret-position="678">
+                  <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -63,10 +68,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>web</find>
-      <find>git</find>
       <find>Take</find>
-      <find />
+      <find>web te</find>
       <find>upload-form</find>
       <find>shadow</find>
       <find>shado</find>
@@ -93,6 +96,8 @@
       <find>upload-file-action</find>
       <find>file-name</find>
       <find>this.</find>
+      <find>alpha</find>
+      <find>How it</find>
     </findStrings>
     <replaceStrings>
       <replace>Comfortaa</replace>
@@ -120,18 +125,18 @@
         <option value="$PROJECT_DIR$/public/js/classes/uploaded-files.js" />
         <option value="$PROJECT_DIR$/public/assets/dir.css" />
         <option value="$PROJECT_DIR$/public/assets/css/content/buttons.css" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/assets/css/landing.css" />
         <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/js/external/scrolling.js" />
         <option value="$PROJECT_DIR$/public/assets/js/copy-clipboard.js" />
-        <option value="$PROJECT_DIR$/public/js/dir.js" />
         <option value="$PROJECT_DIR$/public/assets/css/modal.css" />
         <option value="$PROJECT_DIR$/public/assets/css/alerts.css" />
         <option value="$PROJECT_DIR$/public/dir.html" />
-        <option value="$PROJECT_DIR$/public/assets/css/upload-form.css" />
         <option value="$PROJECT_DIR$/public/js/classes/Display.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/js/dir.js" />
+        <option value="$PROJECT_DIR$/public/assets/css/upload-form.css" />
       </list>
     </option>
   </component>
@@ -265,7 +270,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55463000" />
+    <option name="totallyTimeSpent" value="56399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -280,7 +285,7 @@
       <window_info anchor="bottom" id="Run" order="4" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="15" visible="true" weight="0.3860215" />
+      <window_info anchor="bottom" id="Terminal" order="15" weight="0.3860215" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.28448275" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="DB Execution Console" order="13" />
@@ -329,16 +334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1721">
           <caret line="559" column="59" selection-start-line="559" selection-start-column="59" selection-end-line="559" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#span#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#span#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#3;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#4;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#5;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#6;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -612,13 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="208" column="34" selection-start-line="208" selection-start-column="25" selection-end-line="208" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/classes/Display.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -629,10 +617,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="415" column="18" selection-start-line="415" selection-start-column="18" selection-end-line="415" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/dir.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="456" selection-start-line="456" selection-end-line="456" />
+        <state relative-caret-position="287">
+          <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
           </folding>
@@ -641,28 +636,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="205" column="37" lean-forward="true" selection-start-line="204" selection-start-column="17" selection-end-line="205" selection-end-column="37" />
+        <state relative-caret-position="155">
+          <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
           <folding>
             <element signature="n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="430" column="12" selection-start-line="430" selection-start-column="12" selection-end-line="430" selection-end-column="120" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#span#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#span#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#3;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#4;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#5;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#6;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="678">
+          <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="21" />
         </state>
       </provider>
     </entry>

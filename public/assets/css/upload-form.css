@@ -125,14 +125,14 @@ main {
 }
 
 .upload-file-actions .upload-form-icon{
- margin-left:0.7rem;
+ margin-left:0.5rem;
 
 }
 
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
 
-    .upload-form-icon {
+    .upload-form-actions {
         font-size: .9rem;
         display: block;
         margin: 0 auto;
@@ -187,12 +187,32 @@ main {
     width: 85%;
     overflow-wrap: break-word;
     box-sizing: border-box;
+    font-weight: bolder;
+    margin-bottom:.4rem;
 }
 
 .upload-panel-icon {
     margin-right:0.2rem;
     margin-left:.5rem;
 }
+/*DESKTOP ONLY CODE*/
+
+@media screen and (min-width: 1080px) {
+
+    .file-name {
+        font-size:0.9rem !important;
+
+    }
+}
+
+@media screen and (device-aspect-ratio: 40/71) {
+    .file-name {
+        font-size:0.7rem;
+
+    }
+}
+
+
 
 
 /*MOBILE ONLY CODE*/
@@ -200,6 +220,7 @@ main {
 
     .file-name {
         width:70%;
+
     }
     th {
         text-align:center !important;
@@ -242,6 +263,11 @@ td {
     text-align: left;
     width: 25%;
 }
+
+
+
+
+
 
 tr:hover {
     background-color: #F9F9F9;
