@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    console.log("upload spinnign locker");
-
-
     let spinningLocker = document.querySelector(".upload-spinning-locker");
 
     spinningLocker.addEventListener('mouseenter', function () {

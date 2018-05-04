@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/public/assets/css/upload-form.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/upload-form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/dir.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/dir.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/gfx/upload-form/cloud.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/gfx/upload-form/cloud.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/dir.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/dir.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/dir.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dir.js" afterDir="false" />
-    </list>
+    <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -44,8 +38,8 @@
           <file leaf-file-name="dir.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/dir.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="694">
-                  <caret line="322" lean-forward="true" selection-start-line="322" selection-end-line="322" />
+                <state relative-caret-position="422">
+                  <caret line="316" column="17" lean-forward="true" selection-start-line="316" selection-start-column="17" selection-end-line="316" selection-end-column="17" />
                   <folding>
                     <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
                   </folding>
@@ -57,7 +51,7 @@
             <entry file="file://$PROJECT_DIR$/public/assets/js/upload-form-animations.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="299">
-                  <caret line="13" column="9" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="13" selection-end-column="9" />
+                  <caret line="13" column="9" selection-start-line="9" selection-start-column="8" selection-end-line="13" selection-end-column="9" />
                 </state>
               </provider>
             </entry>
@@ -69,8 +63,8 @@
           <file leaf-file-name="upload-form.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="54">
-                  <caret line="93" selection-start-line="93" selection-end-line="93" />
+                <state relative-caret-position="115">
+                  <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
                 </state>
               </provider>
             </entry>
@@ -148,9 +142,9 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/assets/css/animations/upload-form-animations.css" />
         <option value="$PROJECT_DIR$/public/dir.html" />
-        <option value="$PROJECT_DIR$/public/assets/css/upload-form.css" />
         <option value="$PROJECT_DIR$/public/assets/js/upload-form-animations.js" />
         <option value="$PROJECT_DIR$/public/assets/dir.css" />
+        <option value="$PROJECT_DIR$/public/assets/css/upload-form.css" />
         <option value="$PROJECT_DIR$/public/js/dir.js" />
       </list>
     </option>
@@ -298,7 +292,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61040000" />
+    <option name="totallyTimeSpent" value="61852000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -310,7 +304,7 @@
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="4" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="14" />
-      <window_info anchor="bottom" id="Terminal" order="15" weight="0.40967742" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="15" visible="true" weight="0.40967742" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.2203125" />
       <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
@@ -637,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/dir.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
@@ -657,14 +644,21 @@
     <entry file="file://$PROJECT_DIR$/public/assets/js/upload-form-animations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="13" column="9" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="13" selection-end-column="9" />
+          <caret line="13" column="9" selection-start-line="9" selection-start-column="8" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/dir.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="322" lean-forward="true" selection-start-line="322" selection-end-line="322" />
+        <state relative-caret-position="422">
+          <caret line="316" column="17" lean-forward="true" selection-start-line="316" selection-start-column="17" selection-end-line="316" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
           </folding>
