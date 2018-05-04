@@ -2,8 +2,8 @@ html, main, body {
     background-color: #1E1E1E;
 }
 
-a{
-    color:inherit;
+a {
+    color: inherit;
     text-decoration: none;
 }
 
@@ -20,13 +20,11 @@ main {
 .upload-main-panel {
     background-color: white;
     border-radius: 1rem;
-    padding-bottom:3rem;
-    padding-top:1.5rem;
-    margin:1rem;
+    padding-bottom: 3rem;
+    padding-top: 1.5rem;
+    margin: 1rem;
 
 }
-
-
 
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
@@ -35,14 +33,14 @@ main {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
     .upload-main-panel {
 
-        padding-bottom:1.5rem;
-        padding-top:.5rem;
+        padding-bottom: 1.5rem;
+        padding-top: .5rem;
 
     }
 }
-
 
 /*DESKTOP ONLY CODE*/
 
@@ -84,7 +82,7 @@ main {
     border-radius: .7rem;
     display: inline-block;
     float: left;
-    width:100% !important;
+    width: 100% !important;
 
 }
 
@@ -115,21 +113,21 @@ main {
 }
 
 .upload-form-icon {
-    font-size:1rem;
-    margin-right:.4rem;
-    padding:.5rem;
+    font-size: 1rem;
+    margin-right: .4rem;
+    padding: .5rem;
     display: block;
 }
 
-.upload-form-icon:hover{
-    cursor:pointer;
-    color:#355FF2;
+.upload-form-icon:hover {
+    cursor: pointer;
+    color: #355FF2;
 }
 
-.upload-file-actions {
+.upload-file-actions .upload-form-icon{
+ margin-left:0.7rem;
 
 }
-
 
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
@@ -142,6 +140,9 @@ main {
 
 }
 
+.flaticon-envelope, .flaticon-link {
+    margin-left: -1rem;
+}
 
 .files-area {
     box-sizing: border-box;
@@ -155,9 +156,10 @@ main {
     box-sizing: border-box;
     /*border: solid 1px hotpink;*/
     text-align: center;
+    margin: auto 0;
+    display: block;
 
 }
-
 
 .upload-panel-icon {
     max-width: 16px;
@@ -171,30 +173,66 @@ main {
     border-collapse: collapse; /*ALERT*/
     font-family: "Helvetica Neue", sans-serif;
     font-size: .7rem;
-    margin-top:2rem;
+    margin-top: 2rem;
+
+    width: 100%;
+
+}
+
+/* File Listing Table =========================================== */
+
+.file-name {
+    font-size:0.7rem;
+    display: inline-block;
+    width: 85%;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.upload-panel-icon {
+    margin-right:0.2rem;
+    margin-left:.5rem;
+}
 
 
-    width:100%;
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 1080px) {
+
+    .file-name {
+        width:70%;
+    }
+    th {
+        text-align:center !important;
+    }
+    td {
+        padding-left:0 !important;
+        padding-right:0 !important;
+        padding-top:.3rem;
+        padding-bottom:.3rem;
+    }
+
 
 
 }
+
+
+
 
 
 
 thead {
     text-align: center;
     background-color: white;
-
 }
 
 th {
     border: 1px solid #E8E8E8;
-    padding:.5rem;
-    text-align:left;
+    padding: .5rem;
+    text-align: left;
 }
 
 tr {
-    width:100%;
+    width: 100%;
 }
 
 td {
@@ -202,13 +240,12 @@ td {
     padding: .75rem;
     border: 1px solid #E8E8E8;
     text-align: left;
-    width:25%;
+    width: 25%;
 }
 
 tr:hover {
     background-color: #F9F9F9;
 }
-
 
 tr:nth-of-type(even) {
     background-color: #F4F4F4;
@@ -218,6 +255,6 @@ footer {
     margin-top: 0 !important;
 }
 
-.option-link:hover{
-    color:#355FF2;
+.option-link:hover {
+    color: #355FF2;
 }

@@ -48,7 +48,7 @@ class Alert extends Display {
             this.close();//it will add click events to them
 
             //auto-close after some seconds
-            this.destroy(this.id, true, 5000);
+            // this.destroy(this.id, true, 5000);
         }, 1);
 
     }
@@ -153,8 +153,7 @@ class FileListing extends Display {
                         <img src="/cat/public/assets/fonts/custom-icons/${icon}" class="upload-panel-icon" alt="file">
                        <a class="file-name">${filename}</a>
                     </td>
-                    <td>${size}</td>
-                    <td>${type}</td>
+                 
                     <td class="upload-file-actions">
 
                     <a class="fas fa-download download-button upload-form-icon"></a>
