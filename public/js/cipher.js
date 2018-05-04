@@ -54,12 +54,12 @@ const encryptFiles = async ([files, hashKey]) => {
   });
 };
 
-const decryptFile = async (file) => {
+const decryptFile = async ([file, hashKey]) => {
   const key = await window.crypto.subtle.importKey(
     "jwk",
     {
       kty: "oct",
-      k: window.location.hash.slice(1),
+      k: hashKey,
       alg: "A256GCM",
       ext: true,
     },
@@ -83,7 +83,8 @@ const decryptFile = async (file) => {
         key,
         data
       );
-      resolve(window.URL.createObjectURL(new Blob([decryptedFileRaw])));
+      // resolve(window.URL.createObjectURL(new Blob([decryptedFileRaw])));
+      resolve(new Blob([decryptedFileRaw]));
     }
     reader.readAsArrayBuffer(file);
   });
