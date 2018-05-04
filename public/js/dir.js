@@ -113,7 +113,7 @@ const addFilesDecrypt = () => {
     let downloadIcons = document.querySelectorAll(".download-button");
 
     for (let icon of downloadIcons) {
-        let ownerName = icon.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
+        let ownerName = icon.parentElement.previousElementSibling.children[1].innerText;
         icon.setAttribute('href', window.location.hash);
         icon.setAttribute("file-name", ownerName);
         icon.addEventListener('click', handleFileDownload);
