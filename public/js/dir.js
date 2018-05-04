@@ -55,9 +55,8 @@ const beforeDownload = blob => {
         return new Promise((resolve, reject) => {
             let reader = new FileReader();
             reader.onload = (e => {
-                if (e.target.result === 'bar') {
-                  //TODO: setup back-end hook;
-                  console.log('success');
+                if (e.target.result !== 'bar') {
+                  throw new Error('Regression test failed.');
                 }
                 resolve('#'); // this prevents page refresh on click
             });
