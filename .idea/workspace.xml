@@ -95,7 +95,7 @@
       <find>file-name</find>
       <find>this.</find>
       <find>alpha</find>
-      <find>How it</find>
+      <find />
       <find>upload-file-actions</find>
       <find>upload-table</find>
     </findStrings>
@@ -201,7 +201,7 @@
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="dir.js&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/js/dir.js&#10;index&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/index.html&#10;ALERTS.&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/alerts.css&#10;modal.css&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/modal.css&#10;scrolling&#9;null&#9;null&#10;copy&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/copy-clipboard.js&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;dir&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/dir.css&#10;dir.css&#9;null&#9;null&#10;upload&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;buttons.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/content/buttons.css&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;upload-form&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js" />
+    <property name="SearchEverywhereHistoryKey" value="dir.css&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/dir.css&#10;dir.js&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/js/dir.js&#10;index&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/index.html&#10;ALERTS.&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/alerts.css&#10;modal.css&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/modal.css&#10;scrolling&#9;null&#9;null&#10;copy&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/copy-clipboard.js&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;dir&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/dir.css&#10;upload&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;buttons.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/content/buttons.css&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;upload-form&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />

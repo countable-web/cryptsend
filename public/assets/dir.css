@@ -8,7 +8,7 @@ html, main, body {
 
 .dir-upload-wrapper {
   border-radius: 1rem;
-  padding: 1.5rem 5%;
+  padding: .5rem;
   box-sizing: border-box;
   width:100%;
 }
@@ -229,8 +229,8 @@ html
         /*border: solid 1px hotpink;*/
                 box-sizing: border-box;
         display: inline-block;
-        padding-top:2rem;
-        padding-bottom:2rem;
+        padding-top:1rem;
+        padding-bottom:1rem;
 
         height:inherit;
 
