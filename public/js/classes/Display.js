@@ -48,7 +48,7 @@ class Alert extends Display {
             this.close();//it will add click events to them
 
             //auto-close after some seconds
-            // this.destroy(this.id, true, 5000);
+            this.destroy(this.id, true, 5000);
         }, 1);
 
     }
