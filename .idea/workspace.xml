@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8f05e049-0bb1-4e1e-9c29-6272599f09fd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/public/assets/css/upload-form.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/upload-form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/dir.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/dir.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/gfx/upload-form/cloud.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/gfx/upload-form/cloud.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dir.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/dir.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/dir.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/dir.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,14 +26,14 @@
     <fileColor scope="Non-Project Files (Material Oceanic)" color="2E3C43" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48854166">
+    <splitter split-orientation="horizontal" split-proportion="0.59270835">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="dir.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="dir.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/dir.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="86">
-                  <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
+                <state relative-caret-position="376">
+                  <caret line="320" column="40" selection-start-line="320" selection-start-column="36" selection-end-line="320" selection-end-column="40" />
                   <folding>
                     <element signature="n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
                   </folding>
@@ -37,11 +41,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="dir.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="dir.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/js/dir.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="287">
-                  <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
+                <state relative-caret-position="694">
+                  <caret line="322" lean-forward="true" selection-start-line="322" selection-end-line="322" />
                   <folding>
                     <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
                   </folding>
@@ -49,15 +53,24 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="upload-form-animations.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/assets/js/upload-form-animations.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="299">
+                  <caret line="13" column="9" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="13" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+        <leaf>
           <file leaf-file-name="upload-form.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="561">
-                  <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+                <state relative-caret-position="54">
+                  <caret line="93" selection-start-line="93" selection-end-line="93" />
                 </state>
               </provider>
             </entry>
@@ -68,13 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>upload-form</find>
-      <find>shadow</find>
-      <find>shado</find>
-      <find>section</find>
-      <find>position</find>
-      <find>modal-icon</find>
-      <find>btn</find>
       <find>hr</find>
       <find>hotpi</find>
       <find>desktop-onl</find>
@@ -95,9 +101,16 @@
       <find>file-name</find>
       <find>this.</find>
       <find>alpha</find>
-      <find />
+      <find>How it</find>
       <find>upload-file-actions</find>
       <find>upload-table</find>
+      <find>upload-clou</find>
+      <find>locker</find>
+      <find>spinng</find>
+      <find>spinnni</find>
+      <find>cloud</find>
+      <find>clou</find>
+      <find>success</find>
     </findStrings>
     <replaceStrings>
       <replace>Comfortaa</replace>
@@ -123,7 +136,6 @@
         <option value="$PROJECT_DIR$/public/assets/js/navbar.js" />
         <option value="$PROJECT_DIR$/public/dir.js" />
         <option value="$PROJECT_DIR$/public/js/classes/uploaded-files.js" />
-        <option value="$PROJECT_DIR$/public/assets/dir.css" />
         <option value="$PROJECT_DIR$/public/assets/css/content/buttons.css" />
         <option value="$PROJECT_DIR$/public/assets/css/landing.css" />
         <option value="$PROJECT_DIR$/test.js" />
@@ -132,11 +144,14 @@
         <option value="$PROJECT_DIR$/public/assets/js/copy-clipboard.js" />
         <option value="$PROJECT_DIR$/public/assets/css/modal.css" />
         <option value="$PROJECT_DIR$/public/assets/css/alerts.css" />
-        <option value="$PROJECT_DIR$/public/dir.html" />
         <option value="$PROJECT_DIR$/public/js/classes/Display.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/js/dir.js" />
+        <option value="$PROJECT_DIR$/public/assets/css/animations/upload-form-animations.css" />
+        <option value="$PROJECT_DIR$/public/dir.html" />
         <option value="$PROJECT_DIR$/public/assets/css/upload-form.css" />
+        <option value="$PROJECT_DIR$/public/assets/js/upload-form-animations.js" />
+        <option value="$PROJECT_DIR$/public/assets/dir.css" />
+        <option value="$PROJECT_DIR$/public/js/dir.js" />
       </list>
     </option>
   </component>
@@ -178,6 +193,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,34 +206,46 @@
               <item name="cryptsend" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cryptsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cryptsend" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cryptsend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cryptsend" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="dir.css&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/dir.css&#10;dir.js&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/js/dir.js&#10;index&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/index.html&#10;ALERTS.&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/alerts.css&#10;modal.css&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/modal.css&#10;scrolling&#9;null&#9;null&#10;copy&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/copy-clipboard.js&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;dir&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/dir.css&#10;upload&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;buttons.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/content/buttons.css&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;upload-form&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js" />
+    <property name="SearchEverywhereHistoryKey" value="dir.js&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/js/dir.js&#10;dir&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/dir.css&#10;dir.css&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/dir.css&#10;upload-form&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/upload-form.css&#10;index&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/index.html&#10;ALERTS.&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/alerts.css&#10;modal.css&#9;FILE&#9;file:///home/jonit/Projects/cryptsend/public/assets/css/modal.css&#10;scrolling&#9;null&#9;null&#10;copy&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/copy-clipboard.js&#10;landing&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;upload&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/upload-form.css&#10;buttons.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/content/buttons.css&#10;landing.css&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/css/landing.css&#10;navbar&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/assets/js/navbar.js&#10;cipher&#9;FILE&#9;file://C:/Users/joaop/Desktop/cryptsend/public/cipher.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/assets/gfx/landing" />
-      <recent name="$PROJECT_DIR$/public/assets/gfx" />
-      <recent name="C:\Users\joaop\Desktop\cryptsend\public" />
-      <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\fonts" />
-      <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/gfx/upload-form" />
       <recent name="C:\Users\joaop\Desktop\cryptsend\public\js" />
       <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx\landing" />
       <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\gfx" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/gfx/upload-form" />
+      <recent name="$PROJECT_DIR$/public/assets/gfx" />
+      <recent name="$PROJECT_DIR$/public/assets/gfx/landing" />
+      <recent name="C:\Users\joaop\Desktop\cryptsend\public" />
+      <recent name="C:\Users\joaop\Desktop\cryptsend\public\assets\fonts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -270,22 +298,23 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56953000" />
+    <option name="totallyTimeSpent" value="61040000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.092708334" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info id="DB Browser" order="2" />
-      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
       <window_info anchor="bottom" id="DB Execution Console" order="13" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="4" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="bottom" id="Terminal" order="15" weight="0.40967742" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2203125" />
+      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32903227" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="15" visible="true" weight="0.14516129" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.28448275" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="DB Execution Console" order="13" />
@@ -304,7 +333,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
       <window_info active="true" anchor="bottom" id="Terminal" order="15" visible="true" weight="0.14" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
@@ -316,34 +344,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/assets/fonts/confortaa-font/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/landing.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="446" column="21" selection-start-line="446" selection-start-column="21" selection-end-line="446" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1721">
-          <caret line="559" column="59" selection-start-line="559" selection-start-column="59" selection-end-line="559" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/dir.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1800">
-          <caret line="155" column="30" selection-start-line="155" selection-start-column="30" selection-end-line="155" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/dir.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -564,13 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/dir.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="216" column="10" selection-start-line="216" selection-start-column="10" selection-end-line="216" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/landing.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -624,30 +617,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
+    <entry file="file://$PROJECT_DIR$/public/assets/gfx/upload-form/laptop.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/animations/upload-form-animations.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="115" column="42" selection-start-line="115" selection-start-column="42" selection-end-line="115" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="805">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/dir.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="291" column="25" selection-start-line="291" selection-start-column="25" selection-end-line="291" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
+        <state relative-caret-position="376">
+          <caret line="320" column="40" selection-start-line="320" selection-start-column="36" selection-end-line="320" selection-end-column="40" />
           <folding>
             <element signature="n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
+    <entry file="file://$PROJECT_DIR$/public/assets/js/upload-form-animations.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+        <state relative-caret-position="299">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/dir.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="322" lean-forward="true" selection-start-line="322" selection-end-line="322" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

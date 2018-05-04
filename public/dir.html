@@ -40,6 +40,7 @@
 
     <!--ANIMATIONS-->
     <link rel="stylesheet" href="/cat/public/assets/css/animations/landing.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/animations/upload-form-animations.css">
 
 
     <!--ALERTS-->
@@ -70,6 +71,9 @@
     <!--UI DISPLAY-->
     <script src="/cat/public/js/classes/Display.js" type="text/javascript"></script>
 
+
+    <!--UPLOAD FORM ANIMATIONS-->
+    <script src="/cat/public/assets/js/upload-form-animations.js"></script>
 
 </head>
 <body>
@@ -314,8 +318,16 @@
                       class="box has-advanced-upload">
                     <div class="box__input">
 
-                        <img src="/cat/public/assets/gfx/upload-form/cloud.svg" alt="Cloud upload icon"
-                             class="upload-cloud-img">
+                        <div class="cloud-wrapper">
+
+                            <img src="/cat/public/assets/gfx/upload-form/cloud.svg" alt="Cloud upload icon"
+                                 class="upload-cloud-img">
+
+                            <img src="/cat/public/assets/gfx/upload-form/spinning-locker.svg" class="upload-spinning-locker" alt="Upload animation">
+                            <img src="/cat/public/assets/gfx/upload-form/locker.svg" alt="A locker" class="upload-locker">
+
+
+                        </div>
 
 
                         <input type="file" name="f" data-multiple-caption="{count} files selected" multiple id="file"

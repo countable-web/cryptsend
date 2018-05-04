@@ -2,6 +2,11 @@ html, main, body {
     background-color: #1E1E1E;
 }
 
+input[type="file"]:active,input[type="file"]:focus,
+.box__file:active, .box__file:focus{
+    outline-style: none;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -90,11 +95,45 @@ main {
     background-color: #F9F9F9;
 }
 
+.cloud-wrapper {
+
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    position: relative;
+
+}
+
 .upload-cloud-img {
     margin: 0 auto;
     display: block;
-    max-width: 154px;
+    max-width: 186px;
     padding: 1rem;
+}
+
+
+.upload-spinning-locker {
+    position: absolute;
+    top: 3.9rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 59.8px;
+    opacity: .8;
+    width: 100%;
+}
+
+.upload-locker {
+    position: absolute;
+    top: 4.9rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 21.5px;
+    opacity: 0.6;
+    width: 100%;
 }
 
 .upload-drop-area-description {
@@ -136,8 +175,8 @@ main {
         margin: 0 auto;
         display: inline-block;
         width: 100%;
-        text-align:center;
-        margin-left:-.5rem;
+        text-align: center;
+        margin-left: -.5rem;
 
     }
 
@@ -187,7 +226,6 @@ main {
     width: 100%;
 
 }
-
 
 /* File Listing Table =========================================== */
 
