@@ -124,13 +124,22 @@ main {
     color: #355FF2;
 }
 
-.upload-file-actions .upload-form-icon{
- margin-left:0.5rem;
+.upload-file-actions .upload-form-icon {
+    margin-left: 0.5rem;
 
 }
 
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
+
+    .upload-file-actions .upload-form-icon {
+        margin: 0 auto;
+        display: inline-block;
+        width: 100%;
+        text-align:center;
+        margin-left:-.5rem;
+
+    }
 
     .upload-form-actions {
         font-size: .9rem;
@@ -179,67 +188,61 @@ main {
 
 }
 
+
 /* File Listing Table =========================================== */
 
 .file-name {
-    font-size:0.7rem;
+    font-size: 0.7rem;
     display: inline-block;
     width: 85%;
     overflow-wrap: break-word;
     box-sizing: border-box;
     font-weight: bolder;
-    margin-bottom:.4rem;
+    margin-bottom: .4rem;
 }
 
 .upload-panel-icon {
-    margin-right:0.2rem;
-    margin-left:.5rem;
+    margin-right: 0.2rem;
+    margin-left: .5rem;
 }
+
 /*DESKTOP ONLY CODE*/
 
 @media screen and (min-width: 1080px) {
 
     .file-name {
-        font-size:0.9rem !important;
+        font-size: 0.9rem !important;
 
     }
 }
 
 @media screen and (device-aspect-ratio: 40/71) {
     .file-name {
-        font-size:0.7rem;
+        font-size: 0.7rem;
 
     }
 }
-
-
-
 
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
 
     .file-name {
-        width:70%;
+        width: 70%;
 
     }
+
     th {
-        text-align:center !important;
+        text-align: center !important;
     }
+
     td {
-        padding-left:0 !important;
-        padding-right:0 !important;
-        padding-top:.3rem;
-        padding-bottom:.3rem;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-top: .3rem;
+        padding-bottom: .3rem;
     }
-
-
 
 }
-
-
-
-
-
 
 thead {
     text-align: center;
@@ -248,26 +251,24 @@ thead {
 
 th {
     border: 1px solid #E8E8E8;
+
     padding: .5rem;
     text-align: left;
 }
 
 tr {
     width: 100%;
+
 }
 
 td {
 
     padding: .75rem;
     border: 1px solid #E8E8E8;
+
     text-align: left;
     width: 25%;
 }
-
-
-
-
-
 
 tr:hover {
     background-color: #F9F9F9;

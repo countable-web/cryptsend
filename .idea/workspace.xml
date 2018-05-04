@@ -28,7 +28,7 @@
           <file leaf-file-name="dir.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/dir.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="155">
+                <state relative-caret-position="86">
                   <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
                   <folding>
                     <element signature="n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
@@ -56,8 +56,8 @@
           <file leaf-file-name="upload-form.css" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="678">
-                  <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="21" />
+                <state relative-caret-position="561">
+                  <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -68,8 +68,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Take</find>
-      <find>web te</find>
       <find>upload-form</find>
       <find>shadow</find>
       <find>shado</find>
@@ -98,6 +96,8 @@
       <find>this.</find>
       <find>alpha</find>
       <find>How it</find>
+      <find>upload-file-actions</find>
+      <find>upload-table</find>
     </findStrings>
     <replaceStrings>
       <replace>Comfortaa</replace>
@@ -270,7 +270,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56399000" />
+    <option name="totallyTimeSpent" value="56953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -285,7 +285,7 @@
       <window_info anchor="bottom" id="Run" order="4" weight="0.32903227" />
       <window_info anchor="bottom" id="Version Control" order="14" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="15" weight="0.3860215" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="15" visible="true" weight="0.14516129" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.28448275" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="DB Execution Console" order="13" />
@@ -636,7 +636,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
+        <state relative-caret-position="86">
           <caret line="197" lean-forward="true" selection-start-line="197" selection-end-line="197" />
           <folding>
             <element signature="n#tbody#0;n#table#0;n#div#3;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" />
@@ -646,8 +646,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/css/upload-form.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="134" column="5" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="21" />
+        <state relative-caret-position="561">
+          <caret line="192" column="20" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
         </state>
       </provider>
     </entry>
