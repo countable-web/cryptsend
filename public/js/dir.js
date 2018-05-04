@@ -10,7 +10,10 @@ let content = ''; //list of uploaded files.
 const regressionTest = () => {
     window.location.hash = '';
     window.location.href = window.location.origin + '/dir/data/cc8/tluICx+fpoDNb+DsLMquWl+aai5sVg#NfF6mwHOSZire9yal1dlOMFn67RTD8tsL_mjlsPP_Is';
-    window.location.reload();
+    // Gian: we need the above reload for consecutive tests, since the page wont reload when the path doesn't change (only the hash is changing after the first test). We also need the delay since without it the reload happens before the url (with the new hash) is updated.
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
 }
 
 /*#############################################################|
@@ -57,6 +60,8 @@ const beforeDownload = blob => {
             reader.onload = (e => {
                 if (e.target.result !== 'bar') {
                   throw new Error('Regression test failed.');
+                } else {
+                  console.log('Success!');
                 }
                 resolve('#'); // this prevents page refresh on click
             });
