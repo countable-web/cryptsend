@@ -316,13 +316,24 @@ tr:nth-of-type(even) {
     background-color: #F4F4F4;
 }
 
-footer {
-    margin-top: 0 !important;
-}
 
 .option-link:hover {
     color: #355FF2;
 }
+
+/* Footer =========================================== */
+
+footer {
+    margin-top: 0 !important;
+}
+
+.footer-countable-logo {
+    max-width:64px;
+    opacity:.5;
+    margin-top:-3rem;
+}
+
+
 
 /* ALERTS LIST =========================================== */
 
@@ -347,3 +358,4 @@ footer {
         width:100%;
     }
 }
+
