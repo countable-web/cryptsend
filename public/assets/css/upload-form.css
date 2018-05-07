@@ -323,3 +323,27 @@ footer {
 .option-link:hover {
     color: #355FF2;
 }
+
+/* ALERTS LIST =========================================== */
+
+.alerts-list {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    /*border: solid 1px hotpink;*/
+    box-sizing: border-box;
+    padding: .5rem;
+    z-index: 999;
+}
+
+
+/*MOBILE ONLY CODE*/
+@media screen and (max-width: 1080px) {
+    .alerts-list {
+         position: fixed;
+          left: 50%;
+          transform: translateX(-50%);
+        width:100%;
+    }
+}
