@@ -191,6 +191,23 @@ class Modal extends Display {
         super(id);
 
 
+        //Add close on esc key event => close ALL modals
+        document.addEventListener('keyup', function (e) {
+            if (e.keyCode == 27) {
+                let modals = document.querySelectorAll(".modal-listings .modal-wrapper");
+
+                modals.forEach((modal) => {
+                    let modalId = modal.getAttribute("data-modal-id");
+
+                    Modal.close(modalId);
+                });
+
+
+                this.close(this.id);
+            }
+        });
+
+
         //auto-add click event to close icon
 
         setTimeout(() => {
