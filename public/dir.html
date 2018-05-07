@@ -50,22 +50,11 @@
     <!--MODALS-->
     <link rel="stylesheet" href="/cat/public/assets/css/modal.css">
 
-
-    <!--jQUERY-->
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
-    <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
-
-
-    <!--MODAL PLUGIN - IZIMODAL-->
-    <!--<link rel="stylesheet" href="/cat/public/assets/js/izimodal/css/iziModal.css">-->
-    <!--<link rel="stylesheet" href="/cat/public/assets/css/modal.css">-->
-    <!--this is just the css... the JS is near the footer-->
-
-
     <!--CUSTOM JS SCRIPTS-->
     <script src="/cat/public/assets/js/email-validation.js"></script>
     <!--<script src="/cat/public/assets/js/modal-handler.js"></script>-->
     <script src="/cat/public/assets/js/copy-clipboard.js"></script>
+    <script src="/cat/public/assets/js/upload-form-handler.js"></script>
 
     <script src="/cat/public/assets/js/navbar.js"></script>
 
@@ -322,7 +311,7 @@
 
             <section class="dir-upload-wrapper">
                 <form method="post" action="" enctype="multipart/form-data" novalidate=""
-                      class="box has-advanced-upload">
+                      class="box has-advanced-upload" id="upload-form">
                     <div class="box__input">
 
                         <div class="cloud-wrapper">
@@ -342,7 +331,7 @@
                         <label for="file"><strong>Choose files</strong>
                             <div class="box__dragndrop"> or drag them here</div>
                             .</label>
-                        <button type="submit" class="box__button">Upload</button>
+                        <button type="submit" class="box__button" >Upload</button>
                     </div>
                     <div class="box__uploading">Uploading…</div>
                     <div class="box__success">Done! <a href="/" class="box__restart" role="button">Upload more?</a>
