@@ -9,12 +9,12 @@ class Display {
     static copyLinkClipboard() {
 
         let folderLink = window.location.href;
-        navigator.clipboard.writeText(folderLink).then(function() {
+        navigator.clipboard.writeText(folderLink).then(function () {
 
             let copiedAlert = new Alert().showMessage("success", "Your link was copied to clipboard. Press CTRL + C to share it");
 
 
-        }, function(err) {
+        }, function (err) {
             let copiedAlert = new Alert().showMessage("danger", "An error occurred while trying to copy your folder link to clipboard. Try doing it manually.");
 
         });
@@ -27,6 +27,14 @@ class Display {
 
     static enableScrolling() {
         let body = document.querySelector("body").classList.remove("stop-scrolling");
+    }
+
+    static removeFromDataStructure(id) {
+        //removes element from data structure
+        Display.list = Display.list.filter((element) => {
+            return element.id != id;
+
+        });
     }
 
 
@@ -49,6 +57,7 @@ class Alert extends Display {
 
             //auto-close after some seconds
             this.destroy(this.id, true, 5000);
+
         }, 1);
 
     }
@@ -61,7 +70,10 @@ class Alert extends Display {
         let closeElements = document.querySelectorAll(".box-alert-close-icon");
         for (let closeElement of closeElements) {
             closeElement.addEventListener('click', function (e) {
-                e.currentTarget.parentElement.remove();
+                let alert = e.currentTarget.parentElement
+                alert.remove();
+                let alertId = alert.getAttribute("data-alert-id");
+                Display.removeFromDataStructure(alertId);
             });
         }
     }
@@ -75,6 +87,8 @@ class Alert extends Display {
             boxAlerts.forEach((alert) => {
                 if (alert.getAttribute("data-alert-id") == id) {
                     alert.remove();
+                    Display.removeFromDataStructure(id);
+
                 }
             });
         }
@@ -200,7 +214,7 @@ class Modal extends Display {
 
             let shadow = document.querySelector(".shadow-background ");
 
-            shadow.addEventListener("click",function(e){
+            shadow.addEventListener("click", function (e) {
 
 
                 //remove modal
@@ -213,7 +227,6 @@ class Modal extends Display {
 
 
             })
-
 
 
         }, 1);
@@ -307,8 +320,10 @@ class Modal extends Display {
 
 
         modals.forEach((modal) => {
-            if (modal.getAttribute("data-modal-id") == id) {
+            let modalId = modal.getAttribute("data-modal-id");
+            if (modalId == id) {
                 modal.remove();
+                Display.removeFromDataStructure(modalId)
             }
         });
 
