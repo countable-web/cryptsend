@@ -1,4 +1,5 @@
 const http = require('http');
+const exec = require('child_process').exec;
 const formidable = require('formidable');
 const fs = require('fs');
 const crypto = require('crypto');
@@ -6,9 +7,9 @@ const mkdirp = require('mkdirp');
 const path = require('path');
 const slug = require('slug');
 const raven = require('raven');
+const mustache = require('mustache');
 
 raven.config(process.env.SENTRY_DSN).install();
-// raven.config('http://96fb5d27720b42fb94b6fc741408d540:4b700fa84dbc476d9ce6e410e33a00f4@bool.countable.ca:9000/7').install();
 
 const server = process.env.SERVER || 'http://localhost:1234';
 
@@ -101,6 +102,25 @@ const upload = (req, res) => {
     form.parse(req);
 }
 
+
+// Used to determine the versioning of frontend assets.
+exec(`git rev-parse --short HEAD`, function(err, stdout, stderr) {
+    let version = "0";
+    if (err) {
+        console.log("ERROR: When loading git version:", err);
+        return;
+    }
+    if (stderr) {
+        console.log("ERROR: stderr when loading git version:", stderr);
+        return;
+    }
+
+    version = stdout.toString().replace(/\s/g, '');
+    console.log("Setting version to revision:", version);
+    REVISION = version;
+});
+let _version = null; // overwrite me.
+
 const ls = (req, res) => {
     // directoryindex.
     fs.readdir(req.file_path, (error, files) => {
@@ -158,6 +178,11 @@ const cat = (req, res) => {
                 res.end('error: ' + error.code + ' ..\n');
             }
         } else {
+            if (extname === '.html' || extname === '.htm') {
+                content = mustache.to_html(content.toString(), {
+                    REVISION: REVISION
+                });
+            }
             res.writeHead(200, {
                 'Content-Type': contentType
             });
@@ -184,7 +209,6 @@ const del = (req, res) => {
           res.end('error: ' + error.code + ' ..\n');
       }
     } else {
-      // console.log(req.file_path + ' was deleted');
       res.writeHead(204);
       res.end();
     }
@@ -196,16 +220,15 @@ http.createServer((req, res) => {
     var _tmp = req.url.split("?");
     const query = _tmp[1];
     var toks = _tmp[0].split("/");
-    // console.log("toks", toks);
 
     req.file_path = toks.slice(2).join(path.sep);
     var command = toks[1];
 
-    // console.log(req.method);
-    if (req.method == 'DELETE') {
+    if (req.method === 'DELETE') {
       return del(req, res);
     }
-    if (req.method == 'POST') {
+
+    if (req.method === 'POST') {
         return upload(req, res);
     }
 
@@ -226,7 +249,6 @@ http.createServer((req, res) => {
             return ls(req, res);
         }
     } else if (command === 'dir') {
-        // req.file_path = 'public/dir.html'
         req.file_path = `public${path.sep}dir.html`;
         return cat(req, res);
     } else if (command === 'cat') {

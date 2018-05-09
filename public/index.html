@@ -11,49 +11,41 @@
     <link rel="icon" type="favicon" href="/cat/public/favicon.ico" sizes="16x16"/>
 
 
-    <!--jQUERY-->
-
-    <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
-
-    <!--jQUERY UI-->
-    <!--<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>-->
-
-
     <!--CUSTOM JAVASCRIPT-->
-    <script src="/cat/public/assets/js/navbar.js"></script>
+    <script src="/cat/public/assets/js/navbar.js?{{ REVISION }}"></script>
     <!--<script src="assets/js/header-animation.js"></script>-->
     <!--<script src="assets/js/landing-animations.js"></script>-->
 
 
     <!--CONTENT-->
-    <link rel="stylesheet" href="/cat/public/assets/css/content/buttons.css">
-    <link rel="stylesheet" href="/cat/public/assets/css/content/icons.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/content/buttons.css?{{ REVISION }}">
+    <link rel="stylesheet" href="/cat/public/assets/css/content/icons.css?{{ REVISION }}">
 
     <!--CUSTOM CSS-->
-    <link rel="stylesheet" href="/cat/public/assets/css/section-animation.css">
-    <link rel="stylesheet" href="/cat/public/assets/css/others/normalize.css">
-    <link rel="stylesheet" href="/cat/public/assets/css/others/cf.css">
-    <link rel="stylesheet" href="/cat/public/assets/css/grids/desktop-grid.css">
-    <link rel="stylesheet" href="/cat/public/assets/css/grids/mobile-grid.css">
-    <link rel="stylesheet" href="/cat/public/assets/css/table.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/section-animation.css?{{ REVISION }}">
+    <link rel="stylesheet" href="/cat/public/assets/css/others/normalize.css?{{ REVISION }}">
+    <link rel="stylesheet" href="/cat/public/assets/css/others/cf.css?{{ REVISION }}">
+    <link rel="stylesheet" href="/cat/public/assets/css/grids/desktop-grid.css?{{ REVISION }}">
+    <link rel="stylesheet" href="/cat/public/assets/css/grids/mobile-grid.css?{{ REVISION }}">
+    <link rel="stylesheet" href="/cat/public/assets/css/table.css?{{ REVISION }}">
 
     <!--ANIMATIONS-->
-    <link rel="stylesheet" href="/cat/public/assets/css/animations/landing.css">
-    <link rel="stylesheet" href="/cat/public/assets/css/animations/scroll.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/animations/landing.css?{{ REVISION }}">
+    <link rel="stylesheet" href="/cat/public/assets/css/animations/scroll.css?{{ REVISION }}">
 
 
     <!--LANDING PAGE-->
-    <link rel="stylesheet" href="/cat/public/assets/css/landing.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/landing.css?{{ REVISION }}">
 
 
     <!--FONTS-->
     <!--<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">-->
-    <link rel="stylesheet" href="/cat/public/assets/fonts/confortaa-font/stylesheet.css">
+    <link rel="stylesheet" href="/cat/public/assets/fonts/confortaa-font/stylesheet.css?{{ REVISION }}">
 
     <!--FONTAWESOME-->
-    <link rel="stylesheet" href="/cat/public/assets/fonts/fontawesome-all.css">
+    <link rel="stylesheet" href="/cat/public/assets/fonts/fontawesome-all.css?{{ REVISION }}">
     <!--CUSTOM FONTS-->
-    <link rel="stylesheet" href="/cat/public/assets/fonts/helvetica-neue/stylesheet.css">
+    <link rel="stylesheet" href="/cat/public/assets/fonts/helvetica-neue/stylesheet.css?{{ REVISION }}">
 
 
     <!--MENU SCROLLING EFFECT-->
@@ -69,7 +61,7 @@
         <div class="col-sm-8 col-md-3">
 
             <a href="/cat/public/index.html" class="logo-wrapper">
-                <img src="/cat/public/assets/gfx/logo.svg" alt="CryptSend Logo" class="sendcrypt-logo">
+                <img src="/cat/public/assets/gfx/logo.svg?{{ REVISION }}" alt="CryptSend Logo" class="sendcrypt-logo">
                 <div class="alpha-logo">Alpha</div>
             </a>
 
@@ -152,7 +144,7 @@
             <a href="/mkdir">
                 <div class="btn btn-cta btn-shadow" id="btn-cta-landing">
                     Auto-encrypt &amp; Upload
-                    <img src="/cat/public/assets/gfx/custom-icons/upload-icon.svg" alt="upload icon"
+                    <img src="/cat/public/assets/gfx/custom-icons/upload-icon.svg?{{ REVISION }}" alt="upload icon"
                          class="custom-icon">
                     <!--<i class="fa fa-upload"></i>-->
 
@@ -161,7 +153,11 @@
 
             </a>
             <!--END CUSTOM BUTTON-->
+<<<<<<< HEAD
+            <div class="alpha-disclaimer"><p><strong>Disclaimer: </strong>This is a brand new site! we are alpha testing
+=======
             <div class="alpha-disclaimer"><p><strong>Disclaimer: </strong>This is a brand new site! We are alpha testing
+>>>>>>> d822ca64d6c3873ef8924b4116f30ba6b365b373
                 and security auditing it! <strong>Do NOT store private data here yet</strong> until we finish testing and try to hack it
                 for a while.
                <span class="desktop-only"> Only store
@@ -177,8 +173,8 @@
         <!--SVG IMG AND ANIMATION-->
         <!--<div class="squares">-->
         <!--</div>-->
-        <img src="/cat/public/assets/gfx/server.svg" alt="Server" id="server">
-        <img src="/cat/public/assets/gfx/server.svg" alt="Server" id="server2">
+        <img src="/cat/public/assets/gfx/server.svg?{{ REVISION }}" alt="Server" id="server">
+        <img src="/cat/public/assets/gfx/server.svg?{{ REVISION }}" alt="Server" id="server2">
 
 
         <div class="scroll-downs ipad-above-only">
@@ -202,20 +198,11 @@
 
             <div class="section-content section-align-left" style="padding-right:2rem;">
 
-                <p>It's 2018, and we've been unable to find a simple way to send
-                    files to each other without also sharing it with dozens of cloud provider companies in between. Any
-                    of these
-                    companies could be next on the news with a data breach. Large risk, or small, there's simply no
-                    reason to share
-                    anyone's private data with several arbitrary parties.</p>
+                <p>It's 2018 and there's no simple way to send
+                    a file to someone without also sharing it with several of cloud provider companies in between (cascading to their own infrastucture vendors, like AWS), any of whom could be next on the news with a data breach.</p>
 
-                <p>Infact, it's ethically questionable to do so. In many cases
-                    we have a non-disclosure agreement with one party, and then send their data through several others
-                    with whom we have
-                    damage waivers signed when clicking past their terms of service. So, what's the point of an NDA when
-                    your data is all over the
-                    cloud, and could easily be all over the web in the next breach?</p>
-
+                <p>In many cases we have an NDA with one party, and then send sensitive data through several parties on the cloud with whom you have
+                    damage waivers signed when clicking past their terms of service.</p>
             </div>
 
 
@@ -231,7 +218,7 @@
                     <thead>
                     <tr>
                         <th>Feature</th>
-                        <th>Similar Products</th>
+                        <th>Cloud storage</th>
                         <th>FTP</th>
                         <th>Email</th>
                         <th class="blue-row">CryptSend</th>
@@ -395,13 +382,13 @@
 
 
             <span class="cross-browser-icon-wrapper">
-                           <img src="/cat/public/assets/gfx/landing/chrome-square.svg" alt="crossbrowser icon"
+                           <img src="/cat/public/assets/gfx/landing/chrome-square.svg?{{ REVISION }}" alt="crossbrowser icon"
                                 class="crossbrowser-icon">
 
-                  <img src="/cat/public/assets/gfx/landing/firefox-square.svg" alt="crossbrowser icon"
+                  <img src="/cat/public/assets/gfx/landing/firefox-square.svg?{{ REVISION }}" alt="crossbrowser icon"
                        class="crossbrowser-icon">
 
-                  <img src="/cat/public/assets/gfx/landing/safari-square.svg" alt="crossbrowser icon"
+                  <img src="/cat/public/assets/gfx/landing/safari-square.svg?{{ REVISION }}" alt="crossbrowser icon"
                        class="crossbrowser-icon">
                     </span>
 
@@ -426,8 +413,7 @@
 
 
             <div class="section-content section-align-right" style="padding-left:2rem;">
-                <p> It all happens automatically. Your computer encrypts your data and then we store it. We can't see it
-                    because it's encrypted and we don't have the key.
+                <p> Your data are encrypted in your own browser before we store it.
                     Then, you share a link with the intended recipient. The link contains a key to decrypt the data, but
                     <a href="https://www.w3.org/2001/tag/doc/hash-in-url" target="blank"> in
                         a way that we never receive it.</a>
@@ -443,7 +429,7 @@
         </div>
 
         <div class="how-it-works-img col-sm-12 col-md-6 section-float-left">
-            <img src="/cat/public/assets/gfx/landing/how-it-works.svg" alt="How it works">
+            <img src="/cat/public/assets/gfx/landing/how-it-works.svg?{{ REVISION }}" alt="How it works">
         </div>
 
 
@@ -467,11 +453,11 @@
 
             <div class="section-content section-align-left" style="padding-right:2rem;">
                 <p> The reality is, privacy and security risks are complex, and it's about practical ways to reduce
-                    surface area. Web crypto is
+                    risk. Web crypto is
                     a layer which makes it much harder for an attacker to reach someone's private data.</p>
 
 
-                <p><strong>Here are some potential risks, take care.</strong></p>
+                <p><strong>There are still potential risks, take care.</strong></p>
                 <ul class="potential-risks-list">
                     <li>- Rogue browser extensions - disable extensions you don't trust.</li>
                     <li>- Secure link stored in your history - use incognito mode.</li>
@@ -493,7 +479,7 @@
 
             <a href="https://github.com/countable-web/cryptsend" target="_blank">
 
-                <img src="/cat/public/assets/gfx/landing/crypto-icon.svg" alt="Web Crypto"
+                <img src="/cat/public/assets/gfx/landing/crypto-icon.svg?{{ REVISION }}" alt="Web Crypto"
                      class="section-img web-crypto-svg">
 
 

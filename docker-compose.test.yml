@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  web:
+    ports:
+      - "80:1234"
+    environment:
+      - NODE_ENV=development
+    command: ./node_modules/mocha/bin/mocha --exit
