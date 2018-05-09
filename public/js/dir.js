@@ -113,7 +113,7 @@ const addFilesDecrypt = () => {
     let downloadIcons = document.querySelectorAll(".download-button");
 
     for (let icon of downloadIcons) {
-        let ownerName = icon.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[1].innerText;
+        let ownerName = icon.parentElement.previousElementSibling.children[1].innerText;
         icon.setAttribute('href', window.location.hash);
         icon.setAttribute("file-name", ownerName);
         icon.addEventListener('click', handleFileDownload);
@@ -305,101 +305,119 @@ const listingFiles = () => {
 
         // if the form was submitted
         form.addEventListener('_submit', function (e) {
-            // preventing the duplicate submissions if the current one is in progress
-            if (form.classList.contains('is-uploading')) return false;
 
-            form.classList.add('is-uploading');
-            form.classList.remove('is-error');
+            //display spinning animation
 
-            if (isAdvancedUpload) // ajax file upload for modern browsers
-            {
-                e.preventDefault();
+            setTimeout(() => {
+                let spinningLocker = document.querySelector(".upload-spinning-locker");
+                if (spinningLocker.classList.contains("rotate-center")) {
+                    spinningLocker.classList.remove("rotate-center")
+                } else {
+                    spinningLocker.classList.add("rotate-center");
+                }
+            }, 500);
 
-                // gathering the form data
-                var ajaxData = new FormData(form);
-                if (droppedFiles) {
-                    ajaxData.delete(input.getAttribute('name'));
-                    Array.prototype.forEach.call(droppedFiles, function (file) {
-                        ajaxData.append(input.getAttribute('name'), file);
+            //proceed with file upload
+            setTimeout(() => {
+
+                // preventing the duplicate submissions if the current one is in progress
+                if (form.classList.contains('is-uploading')) return false;
+
+                form.classList.add('is-uploading');
+                form.classList.remove('is-error');
+
+                if (isAdvancedUpload) // ajax file upload for modern browsers
+                {
+                    e.preventDefault();
+
+                    // gathering the form data
+                    var ajaxData = new FormData(form);
+                    if (droppedFiles) {
+                        ajaxData.delete(input.getAttribute('name'));
+                        Array.prototype.forEach.call(droppedFiles, function (file) {
+                            ajaxData.append(input.getAttribute('name'), file);
+                        });
+                    }
+
+                    const status = response => {
+                        if (response.status >= 200 && response.status < 400) {
+                            return Promise.resolve(response);
+                        } else {
+                            return Promise.reject(new Error(response.statusText));
+                        }
+                    };
+
+                    const uploadFile = async ajax => {
+                        form.classList.remove('is-uploading');
+                        let data = await ajax.json();
+                        form.classList.add(data.success == true ? 'is-success' : 'is-error');
+                        data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
+                        if (data.success) {
+
+                            let downloadLink = '/dir/' + data.dir + '#' + hash;
+
+                            let successUpload = new Alert().showMessage("success", `Your file was successfully uploaded!  Remember, this link provides <strong>full access </strong>to your folder. If you email the link, it's essentially the same as emailing the original contents.`)
+                        }
+
+                        document.querySelector('.box__message').innerHTML = "Uploaded to your <a class='secure-link' href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p><strong>Do not lose this link</strong>, or the uploaded files will never be found again!</p>";
+                        document.querySelector('.box__message > a').addEventListener('click', e => {
+                            window.location.reload();
+                        });
+                        if (!window.location.hash) {
+                            window.location.href += '#' + hash;
+                        }
+                        listingFiles();
+                        if (!data.success) errorMsg.textContent = data.error;
+                    };
+
+                    let hash = window.location.hash ? window.location.hash.slice(1) : '';
+                    encryptFiles([
+                        ajaxData.getAll(input.getAttribute('name')),
+                        hash
+                    ])
+                        .then(([encryptedFiles, hashKey]) => {
+                            hash = hashKey;
+                            ajaxData.delete(input.getAttribute('name'));
+                            for (const [name, value] of Object.entries(encryptedFiles)) {
+                                ajaxData.append(input.getAttribute('name'), value, name);
+                            }
+                            fetch(form.getAttribute('action'), {
+                                method: 'POST',
+                                body: ajaxData
+                            })
+                                .then(status)
+                                .then(uploadFile)
+                                .catch(error => {
+                                    form.classList.remove('is-uploading');
+                                    alert('Error. Please, try again!');
+                                });
+                        });
+                }
+                else // fallback Ajax solution upload for older browsers
+                {
+                    var iframeName = 'uploadiframe' + new Date().getTime(),
+                        iframe = document.createElement('iframe');
+
+                    $iframe = $('<iframe name="' + iframeName + '" style="display: none;"></iframe>');
+
+                    iframe.setAttribute('name', iframeName);
+                    iframe.style.display = 'none';
+
+                    document.body.appendChild(iframe);
+                    form.setAttribute('target', iframeName);
+
+                    iframe.addEventListener('load', function () {
+                        var data = JSON.parse(iframe.contentDocument.body.innerHTML);
+                        form.classList.remove('is-uploading')
+                        form.classList.add(data.success == true ? 'is-success' : 'is-error')
+                        form.removeAttribute('target');
+                        if (!data.success) errorMsg.textContent = data.error;
+                        iframe.parentNode.removeChild(iframe);
                     });
                 }
+            }, 2000)
 
-                const status = response => {
-                    if (response.status >= 200 && response.status < 400) {
-                        return Promise.resolve(response);
-                    } else {
-                        return Promise.reject(new Error(response.statusText));
-                    }
-                };
 
-                const uploadFile = async ajax => {
-                    form.classList.remove('is-uploading');
-                    let data = await ajax.json();
-                    form.classList.add(data.success == true ? 'is-success' : 'is-error');
-                    data.dir = data.dir.includes('\\') ? data.dir.split('\\').join('/') : data.dir;
-                    if (data.success) {
-
-                        let downloadLink = '/dir/' + data.dir + '#' + hash;
-
-                        let successUpload = new Alert().showMessage("success", `Your file was successfully uploaded!  Remember, this link provides <strong>full access </strong>to your folder. If you email the link, it's essentially the same as emailing the original contents.`)
-                    }
-
-                    document.querySelector('.box__message').innerHTML = "Uploaded to your <a class='secure-link' href='/dir/" + data.dir + '#' + hash + "'> secure link </a>. <p><strong>Do not lose this link</strong>, or the uploaded files will never be found again!</p>";
-                    document.querySelector('.box__message > a').addEventListener('click', e => {
-                        window.location.reload();
-                    });
-                    if (!window.location.hash) {
-                        window.location.href += '#' + hash;
-                    }
-                    listingFiles();
-                    if (!data.success) errorMsg.textContent = data.error;
-                };
-
-                let hash = window.location.hash ? window.location.hash.slice(1) : '';
-                encryptFiles([
-                    ajaxData.getAll(input.getAttribute('name')),
-                    hash
-                ])
-                    .then(([encryptedFiles, hashKey]) => {
-                        hash = hashKey;
-                        ajaxData.delete(input.getAttribute('name'));
-                        for (const [name, value] of Object.entries(encryptedFiles)) {
-                            ajaxData.append(input.getAttribute('name'), value, name);
-                        }
-                        fetch(form.getAttribute('action'), {
-                            method: 'POST',
-                            body: ajaxData
-                        })
-                            .then(status)
-                            .then(uploadFile)
-                            .catch(error => {
-                                form.classList.remove('is-uploading');
-                                alert('Error. Please, try again!');
-                            });
-                    });
-            }
-            else // fallback Ajax solution upload for older browsers
-            {
-                var iframeName = 'uploadiframe' + new Date().getTime(),
-                    iframe = document.createElement('iframe');
-
-                $iframe = $('<iframe name="' + iframeName + '" style="display: none;"></iframe>');
-
-                iframe.setAttribute('name', iframeName);
-                iframe.style.display = 'none';
-
-                document.body.appendChild(iframe);
-                form.setAttribute('target', iframeName);
-
-                iframe.addEventListener('load', function () {
-                    var data = JSON.parse(iframe.contentDocument.body.innerHTML);
-                    form.classList.remove('is-uploading')
-                    form.classList.add(data.success == true ? 'is-success' : 'is-error')
-                    form.removeAttribute('target');
-                    if (!data.success) errorMsg.textContent = data.error;
-                    iframe.parentNode.removeChild(iframe);
-                });
-            }
         });
 
 
@@ -461,6 +479,6 @@ shareLinkBtn.addEventListener('click', function (e) {
 
     e.preventDefault(); //we should prevent click action, otherwise hash will break.
 
-     Display.copyLinkClipboard();
+    Display.copyLinkClipboard();
 
 });

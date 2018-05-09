@@ -34,11 +34,13 @@
     <!--FONTS-->
     <link href="cat/public/https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="/cat/public/assets/fonts/custom-icons/flaticon.css">
+    <link rel="stylesheet" href="/cat/public/assets/fonts/share-btn/flaticon.css">
     <link rel="stylesheet" href="/cat/public/assets/fonts/fontawesome-all.css">
     <link rel="stylesheet" href="/cat/public/assets/fonts/helvetica-neue/stylesheet.css">
 
     <!--ANIMATIONS-->
     <link rel="stylesheet" href="/cat/public/assets/css/animations/landing.css">
+    <link rel="stylesheet" href="/cat/public/assets/css/animations/upload-form-animations.css">
 
 
     <!--ALERTS-->
@@ -47,17 +49,20 @@
     <!--MODALS-->
     <link rel="stylesheet" href="/cat/public/assets/css/modal.css">
 
-
     <!--CUSTOM JS SCRIPTS-->
     <script src="/cat/public/assets/js/email-validation.js?{{ REVISION }}"></script>
     <!--<script src="/cat/public/assets/js/modal-handler.js"></script>-->
     <script src="/cat/public/assets/js/copy-clipboard.js?{{ REVISION }}"></script>
+    <script src="/cat/public/assets/js/upload-form-handler.js"></script>
 
     <script src="/cat/public/assets/js/navbar.js?{{ REVISION }}"></script>
 
     <!--UI DISPLAY-->
     <script src="/cat/public/js/classes/Display.js?{{ REVISION }}" type="text/javascript"></script>
 
+
+    <!--UPLOAD FORM ANIMATIONS-->
+    <script src="/cat/public/assets/js/upload-form-animations.js"></script>
 
 </head>
 <body>
@@ -69,8 +74,9 @@
 
         <div class="col-sm-8 col-md-3">
 
-            <a href="/cat/public/index.html">
+            <a href="/cat/public/index.html" class="logo-wrapper">
                 <img src="/cat/public/assets/gfx/logo.svg?{{ REVISION }}" alt="CryptSend Logo" class="sendcrypt-logo">
+                <div class="alpha-logo" style="font-size:0.6rem;top:-1.6rem;">Alpha</div>
             </a>
 
         </div>
@@ -174,16 +180,21 @@
 
         <div class="files-area col-sm-12 col-md-12">
 
-            <div class="files-area-button col-sm-6 col-md-3 option-link" id="get-link-btn">
+            <div class="files-area-button col-sm-4 col-md-4 option-link" id="get-link-btn">
                 <i class="flaticon-link"></i>
-                <a href="javascript:void(0);" id="btn-open-modal-link-folder">Get link to folder</a>
+                <a href="javascript:void(0);" id="btn-open-modal-link-folder">Get folder link</a>
             </div>
-            <div class="files-area-button col-sm-6 col-md-3 option-link" id="send-email-btn">
+            <div class="files-area-button col-sm-4 col-md-4 option-link" id="send-email-btn">
                 <i class="flaticon-envelope"></i>
                 <a href="javascript:void(0);" id="btn-open-modal-email-link"> E-mail link</a>
             </div>
 
-            <div class="col-md-6"></div>
+            <div class="files-area-button col-sm-4 col-md-4 option-link" id="share-files-btn">
+                <i class="flaticon-arrows"></i>
+                <a href="/cat/public/index.html"> Share More Files</a>
+            </div>
+
+
 
             <table class="upload-table cf">
 
@@ -191,8 +202,8 @@
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Size</th>
-                    <th>Type</th>
+                    <!--<th class=>Size</th>-->
+                    <!--<th>Type</th>-->
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -238,8 +249,49 @@
 
                 </tbody>
 
+                <!--FILES-->
+
+
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<img src="/cat/public/assets/fonts/custom-icons/file.svg" class="upload-panel-icon" alt="file">-->
+                <!--Server.sql-->
+                <!--</td>-->
+                <!--<td>1mb</td>-->
+                <!--<td>File</td>-->
+                <!--<td>2018-04-10 18:30</td>-->
+                <!--</tr>-->
+
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<img src="/cat/public/assets/fonts/custom-icons/folder.svg" class="upload-panel-icon"-->
+                <!--alt="folder">-->
+                <!--Projects-->
+                <!--</td>-->
+                <!--<td>11mb</td>-->
+                <!--<td>Folder</td>-->
+                <!--<td>2018-04-10 18:30</td>-->
+                <!--</tr>-->
+
+                <!--<tr>-->
+                <!--<td>-->
+                <!--<img src="/cat/public/assets/fonts/custom-icons/folder.svg" class="upload-panel-icon"-->
+                <!--alt="folder">-->
+                <!--Clients-->
+                <!--</td>-->
+                <!--<td>2mb</td>-->
+                <!--<td>Folder</td>-->
+                <!--<td>2018-04-10 18:30</td>-->
+                <!--</tr>-->
+
+                <!--END FILES-->
+
+                </tbody>
+
 
             </table>
+
+
 
 
         </div>
@@ -259,11 +311,19 @@
 
             <section class="dir-upload-wrapper">
                 <form method="post" action="" enctype="multipart/form-data" novalidate=""
-                      class="box has-advanced-upload">
+                      class="box has-advanced-upload" id="upload-form">
                     <div class="box__input">
 
-                        <img src="/cat/public/assets/gfx/upload-form/cloud.svg?{{ REVISION }}" alt="Cloud upload icon"
-                             class="upload-cloud-img">
+                        <div class="cloud-wrapper">
+
+                            <img src="/cat/public/assets/gfx/upload-form/cloud.svg?{{ REVISION }}" alt="Cloud upload icon"
+                                 class="upload-cloud-img">
+
+                            <img src="/cat/public/assets/gfx/upload-form/spinning-locker.svg?{{ REVISION }}" class="upload-spinning-locker" alt="Upload animation">
+                            <img src="/cat/public/assets/gfx/upload-form/locker.svg?{{ REVISION }}" alt="A locker" class="upload-locker">
+
+
+                        </div>
 
 
                         <input type="file" name="f" data-multiple-caption="{count} files selected" multiple id="file"
@@ -271,7 +331,7 @@
                         <label for="file"><strong>Choose files</strong>
                             <div class="box__dragndrop"> or drag them here</div>
                             .</label>
-                        <button type="submit" class="box__button">Upload</button>
+                        <button type="submit" class="box__button" >Upload</button>
                     </div>
                     <div class="box__uploading">Uploading…</div>
                     <div class="box__success">Done! <a href="/" class="box__restart" role="button">Upload more?</a>
@@ -362,10 +422,8 @@
 
     <footer class="col-sm-12 col-md-12">
 
-    <p><a href="https://github.com/countable-web/cryptsend" target="_blank"><i class="fab fa-github"></i></a> This open
-    source project is maintained by <a href="http://countable.ca/"
-    target="_blank"><strong>Countable.ca</strong></a> <a
-    href="/cat/public/credits.html">- Credits</a></p>
+    <p><a href="http://countable.ca/"
+    target="_blank"><img src="/cat/public/assets/gfx/countable-logo.png" alt="Countable logo" class="footer-countable-logo"></a></p>
 
     </footer>
 
