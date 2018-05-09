@@ -41,6 +41,21 @@ nav {
     z-index: 999;
 }
 
+.logo-wrapper{
+    position:relative;
+
+}
+
+.alpha-logo {
+    font-family: "Comfortaa Light", sans-serif;
+    position: absolute;
+    top: -1.7rem;
+    left: 11.5rem;
+    font-size: 0.7rem;
+    opacity: 1;
+    color: #848484;
+}
+
 .alpha-disclaimer {
     font-size:1rem;
     color:silver;
@@ -648,3 +663,4 @@ footer p {
     font-size: 1rem;
 
 }
+
