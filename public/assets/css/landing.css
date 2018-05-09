@@ -41,6 +41,21 @@ nav {
     z-index: 999;
 }
 
+.logo-wrapper{
+    position:relative;
+
+}
+
+.alpha-logo {
+    font-family: "Comfortaa Light", sans-serif;
+    position: absolute;
+    top: -1.7rem;
+    left: 11.5rem;
+    font-size: 0.7rem;
+    opacity: 1;
+    color: #848484;
+}
+
 .alpha-disclaimer {
     font-size:1rem;
     color:silver;
@@ -119,10 +134,28 @@ nav {
         display: none;
     }
 
+
 }
+
+
+@media screen and (min-width: 760px) {
+
+    .ipad-above-only {
+       display:block;
+    }
+}
+@media screen and (max-width: 760px) {
+
+    .ipad-above-only {
+        display:none;
+    }
+}
+
 
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
+
+
 
     .desktop-only {
         display: none;
@@ -186,6 +219,7 @@ main {
     display: inline-block;
     float: left;
     box-sizing: border-box;
+    position:relative;
 }
 
 /* MAIN SECTION CONTENT =========================================== */
@@ -648,3 +682,4 @@ footer p {
     font-size: 1rem;
 
 }
+

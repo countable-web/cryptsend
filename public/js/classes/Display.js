@@ -9,12 +9,12 @@ class Display {
     static copyLinkClipboard() {
 
         let folderLink = window.location.href;
-        navigator.clipboard.writeText(folderLink).then(function() {
+        navigator.clipboard.writeText(folderLink).then(function () {
 
             let copiedAlert = new Alert().showMessage("success", "Your link was copied to clipboard. Press CTRL + C to share it");
 
 
-        }, function(err) {
+        }, function (err) {
             let copiedAlert = new Alert().showMessage("danger", "An error occurred while trying to copy your folder link to clipboard. Try doing it manually.");
 
         });
@@ -27,6 +27,14 @@ class Display {
 
     static enableScrolling() {
         let body = document.querySelector("body").classList.remove("stop-scrolling");
+    }
+
+    static removeFromDataStructure(id) {
+        //removes element from data structure
+        Display.list = Display.list.filter((element) => {
+            return element.id != id;
+
+        });
     }
 
 
@@ -48,7 +56,8 @@ class Alert extends Display {
             this.close();//it will add click events to them
 
             //auto-close after some seconds
-            this.destroy(this.id, true, 6000);
+            this.destroy(this.id, true, 5000);
+
         }, 1);
 
     }
@@ -61,7 +70,10 @@ class Alert extends Display {
         let closeElements = document.querySelectorAll(".box-alert-close-icon");
         for (let closeElement of closeElements) {
             closeElement.addEventListener('click', function (e) {
-                e.currentTarget.parentElement.remove();
+                let alert = e.currentTarget.parentElement
+                alert.remove();
+                let alertId = alert.getAttribute("data-alert-id");
+                Display.removeFromDataStructure(alertId);
             });
         }
     }
@@ -75,6 +87,8 @@ class Alert extends Display {
             boxAlerts.forEach((alert) => {
                 if (alert.getAttribute("data-alert-id") == id) {
                     alert.remove();
+                    Display.removeFromDataStructure(id);
+
                 }
             });
         }
@@ -153,8 +167,7 @@ class FileListing extends Display {
                         <img src="/cat/public/assets/fonts/custom-icons/${icon}" class="upload-panel-icon" alt="file">
                        <a class="file-name">${filename}</a>
                     </td>
-                    <td>${size}</td>
-                    <td>${type}</td>
+                 
                     <td class="upload-file-actions">
 
                     <a class="fas fa-download download-button upload-form-icon"></a>
@@ -176,6 +189,23 @@ class Modal extends Display {
 
     constructor(id) {
         super(id);
+
+
+        //Add close on esc key event => close ALL modals
+        document.addEventListener('keyup', function (e) {
+            if (e.keyCode == 27) {
+                let modals = document.querySelectorAll(".modal-listings .modal-wrapper");
+
+                modals.forEach((modal) => {
+                    let modalId = modal.getAttribute("data-modal-id");
+
+                    Modal.close(modalId);
+                });
+
+
+                this.close(this.id);
+            }
+        });
 
 
         //auto-add click event to close icon
@@ -201,7 +231,7 @@ class Modal extends Display {
 
             let shadow = document.querySelector(".shadow-background ");
 
-            shadow.addEventListener("click",function(e){
+            shadow.addEventListener("click", function (e) {
 
 
                 //remove modal
@@ -214,7 +244,6 @@ class Modal extends Display {
 
 
             })
-
 
 
         }, 1);
@@ -308,8 +337,10 @@ class Modal extends Display {
 
 
         modals.forEach((modal) => {
-            if (modal.getAttribute("data-modal-id") == id) {
+            let modalId = modal.getAttribute("data-modal-id");
+            if (modalId == id) {
                 modal.remove();
+                Display.removeFromDataStructure(modalId)
             }
         });
 
