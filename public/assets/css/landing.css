@@ -134,10 +134,28 @@ nav {
         display: none;
     }
 
+
 }
+
+
+@media screen and (min-width: 760px) {
+
+    .ipad-above-only {
+       display:block;
+    }
+}
+@media screen and (max-width: 760px) {
+
+    .ipad-above-only {
+        display:none;
+    }
+}
+
 
 /*MOBILE ONLY CODE*/
 @media screen and (max-width: 1080px) {
+
+
 
     .desktop-only {
         display: none;
@@ -201,6 +219,7 @@ main {
     display: inline-block;
     float: left;
     box-sizing: border-box;
+    position:relative;
 }
 
 /* MAIN SECTION CONTENT =========================================== */
