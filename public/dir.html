@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/cat/public/assets/fonts.css">
     <link rel="icon" type="favicon" href="/cat/public/favicon.ico" sizes="16x16"/>
-    <link rel="stylesheet" href="/cat/public/assets/dir.css">
+    <link rel="stylesheet" href="/cat/public/assets/dir.css?{{ REVISION }}">
     <title>CryptSend | Directory</title>
-    <!-- remove this if you use Modernizr -->
     <script>(function (e, t, n) {
         var r = e.querySelectorAll("html")[0];
         r.className = r.className.replace(/(^|\s)no-js(\s|$)/, "$1js$2")
@@ -49,26 +48,15 @@
     <link rel="stylesheet" href="/cat/public/assets/css/modal.css">
 
 
-    <!--jQUERY-->
-    <!--<script src="https://code.jquery.com/jquery-3.3.1.js"></script>-->
-    <!--<script src="node_modules/jquery/dist/jquery.min.js"></script>-->
-
-
-    <!--MODAL PLUGIN - IZIMODAL-->
-    <!--<link rel="stylesheet" href="/cat/public/assets/js/izimodal/css/iziModal.css">-->
-    <!--<link rel="stylesheet" href="/cat/public/assets/css/modal.css">-->
-    <!--this is just the css... the JS is near the footer-->
-
-
     <!--CUSTOM JS SCRIPTS-->
-    <script src="/cat/public/assets/js/email-validation.js"></script>
+    <script src="/cat/public/assets/js/email-validation.js?{{ REVISION }}"></script>
     <!--<script src="/cat/public/assets/js/modal-handler.js"></script>-->
-    <script src="/cat/public/assets/js/copy-clipboard.js"></script>
+    <script src="/cat/public/assets/js/copy-clipboard.js?{{ REVISION }}"></script>
 
-    <script src="/cat/public/assets/js/navbar.js"></script>
+    <script src="/cat/public/assets/js/navbar.js?{{ REVISION }}"></script>
 
     <!--UI DISPLAY-->
-    <script src="/cat/public/js/classes/Display.js" type="text/javascript"></script>
+    <script src="/cat/public/js/classes/Display.js?{{ REVISION }}" type="text/javascript"></script>
 
 
 </head>
@@ -82,7 +70,7 @@
         <div class="col-sm-8 col-md-3">
 
             <a href="/cat/public/index.html">
-                <img src="/cat/public/assets/gfx/logo.svg" alt="CryptSend Logo" class="sendcrypt-logo">
+                <img src="/cat/public/assets/gfx/logo.svg?{{ REVISION }}" alt="CryptSend Logo" class="sendcrypt-logo">
             </a>
 
         </div>
@@ -274,7 +262,7 @@
                       class="box has-advanced-upload">
                     <div class="box__input">
 
-                        <img src="/cat/public/assets/gfx/upload-form/cloud.svg" alt="Cloud upload icon"
+                        <img src="/cat/public/assets/gfx/upload-form/cloud.svg?{{ REVISION }}" alt="Cloud upload icon"
                              class="upload-cloud-img">
 
 
@@ -381,8 +369,8 @@
 
     </footer>
 
-    <script type="text/javascript" src="/cat/public/js/cipher.js" defer></script>
-    <script type="text/javascript" src="/cat/public/js/dir.js" defer></script>
+    <script type="text/javascript" src="/cat/public/js/cipher.js?{{ REVISION }}" defer></script>
+    <script type="text/javascript" src="/cat/public/js/dir.js?{{ REVISION }}" defer></script>
 
 </body>
 </html>
