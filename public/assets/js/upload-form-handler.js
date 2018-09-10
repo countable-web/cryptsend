@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         //lets trigger an upload action
-
-        uploadBtn.click();
+// [cvo] disabled this for the moment, it makes everythin' trigger an upload.
+//        uploadBtn.click();
 
     })
 
