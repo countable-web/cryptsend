@@ -2,6 +2,24 @@ html, main, body {
     background-color: #1E1E1E;
 }
 
+/* Not part of the upload form per se, but because the progress bar itself is the main (and only) feedback for the whole uploading process I thought this is close enough to define "progress bar-related rules" here. */
+
+/* TODO: Add more style to the progress bar. */
+
+.progressbar-wrapper {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+progress:not([value]) {
+   display: none;
+}
+
+progress[value] {
+  width: 60%;
+  height: 20px;
+}
+
 input[type="file"]:active,input[type="file"]:focus,
 .box__file:active, .box__file:focus{
     outline-style: none;
@@ -358,4 +376,3 @@ footer {
         width:100%;
     }
 }
-

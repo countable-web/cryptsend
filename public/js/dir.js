@@ -387,6 +387,7 @@ const listingFiles = () => {
                     let hash = window.location.hash ? window.location.hash.slice(1) : "";
                     encryptFiles([ajaxData.getAll(input.getAttribute("name")), hash]).then(
                         async ([encryptedFiles, hashKey]) => {
+                            let progressBar = document.getElementById("progressbar");
                             hash = hashKey;
                             ajaxData.delete(input.getAttribute("name"));
                             for (const [name, value] of Object.entries(encryptedFiles)) {
@@ -398,15 +399,15 @@ const listingFiles = () => {
                                 "progress",
                                 function(evt) {
                                     if (evt.lengthComputable) {
-                                        let percentComplete = evt.loaded / evt.total;
-                                        //TODO: display the percentage somewhere (uploading bar or something).
-                                        console.log(percentComplete);
+                                        let percentComplete = (evt.loaded / evt.total) * 100;
+                                        progressBar.setAttribute('value', percentComplete);
                                     }
                                 },
                                 false
                             );
                             xhr.onload = function() {
                                 let response = this;
+                                progressBar.removeAttribute('value');
                                 status(response)
                                     .then(uploadFile)
                                     .catch(error => {
