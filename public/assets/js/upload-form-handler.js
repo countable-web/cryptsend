@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sectionUpload.addEventListener('click', function (e) {
 
-        console.log("section Upload triggered");
+        // console.log("section Upload triggered");
 
-        console.log(e.eventPhase);
+        // console.log(e.eventPhase);
 
 
         //lets trigger an upload action
@@ -31,4 +31,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 },true);
-
