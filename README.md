@@ -1,7 +1,7 @@
 # CryptSend.io
 
 ### Stop leaking private data on the cloud.
-Share files with people you trust, and not all the cloud providers in between. Cryptsend encrypts your data on the client so no server ever sees it. Only people you send your secure web link to can access your data (so be careful with the link of course).
+Share files with people you trust, and not all the cloud providers in between. Cryptsend encrypts your data on the client so no server ever sees it. Only people you send your secure web link to can access the data (so be careful with the link of course).
 
 ## Quickstart
 
