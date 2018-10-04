@@ -3,14 +3,21 @@
 ### Stop leaking private data on the cloud.
 Share files with people you trust, and not all the cloud providers in between.
 
-## Self Host
+## Quickstart
 
+Before you start, make sure you have docker and docker-compose installed on your machine
+
+1. Grab the repo
 ```
 git clone git@github.com:countable-web/cryptsend.git
+```
+
+2. Run docker setup
+```
 docker-compose up
 ```
 
-visit localhost
+Your site should now be running at 0.0.0.0:1234
 
 ## Concept
 
