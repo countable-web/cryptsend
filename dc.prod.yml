@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  web:
+    ports:
+      - "1234:1234"
+    environment:
+      - NODE_ENV=development
